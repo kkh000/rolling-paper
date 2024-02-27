@@ -1,0 +1,79 @@
+@mixin text-2xs {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@mixin text-xs {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin text-sm {
+  font-size: 15px;
+  line-height: 22px;
+}
+
+@mixin text-base {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@mixin text-lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+@mixin text-xl {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+@mixin text-2xl {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+@mixin text-3xl {
+  font-size: 28px;
+  line-height: 42px;
+}
+
+@mixin font-normal {
+  font-weight: 400;
+}
+
+@mixin font-bold {
+  font-weight: 700;
+}
+
+@mixin rounded-xs {
+  border-radius: 4px;
+}
+
+@mixin rounded-sm {
+  border-radius: 6px;
+}
+
+@mixin rounded-lg {
+  border-radius: 8px;
+}
+
+@mixin rounded-xl {
+  border-radius: 12px;
+}
+
+@mixin rounded-2xl {
+  border-radius: 16px;
+}
+
+@mixin rounded-3xl {
+  border-radius: 30px;
+}
+
+@mixin rounded-4xl {
+  border-radius: 32px;
+}
+
+@mixin rounded-full {
+  border-radius: 100px;
+}
