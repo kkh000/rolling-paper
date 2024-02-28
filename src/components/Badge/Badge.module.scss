@@ -1,0 +1,41 @@
+@import '../../styles/index';
+
+%common-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 20px;
+
+  @include rounded-xs;
+  @include text-xs;
+  @include font-normal;
+}
+
+.other {
+  @extend %common-style;
+
+  color: $orange-500;
+  background-color: $orange-100;
+}
+
+.coworker {
+  @extend %common-style;
+
+  color: $purple-600;
+  background-color: $purple-100;
+}
+
+.family {
+  @extend %common-style;
+
+  color: $green-500;
+  background-color: $green-100;
+}
+
+.friend {
+  @extend %common-style;
+
+  color: $blue-500;
+  background-color: $blue-100;
+}
