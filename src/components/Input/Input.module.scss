@@ -18,6 +18,15 @@
   }
 
   &:not(.error) {
+    &:disabled {
+      background: $gray-100;
+      border: 1px solid $gray-300;
+
+      &::placeholder {
+        color: $gray-400;
+      }
+    }
+
     &:focus:not(:disabled) {
       outline: 2px solid $black;
 
@@ -31,15 +40,6 @@
 
       &::placeholder {
         color: $gray-500;
-      }
-    }
-
-    &:disabled {
-      background: $gray-100;
-      border: 1px solid $gray-300;
-
-      &::placeholder {
-        color: $gray-400;
       }
     }
   }
