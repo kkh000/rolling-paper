@@ -1,3 +1,3 @@
-export const cn = classNameList => {
-  return classNameList.filter(className => className).join(' ');
+export const cn = (...classNameList) => {
+  return classNameList.filter(className => !!className).join(' ');
 };
