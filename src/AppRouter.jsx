@@ -13,12 +13,10 @@ const AppRouter = () => {
         <Route path='/' element={<App />}>
           <Route index element={<Home />} />
           <Route path='/list' element={<List />} />
-          <Route path='/post' element={<NewPost />}>
-            <Route path=':id' element={<Post />}>
-              <Route path='edit' element={<Edit />} />
-              <Route path='message' element={<Message />} />
-            </Route>
-          </Route>
+          <Route path='/post' element={<NewPost />} />
+          <Route path='/post/:id' element={<Post />} />
+          <Route path='/post/:id/edit' element={<Edit />} />
+          <Route path='/post/:id/message' element={<Message />} />
         </Route>
       </Routes>
     </BrowserRouter>
