@@ -1,37 +1,91 @@
-.button {
+@import '../../styles/index';
+
+button {
   display: inline-flex;
-  padding: 14px 16px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 12px;
 
-  border: 1px solid var(--gray-300, #ccc);
-  background: var(--white, #fff);
-  color: var(--gray-900, #181818);
+  border: 1px solid $gray-300;
+  background: $white;
+  color: $gray-900;
 
   &:disabled {
-    background: var(--gray-300, #ccc);
-    color: var(--white, #fff);
+    background: $gray-300;
+    color: $white;
   }
 
   &:hover {
-    background: var(--gray-100, #f6f6f6);
-    color: var(--gray-900, #181818);
+    background: $gray-100;
+    color: $gray-900;
   }
 
   &:active {
-    background: var(--white, #fff);
-    border: 1px solid var(--gray-500, #555);
+    background: $white;
+    border: 1px solid $gray-500;
   }
 
   .buttonTitle {
-    width: 160px;
     text-align: center;
-    font-size: 18px;
     font-style: normal;
+  }
+}
+
+.outlined56 {
+  @include rounded-xl;
+  padding: 14px 16px;
+
+  .buttonTitle {
+    @include text-lg;
+    width: 160px;
     font-weight: 700;
-    line-height: 28px;
     letter-spacing: -0.18px;
   }
+}
+
+.outlined40 {
+  @include rounded-sm;
+  padding: 8px 16px;
+  gap: 10px;
+
+  .buttonTitle {
+    @include text-base;
+    width: 90px;
+    font-weight: 400;
+    letter-spacing: -0.16px;
+  }
+}
+
+.outlined36 {
+  @include rounded-sm;
+  padding: 6px 16px;
+  gap: 4px;
+
+  .buttonTitle {
+    @include text-base;
+    width: 90px;
+    font-weight: 500;
+  }
+}
+
+.outlined28 {
+  @include rounded-sm;
+  padding: 2px 16px;
+  gap: 4px;
+
+  .emojiIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .buttonTitle {
+    @include text-xs;
+    width: 90px;
+    font-weight: 400;
+    letter-spacing: -0.07px;
+  }
+}
+
+.deleted {
+  @include rounded-sm;
+  padding: 6px;
 }
