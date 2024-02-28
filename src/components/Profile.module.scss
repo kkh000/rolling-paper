@@ -1,25 +1,28 @@
 @import '../styles/index';
 
 .profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 56px;
   height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: $gray-300;
+
   @include rounded-full;
-  position: relative;
 }
 
 .profileImage {
   position: absolute;
   width: 100%;
   height: 100%;
+
   @include rounded-full;
+
   object-fit: cover;
 }
 
 .profileNoneImage {
-  width: 25x;
+  width: 25px;
   height: 25px;
 }
