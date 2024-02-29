@@ -1,0 +1,63 @@
+.primary {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  width: 10rem;
+  padding: 1rem 1.5rem;
+  color: #fff;
+  text-align: center;
+  background: #9935ff;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+}
+.primary:hover {
+  background: #861dee;
+}
+.primary:focus-visible {
+  background: #6e0ad1;
+  box-shadow: inset 0 0 0 2px #5603a7;
+}
+.primary:active {
+  background: #6e0ad1;
+}
+.primary:disabled {
+  background: #ccc;
+}
+
+.secondary {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  width: 6rem;
+  padding: 0.5rem 1rem;
+  color: #861dee;
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  box-shadow: inset 0 0 0 1px #9935ff;
+}
+.secondary:hover {
+  background: #f8f0ff;
+  box-shadow: inset 0 0 0 1px #861dee;
+}
+.secondary:focus-visible {
+  box-shadow: inset 0 0 0 2px #6e0ad1;
+}
+.secondary:active {
+  background: #ecd9ff;
+}
+.secondary:disabled {
+  color: #fff;
+  background: #ccc;
+  box-shadow: none;
+}
+
+.small {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  width: 6rem;
+  padding: 0.5rem 1rem;
+}

@@ -1,8 +1,7 @@
+import { cn } from '../../utils/classNames';
 import css from './Button.module.scss';
-const Button = ({ children, type, width, isDisabled = false, onClick }) => {
-  let buttonClassName = `${css.primary}`;
-  if (type === 'primary-s') buttonClassName += ` ${css.small}`;
-  if (type === 'secondary') buttonClassName = `${css.secondary}`;
+const Button = ({ children, fill = true, size, width, isDisabled = false, onClick }) => {
+  const buttonClassName = cn(fill ? css.primary : css.secondary, size === 's' && css.small);
 
   return (
     <>
