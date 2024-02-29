@@ -1,35 +1,35 @@
 @import '../../styles/index';
+
 .background {
   position: fixed;
-  left: 0;
   top: 0;
-  background: rgba(0 0 0 / 60%);
-  box-shadow: 0px 4px 25px 0px rgba(0 0 0 / 80%);
+  left: 0;
+  z-index: 99;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-
-  z-index: 99;
+  background: rgba(0 0 0 / 60%);
+  box-shadow: 0 4px 25px 0 rgba(0 0 0 / 80%);
 }
 
 .layout {
   display: flex;
   flex-direction: column;
-
   width: 37.5rem;
   height: 29.8rem;
 
   @include rounded-2xl;
+
   background: $white;
 }
 
 .informationBox {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 32.5rem;
   padding: 2.5rem 2.8rem 1.3rem 2.5rem;
 }
@@ -43,23 +43,21 @@
 
 .profileBox {
   display: grid;
-  grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
   align-items: center;
-  column-gap: 1rem;
-  row-gap: 0.4rem;
 }
 
 .profileImage {
+  grid-row: span 2;
   width: 3.5rem;
   height: 3.5rem;
-  grid-row: span 2;
 }
 
 .profileTitle {
-  grid-column: 2;
   grid-row: 1;
-
+  grid-column: 2;
   color: $black;
 
   @include text-xl;
@@ -74,8 +72,8 @@
 }
 
 .profileBadge {
-  grid-column: 2;
   grid-row: 2;
+  grid-column: 2;
 }
 
 .CardCreatedAt {
@@ -86,10 +84,10 @@
 }
 
 .textBox {
-  margin: 1rem 2.5rem 1.5rem 2.5rem;
-  padding-right: 1.3rem;
   width: 31.3rem;
   height: 215rem;
+  padding-right: 1.3rem;
+  margin: 1rem 2.5rem 1.5rem;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -104,6 +102,7 @@
 
   &::-webkit-scrollbar-thumb {
     background-color: $gray-300;
+
     @include rounded-sm;
   }
 }

@@ -21,7 +21,7 @@ button {
 
     &:active {
       background: $white;
-      border: 0.1rem solid $gray-500;
+      border: 1px solid $gray-500;
     }
   }
 
@@ -38,9 +38,9 @@ button {
 
   .buttonTitle {
     @include text-lg;
+    @include font-bold;
 
     width: 10rem;
-    font-weight: 700;
     letter-spacing: -0.1rem;
   }
 }
@@ -53,9 +53,9 @@ button {
 
   .buttonTitle {
     @include text-base;
+    @include font-normal;
 
     // width: 5.6rem;
-    font-weight: 400;
     letter-spacing: -0.01rem;
   }
 }
@@ -87,9 +87,9 @@ button {
 
   .buttonTitle {
     @include text-xs;
+    @include font-normal;
 
     // width: 5.6rem;
-    font-weight: 400;
     letter-spacing: -0.01rem;
   }
 }
