@@ -1,3 +1,4 @@
+import {cn} from '../../utils/classNames'
 import css from './Badge.module.scss';
 
 const Badge = ({ relationship }) => {
@@ -10,7 +11,7 @@ const Badge = ({ relationship }) => {
 
   const selectedStyle = selectedRelationship[relationship];
 
-  return <div className={selectedStyle}>{relationship}</div>;
+  return <div className={cn(css.badge, selectedStyle)}>{relationship}</div>;
 };
 
 export default Badge;
