@@ -1,0 +1,114 @@
+@import '../../styles/index';
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 60%);
+  box-shadow: 0 4px 25px 0 rgb(0 0 0 / 8%);
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 476px;
+
+  @include rounded-2xl;
+
+  background: $white;
+}
+
+.informationBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 520px;
+  padding: 40px 45px 20px 40px;
+}
+
+.line {
+  width: 520px;
+  height: 1px;
+  background: $gray-200;
+}
+
+.profileBox {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  align-items: center;
+}
+
+.profileImage {
+  grid-row: span 2;
+  width: 56px;
+  height: 56px;
+}
+
+.profileTitle {
+  grid-row: 1;
+  grid-column: 2;
+  color: $black;
+
+  @include text-xl;
+  @include font-normal;
+}
+
+.profileName {
+  color: $black;
+
+  @include text-xl;
+  @include font-bold;
+}
+
+.profileBadge {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.cardCreatedAt {
+  color: $gray-400;
+
+  @include text-xs;
+  @include font-normal;
+
+  letter-spacing: -0.07px;
+}
+
+.textBox {
+  width: 500px;
+  height: 240px;
+  padding-right: 20px;
+  margin: 16px 40px 24px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 2px; 
+    height: 12px;
+    background-color: $black; 
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $white; 
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray-300; 
+
+    @include rounded-sm;
+  }
+}
+
+.button {
+  width: 120px;
+  margin: 0 auto;
+}
