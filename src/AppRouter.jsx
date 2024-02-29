@@ -6,6 +6,7 @@ import Edit from './pages/PostPage/EditPage/Edit';
 import Message from './pages/PostPage/MessagePage/Message';
 import NewPost from './pages/PostPage/NewPost/NewPost';
 import Post from './pages/PostPage/Post';
+
 const AppRouter = () => {
   return (
     <BrowserRouter>

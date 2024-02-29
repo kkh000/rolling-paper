@@ -1,5 +1,5 @@
 const Edit = () => {
-  return <div>에딧? 어른딧?</div>;
+  return <div>Edit</div>;
 };
 
 export default Edit;

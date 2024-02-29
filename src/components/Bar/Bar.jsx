@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ARROW_DOWN_ICON, SHARE_ICON } from '../../constant/constant';
 import BadgeEmoji from '../Badge/BadgeEmoji';
 import Profiles from '../Profiles/Profiles';
 import css from './Bar.module.scss';
@@ -91,8 +92,9 @@ const Bar = ({ recipientId, name }) => {
                 ))}
               <img
                 className={css.arrowDown}
-                src='/assets/arrow_down.svg'
+                src={ARROW_DOWN_ICON}
                 onClick={handleEmojiBoxClick}
+                alt='arrow_down'
               />
             </div>
             {emojiBoxToggle && (
@@ -111,7 +113,7 @@ const Bar = ({ recipientId, name }) => {
         </section>
         <section className={css.share}>
           <div className={css.shareImage} onClick={handleShareBoxClick}>
-            <img src='/assets/share.svg' />
+            <img src={SHARE_ICON} alt='share' />
           </div>
           {shareBoxToggle && (
             <div className={css.shareArea}>

@@ -3,9 +3,9 @@ import { ARROW_DOWN_ICON, ARROW_UP_ICON } from '../../constant/constant';
 import { cn } from '../../utils/classNames';
 import css from './Dropdown.module.scss';
 
-const Dropdown = ({ options = [], isDisabled, isError }) => {
+const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(initialOption);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -24,11 +24,14 @@ const Dropdown = ({ options = [], isDisabled, isError }) => {
         onClick={toggleDropdown}
       >
         {selectedOption || 'Select Option'}
-        <img src={isOpen ? ARROW_UP_ICON : ARROW_DOWN_ICON} />
+        <img
+          src={isOpen ? ARROW_UP_ICON : ARROW_DOWN_ICON}
+          alt={isOpen ? 'arrow_up' : 'arrow_down'}
+        />
       </button>
       {isOpen && (
         <ul className={css.optionsBox}>
-          {options.map((option, index) => (
+          {optionList.map((option, index) => (
             <li className={css.option} key={index} onClick={() => handleOptionClick(option)}>
               {option}
             </li>
