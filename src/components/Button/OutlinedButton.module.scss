@@ -2,90 +2,100 @@
 
 button {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-
-  border: 1px solid $gray-300;
-  background: $white;
+  justify-content: center;
   color: $gray-900;
+  background: $white;
+  border: 0.1rem solid $gray-300;
 
   &:disabled {
-    background: $gray-300;
     color: $white;
+    background: $gray-300;
   }
 
-  &:hover {
-    background: $gray-100;
-    color: $gray-900;
-  }
+  &:not(:disabled) {
+    &:hover {
+      color: $gray-900;
+      background: $gray-100;
+    }
 
-  &:active {
-    background: $white;
-    border: 1px solid $gray-500;
+    &:active {
+      background: $white;
+      border: 0.1rem solid $gray-500;
+    }
   }
 
   .buttonTitle {
-    text-align: center;
     font-style: normal;
+    text-align: center;
   }
 }
 
 .outlined56 {
   @include rounded-xl;
-  padding: 14px 16px;
+
+  padding: 0.1rem 1rem;
 
   .buttonTitle {
     @include text-lg;
-    width: 160px;
+
+    width: 10rem;
     font-weight: 700;
-    letter-spacing: -0.18px;
+    letter-spacing: -0.1rem;
   }
 }
 
 .outlined40 {
   @include rounded-sm;
-  padding: 8px 16px;
-  gap: 10px;
+
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
 
   .buttonTitle {
     @include text-base;
-    width: 90px;
+
+    width: 5.6rem;
     font-weight: 400;
-    letter-spacing: -0.16px;
+    letter-spacing: -0.01rem;
   }
 }
 
 .outlined36 {
   @include rounded-sm;
-  padding: 6px 16px;
-  gap: 4px;
+
+  gap: 0.2rem;
+  padding: 0.3rem 1rem;
 
   .buttonTitle {
     @include text-base;
-    width: 90px;
+
+    width: 5.6rem;
     font-weight: 500;
   }
 }
 
 .outlined28 {
   @include rounded-sm;
-  padding: 2px 16px;
-  gap: 4px;
+
+  gap: 0.2rem;
+  padding: 0.1rem 1rem;
 
   .emojiIcon {
-    width: 20px;
-    height: 20px;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 
   .buttonTitle {
     @include text-xs;
-    width: 90px;
+
+    width: 5.6rem;
     font-weight: 400;
-    letter-spacing: -0.07px;
+    letter-spacing: -0.01rem;
   }
 }
 
 .deleted {
   @include rounded-sm;
-  padding: 6px;
+
+  padding: 0.3rem;
 }

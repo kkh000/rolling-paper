@@ -1,23 +1,29 @@
-import { EMOJI_ICON_PATH, DELETE_ICON_PATH } from '../../constant/constant';
+import {
+  EMOJI_ICON_PATH,
+  EMOJI_WHITE_ICON_PATH,
+  DELETE_ICON_PATH,
+  DELETE_WHITE_ICON_PATH,
+} from '../../constant/constant';
 import css from './OutlinedButton.module.scss';
 
-const OutlinedButton = () => {
-  // prop : hasIcon={true/false}, type={'text'/'delete'}, outlineSize={outline56/40/36/28}
-  const hasIcon = true;
-  const type = 'text';
-
-  // add-lg-white, deleted-white : disabled, 나머지 add-lg, deleted
+const OutlinedButton = ({ isDisabled, hasIcon, type, outlinedSize, text }) => {
+  const buttonClassName = type === 'text' ? css[outlinedSize] : css.deleted;
 
   return (
     <div>
       {type === 'text' ? (
-        <button className={css.outlined40}>
-          {hasIcon && <img className={css.emojiIcon} src={EMOJI_ICON_PATH} />}
-          <p className={css.buttonTitle}>Enabled</p>
+        <button className={buttonClassName} disabled={isDisabled}>
+          {hasIcon && (
+            <img
+              className={css.emojiIcon}
+              src={isDisabled ? EMOJI_WHITE_ICON_PATH : EMOJI_ICON_PATH}
+            />
+          )}
+          <p className={css.buttonTitle}>{text}</p>
         </button>
       ) : (
-        <button className={css.deleted}>
-          <img src={DELETE_ICON_PATH} />
+        <button className={buttonClassName}>
+          <img src={isDisabled ? DELETE_WHITE_ICON_PATH : DELETE_ICON_PATH} />
         </button>
       )}
     </div>
