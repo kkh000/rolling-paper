@@ -3,9 +3,9 @@ import { ARROW_DOWN_ICON, ARROW_UP_ICON } from '../../constant/constant';
 import { cn } from '../../utils/classNames';
 import css from './Dropdown.module.scss';
 
-const Dropdown = ({ optionList = [], isDisabled, isError }) => {
+const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(initialOption);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
