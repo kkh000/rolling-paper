@@ -31,10 +31,10 @@ button {
   }
 }
 
-.outlined56 {
+.outlinedXl {
   @include rounded-xl;
 
-  padding: 0.1rem 1rem;
+  padding: 0.8rem 1rem;
 
   .buttonTitle {
     @include text-lg;
@@ -45,7 +45,7 @@ button {
   }
 }
 
-.outlined40 {
+.outlinedL {
   @include rounded-sm;
 
   gap: 0.6rem;
@@ -54,13 +54,13 @@ button {
   .buttonTitle {
     @include text-base;
 
-    width: 5.6rem;
+    // width: 5.6rem;
     font-weight: 400;
     letter-spacing: -0.01rem;
   }
 }
 
-.outlined36 {
+.outlinedM {
   @include rounded-sm;
 
   gap: 0.2rem;
@@ -69,12 +69,12 @@ button {
   .buttonTitle {
     @include text-base;
 
-    width: 5.6rem;
+    // width: 5.6rem;
     font-weight: 500;
   }
 }
 
-.outlined28 {
+.outlinedS {
   @include rounded-sm;
 
   gap: 0.2rem;
@@ -88,7 +88,7 @@ button {
   .buttonTitle {
     @include text-xs;
 
-    width: 5.6rem;
+    // width: 5.6rem;
     font-weight: 400;
     letter-spacing: -0.01rem;
   }
