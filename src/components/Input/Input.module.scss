@@ -4,9 +4,11 @@
   width: 100%;
 }
 
-.input {
+.input,
+.button {
   width: 100%;
   padding: 0.8rem 1rem;
+  background: $white;
   border: none;
   border: 1px solid $gray-300;
   outline: none;
@@ -20,7 +22,6 @@
   &:not(.error) {
     &:disabled {
       background: $gray-100;
-      border: 1px solid $gray-300;
 
       &::placeholder {
         color: $gray-400;
@@ -28,10 +29,20 @@
     }
 
     &:focus:not(:disabled) {
-      outline: 2px solid $black;
+      color: $gray-900;
+      outline: 2px solid $gray-500;
 
       &::placeholder {
-        color: $black;
+        color: $gray-900;
+      }
+    }
+
+    &:active:not(:disabled) {
+      color: $gray-900;
+      outline: 2px solid $gray-700;
+
+      &::placeholder {
+        color: $gray-900;
       }
     }
 
