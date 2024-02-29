@@ -11,7 +11,7 @@
   text-align: center;
   background: $purple-600;
   border: none;
-  border-radius: 0.8rem;
+  border-radius: 12px;
   outline: none;
 
   &:hover {
@@ -33,11 +33,14 @@
 }
 
 .secondary {
+  @include text-base;
+  @include font-normal;
+
   padding: 0.5rem 1rem;
   color: $purple-700;
   background: $white;
   border: none;
-  border-radius: 0.8rem;
+  border-radius: 12px;
   outline: none;
   box-shadow: inset 0 0 0 1px $purple-600;
 
