@@ -1,21 +1,24 @@
 @import '../../styles/index';
-@import '../Input/Input.module.scss';
+@import '../Input/Input.module';
 
 .layout {
   width: 80%;
 }
 
 .button {
-  font-size: 1rem;
-  text-align: left;
-  color: $gray-400;
+  display: flex;
+  justify-content: space-between;
   margin: 0.8rem 0;
+  font-size: 1rem;
+  color: $gray-400;
+  text-align: left;
 }
 
 .optionsBox {
   width: 100%;
-  border: 1px solid $gray-300;
   overflow: hidden;
+  border: 1px solid $gray-300;
+
   @include rounded-lg;
   @include shadow;
 }

@@ -6,12 +6,13 @@
 
 .input,
 .button {
-  background: $white;
   width: 100%;
   padding: 0.8rem 1rem;
+  background: $white;
   border: none;
   border: 1px solid $gray-300;
   outline: none;
+
   @include rounded-lg;
 
   &.error {
@@ -28,8 +29,8 @@
     }
 
     &:focus:not(:disabled) {
-      outline: 2px solid $gray-500;
       color: $gray-900;
+      outline: 2px solid $gray-500;
 
       &::placeholder {
         color: $gray-900;
@@ -37,8 +38,8 @@
     }
 
     &:active:not(:disabled) {
-      outline: 2px solid $gray-700;
       color: $gray-900;
+      outline: 2px solid $gray-700;
 
       &::placeholder {
         color: $gray-900;
