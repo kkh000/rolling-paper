@@ -15,6 +15,7 @@ const OutlinedButton = ({
           <img
             className={css.emojiIcon}
             src={isDisabled ? EMOJI_WHITE_ICON_PATH : EMOJI_ICON_PATH}
+            alt='plus'
           />
         )}
         <p className={css.buttonTitle}>{children}</p>

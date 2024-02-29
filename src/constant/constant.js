@@ -9,3 +9,8 @@ export const EMOJI_WHITE_ICON_PATH = 'assets/add-lg-white.svg';
 
 export const DELETE_ICON_PATH = 'assets/deleted.svg';
 export const DELETE_WHITE_ICON_PATH = 'assets/deleted-white.svg';
+
+export const NONE_PORFILE_IMAGE = '/assets/none-profile.svg';
+
+export const PLUS_ICON = '/assets/plus.svg';
+export const SHARE_ICON = '/assets/share.svg';

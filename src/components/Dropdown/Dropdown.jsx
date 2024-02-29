@@ -24,7 +24,10 @@ const Dropdown = ({ options = [], isDisabled, isError }) => {
         onClick={toggleDropdown}
       >
         {selectedOption || 'Select Option'}
-        <img src={isOpen ? ARROW_UP_ICON : ARROW_DOWN_ICON} />
+        <img
+          src={isOpen ? ARROW_UP_ICON : ARROW_DOWN_ICON}
+          alt={isOpen ? 'arrow_up' : 'arrow_down'}
+        />
       </button>
       {isOpen && (
         <ul className={css.optionsBox}>

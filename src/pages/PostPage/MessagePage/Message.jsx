@@ -1,5 +1,5 @@
 const Message = () => {
-  return <div>마사지아님.</div>;
+  return <div>message</div>;
 };
 
 export default Message;

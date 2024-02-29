@@ -12,7 +12,7 @@ const Header = () => {
       <div className={css.headerContents}>
         <Link to='/' className={css.noneUnder}>
           <div className={css.logoArea}>
-            <img className={css.logo} src={rollingIcon} />
+            <img className={css.logo} src={rollingIcon} alt='rolling' />
             <p className={css.logoText}>Rolling</p>
           </div>
         </Link>

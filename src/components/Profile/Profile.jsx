@@ -1,3 +1,4 @@
+import { NONE_PORFILE_IMAGE } from '../../constant/constant';
 import css from './Profile.module.scss';
 
 /**
@@ -6,12 +7,11 @@ import css from './Profile.module.scss';
  * @returns div
  */
 const Profile = ({ url }) => {
-  const className = url ? css.profileImage : css.profileNoneImage;
-  const imgUrl = url || '/assets/none-profile.svg';
+  const imgUrl = url || NONE_PORFILE_IMAGE;
 
   return (
     <div className={css.profile}>
-      <img className={className} src={imgUrl} />
+      <img className={url ? css.profileImage : css.profileNoneImage} src={imgUrl} alt='profile' />
     </div>
   );
 };

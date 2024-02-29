@@ -21,7 +21,7 @@ const Modal = ({ profileImage, creatorName, relationship, createdAt, onClose, me
       >
         <div className={css.informationBox}>
           <div className={css.profileBox}>
-            <img className={css.profileImage} src={profileImage} />
+            <img className={css.profileImage} src={profileImage} alt='profile' />
             <h1 className={css.profileTitle}>
               From. <span className={css.profileName}>{creatorName}</span>
             </h1>
