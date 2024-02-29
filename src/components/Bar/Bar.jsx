@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import BadgeEmoji from '../BadgeEmoji/BadgeEmoji';
+import BadgeEmoji from '../Badge/BadgeEmoji';
 import Profiles from '../Profiles/Profiles';
 import css from './Bar.module.scss';
 
