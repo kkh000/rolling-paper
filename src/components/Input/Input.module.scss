@@ -4,13 +4,14 @@
   width: 100%;
 }
 
-.input {
+.input,
+.button {
+  background: $white;
   width: 100%;
   padding: 0.8rem 1rem;
   border: none;
   border: 1px solid $gray-300;
   outline: none;
-
   @include rounded-lg;
 
   &.error {
@@ -20,7 +21,6 @@
   &:not(.error) {
     &:disabled {
       background: $gray-100;
-      border: 1px solid $gray-300;
 
       &::placeholder {
         color: $gray-400;
@@ -28,10 +28,20 @@
     }
 
     &:focus:not(:disabled) {
-      outline: 2px solid $black;
+      outline: 2px solid $gray-500;
+      color: $gray-900;
 
       &::placeholder {
-        color: $black;
+        color: $gray-900;
+      }
+    }
+
+    &:active:not(:disabled) {
+      outline: 2px solid $gray-700;
+      color: $gray-900;
+
+      &::placeholder {
+        color: $gray-900;
       }
     }
 

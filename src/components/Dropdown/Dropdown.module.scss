@@ -1,0 +1,29 @@
+@import '../../styles/index';
+@import '../Input/Input.module.scss';
+
+.layout {
+  width: 80%;
+}
+
+.button {
+  font-size: 1rem;
+  text-align: left;
+  color: $gray-400;
+  margin: 0.8rem 0;
+}
+
+.optionsBox {
+  width: 100%;
+  border: 1px solid $gray-300;
+  overflow: hidden;
+  @include rounded-lg;
+  @include shadow;
+}
+
+.option {
+  &:hover {
+    background: $gray-100;
+  }
+
+  padding: 0.8rem 1rem;
+}
