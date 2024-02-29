@@ -1,5 +1,5 @@
 import css from './Profile.module.scss';
-//////////테스트용 임시/////////////////
+
 /**
  * 이미지 url을 받아서 프로필이미지를 생성해줍니다.
  * @param url

@@ -1,0 +1,23 @@
+@import '../../styles/index';
+
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 32rem;
+  padding: 1.2rem;
+  background: rgb(0 0 0 / 80%);
+
+  @include rounded-lg;
+}
+
+.titleBox {
+  display: flex;
+  gap: 1rem;
+}
+
+.text {
+  color: $white;
+
+  @include text-base;
+}

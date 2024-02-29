@@ -1,0 +1,33 @@
+@import '../../styles/index';
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 1.3rem;
+
+  @include rounded-xs;
+  @include text-xs;
+  @include font-normal;
+}
+
+.other {
+  color: $orange-500;
+  background-color: $orange-100;
+}
+
+.coworker {
+  color: $purple-600;
+  background-color: $purple-100;
+}
+
+.family {
+  color: $green-500;
+  background-color: $green-100;
+}
+
+.friend {
+  color: $blue-500;
+  background-color: $blue-100;
+}

@@ -1,0 +1,74 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.primary {
+  @include font-bold;
+  @include text-lg;
+
+  width: 10rem;
+  padding: 1rem 1.5rem;
+  color: $white;
+  text-align: center;
+  background: $purple-600;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+
+  &:hover {
+    background: $purple-700;
+  }
+
+  &:focus-visible {
+    background: $purple-800;
+    box-shadow: inset 0 0 0 2px $purple-900;
+  }
+
+  &:active {
+    background: $purple-800;
+  }
+
+  &:disabled {
+    background: $gray-300;
+  }
+}
+
+.secondary {
+  @include text-base;
+  @include font-normal;
+
+  width: 6rem;
+  padding: 0.5rem 1rem;
+  color: $purple-700;
+  background: $white;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  box-shadow: inset 0 0 0 1px $purple-600;
+
+  &:hover {
+    background: $purple-100;
+    box-shadow: inset 0 0 0 1px $purple-700;
+  }
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px $purple-800;
+  }
+
+  &:active {
+    background: $purple-200;
+  }
+
+  &:disabled {
+    color: $white;
+    background: $gray-300;
+    box-shadow: none;
+  }
+}
+
+.small {
+  @include text-base;
+  @include font-normal;
+
+  width: 6rem;
+  padding: 0.5rem 1rem;
+}
