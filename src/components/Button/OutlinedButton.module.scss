@@ -1,0 +1,95 @@
+@import '../../styles/index';
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $gray-900;
+  background: $white;
+  border: 0.1rem solid $gray-300;
+
+  &:disabled {
+    color: $white;
+    background: $gray-300;
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      color: $gray-900;
+      background: $gray-100;
+    }
+
+    &:active {
+      background: $white;
+      border: 0.1rem solid $gray-500;
+    }
+  }
+
+  .buttonTitle {
+    font-style: normal;
+    text-align: center;
+  }
+}
+
+.extraLarge {
+  @include rounded-xl;
+
+  padding: 0.8rem 1rem;
+
+  .buttonTitle {
+    @include text-lg;
+
+    width: 10rem;
+    font-weight: 700;
+    letter-spacing: -0.1rem;
+  }
+}
+
+.large {
+  @include rounded-sm;
+
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+
+  .buttonTitle {
+    @include text-base;
+
+    // width: 5.6rem;
+    font-weight: 400;
+    letter-spacing: -0.01rem;
+  }
+}
+
+.medium {
+  @include rounded-sm;
+
+  gap: 0.2rem;
+  padding: 0.3rem 1rem;
+
+  .buttonTitle {
+    @include text-base;
+
+    // width: 5.6rem;
+    font-weight: 500;
+  }
+}
+
+.small {
+  @include rounded-sm;
+
+  gap: 0.2rem;
+  padding: 0.3rem 1rem;
+
+  .emojiIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .buttonTitle {
+    @include text-xs;
+
+    // width: 5.6rem;
+    font-weight: 400;
+    letter-spacing: -0.01rem;
+  }
+}

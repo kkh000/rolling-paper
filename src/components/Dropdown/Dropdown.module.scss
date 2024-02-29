@@ -1,0 +1,32 @@
+@import '../../styles/index';
+@import '../Input/Input.module';
+
+.layout {
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  color: $gray-400;
+  text-align: left;
+}
+
+.optionsBox {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid $gray-300;
+
+  @include rounded-lg;
+  @include shadow;
+}
+
+.option {
+  &:hover {
+    background: $gray-100;
+  }
+
+  padding: 0.8rem 1rem;
+}
