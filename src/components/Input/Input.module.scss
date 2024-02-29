@@ -1,0 +1,53 @@
+@import '../../styles/index';
+
+.layout {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border: 1px solid $gray-300;
+  outline: none;
+
+  @include rounded-lg;
+
+  &.error {
+    border: 1px solid $error;
+  }
+
+  &:not(.error) {
+    &:disabled {
+      background: $gray-100;
+      border: 1px solid $gray-300;
+
+      &::placeholder {
+        color: $gray-400;
+      }
+    }
+
+    &:focus:not(:disabled) {
+      outline: 2px solid $black;
+
+      &::placeholder {
+        color: $black;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      outline: 1px solid $gray-500;
+
+      &::placeholder {
+        color: $gray-500;
+      }
+    }
+  }
+}
+
+.errorText {
+  margin-right: auto;
+  color: $error;
+
+  @include text-2xs;
+}
