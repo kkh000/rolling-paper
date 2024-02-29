@@ -1,0 +1,14 @@
+@import '../../styles/index';
+
+.badgeEmoji {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.5rem 0.7rem;
+  line-height: 20px;
+  color: $white;
+  background: rgb(0 0 0 / 54%);
+
+  @include rounded-4xl;
+  @include text-base;
+  @include font-normal;
+}
