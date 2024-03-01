@@ -5,24 +5,25 @@ const ToggleButton = () => {
   const [selectedButton, setSelectedButton] = useState('color');
 
   const handleButtonClick = button => {
+    event.preventDefault();
     setSelectedButton(prevSelected => (prevSelected === button ? prevSelected : button));
   };
 
   return (
-    <div className={css.layout}>
+    <section className={css.layout}>
       <button
         className={selectedButton === 'color' ? css.selected : ''}
-        onClick={() => handleButtonClick('color')}
+        onClick={event => handleButtonClick('color', event)}
       >
-        색깔
+        컬러
       </button>
       <button
         className={selectedButton === 'image' ? css.selected : ''}
-        onClick={() => handleButtonClick('image')}
+        onClick={event => handleButtonClick('image', event)}
       >
         이미지
       </button>
-    </div>
+    </section>
   );
 };
 
