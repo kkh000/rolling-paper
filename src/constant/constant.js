@@ -14,3 +14,6 @@ export const NONE_PORFILE_IMAGE = '/assets/none-profile.svg';
 
 export const PLUS_ICON = '/assets/plus.svg';
 export const SHARE_ICON = '/assets/share.svg';
+
+export const MAIN_IMAGE_01 = '/assets/main-image01.png';
+export const MAIN_IMAGE_02 = '/assets/main-image02.png';
