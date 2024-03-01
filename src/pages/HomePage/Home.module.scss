@@ -1,8 +1,82 @@
 @import '../../styles/index';
 
-img {
+.layout {
+  margin-top: 3rem;
+  background: $white;
   display: flex;
-  width: 720px;
-  height: 204px;
-  padding: 21px 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  article {
+    display: flex;
+    width: 70rem;
+    border-radius: 16px;
+    background: $surface;
+    gap: 90px;
+
+    .mainImage {
+      display: flex;
+      width: 720px;
+      height: 204px;
+    }
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .pointNumber {
+      display: flex;
+      border-radius: 50px;
+      background: $purple-600;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: -0.07px;
+      color: $white;
+    }
+
+    .titleBox {
+      gap: 8px;
+
+      .title {
+        color: $gray-900;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: -0.24px;
+      }
+
+      .description {
+        color: $gray-500;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: -0.18px;
+      }
+    }
+  }
+
+  Button {
+    position: fixed;
+    bottom: 40px;
+    transform: translateX(-50%);
+  }
+}
+
+.point01 {
+  padding: 80px 0px 80px 60px;
+  flex-direction: row;
+}
+
+.point02 {
+  padding: 80px 60px 80px 0px;
+  flex-direction: row-reverse;
 }
