@@ -18,8 +18,10 @@
 .layout {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 37.5rem;
-  height: 29.8rem;
+  height: 27.5rem;
+  padding-bottom: 2.5rem;
 
   @include rounded-2xl;
 
@@ -105,9 +107,4 @@
 
     @include rounded-sm;
   }
-}
-
-.button {
-  width: 7.5rem;
-  margin: 1.5rem auto 2.5rem;
 }
