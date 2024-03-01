@@ -1,41 +1,41 @@
 @mixin text-2xs {
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 0.7rem;
+  line-height: 1.1rem;
 }
 
 @mixin text-xs {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.8rem;
+  line-height: 1.3rem;
 }
 
 @mixin text-sm {
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
 }
 
 @mixin text-base {
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 1rem;
+  line-height: 1.6rem;
 }
 
 @mixin text-lg {
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 1.1rem;
+  line-height: 1.8rem;
 }
 
 @mixin text-xl {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 1.2rem;
+  line-height: 1.9rem;
 }
 
 @mixin text-2xl {
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
 }
 
 @mixin text-3xl {
-  font-size: 28px;
-  line-height: 42px;
+  font-size: 1.8rem;
+  line-height: 2.6rem;
 }
 
 @mixin font-normal {
@@ -47,37 +47,37 @@
 }
 
 @mixin rounded-xs {
-  border-radius: 4px;
+  border-radius: 0.3rem;
 }
 
 @mixin rounded-sm {
-  border-radius: 6px;
+  border-radius: 0.4rem;
 }
 
 @mixin rounded-lg {
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 @mixin rounded-xl {
-  border-radius: 12px;
+  border-radius: 0.8rem;
 }
 
 @mixin rounded-2xl {
-  border-radius: 16px;
+  border-radius: 1rem;
 }
 
 @mixin rounded-3xl {
-  border-radius: 30px;
+  border-radius: 1.9rem;
 }
 
 @mixin rounded-4xl {
-  border-radius: 32px;
+  border-radius: 2rem;
 }
 
 @mixin rounded-full {
-  border-radius: 100px;
+  border-radius: 6.3rem;
 }
 
 @mixin shadow {
-  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+  box-shadow: 0 0.1rem 0.8rem rgb(0 0 0 / 8%);
 }
