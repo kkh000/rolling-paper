@@ -1,0 +1,13 @@
+@import '../../../styles/index';
+
+.box {
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: column;
+}
+
+.title {
+  color: $gray-900;
+  @include text-2xl;
+  @include font-bold;
+}

@@ -1,0 +1,30 @@
+@import '../../../styles/index';
+
+.profileImage {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.defaultImage {
+  width: 5rem;
+  height: 5rem;
+}
+
+.profileBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.selectProfile {
+  color: $gray-500;
+
+  @include text-base;
+  @include font-normal;
+}
+
+.imageList {
+  display: flex;
+  gap: 0.3rem;
+}
