@@ -1,21 +1,21 @@
 import Button from '../../../components/Button/Button';
+import FontPicker from './FontPicker';
 import InputName from './InputName';
 import css from './Message.module.scss';
-import SelectFont from './SelectFont';
-import SelectProfileImage from './SelectPorfileImage';
-import SelectRelationship from './SelectRelationship';
+import ProfileImagePicker from './ProfileImagePicker';
+import RelationshipPicker from './RelationshipPicker';
 import TextAreaEditor from './TextAreaEditor';
 
 const Message = () => {
   return (
-    <section className={css.layout}>
+    <form className={css.layout}>
       <InputName />
-      <SelectProfileImage />
-      <SelectRelationship />
+      <ProfileImagePicker />
+      <RelationshipPicker />
       <TextAreaEditor />
-      <SelectFont />
+      <FontPicker />
       <Button width={'100%'}>생성하기</Button>
-    </section>
+    </form>
   );
 };
 

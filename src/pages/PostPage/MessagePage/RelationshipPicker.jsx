@@ -1,14 +1,14 @@
 import Dropdown from '../../../components/Dropdown/Dropdown';
-import css from './SelectRelationship.module.scss';
+import css from './Message.module.scss';
 
-const SelectRelationship = () => {
+const RelationshipPicker = () => {
   const realtionship = ['지인', '친구', '동료', '가족'];
   return (
-    <div className={css.box}>
+    <section className={css.box}>
       <h1 className={css.title}>상대와의 관계</h1>
       <Dropdown initialOption='지인' optionList={realtionship} />
-    </div>
+    </section>
   );
 };
 
-export default SelectRelationship;
+export default RelationshipPicker;
