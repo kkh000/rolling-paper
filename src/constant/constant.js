@@ -14,3 +14,6 @@ export const NONE_PORFILE_IMAGE = 'assets/none-profile.svg';
 
 export const PLUS_ICON = 'assets/plus.svg';
 export const SHARE_ICON = 'assets/share.svg';
+
+export const FONT_LIST = ['Noto Sans', 'Pretendara', '나눔명조', '나눔손글씨 손편지체'];
+export const RELATIONSHIP_LIST = ['지인', '친구', '동료', '가족'];
