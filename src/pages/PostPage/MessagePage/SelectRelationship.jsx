@@ -6,7 +6,7 @@ const SelectRelationship = () => {
   return (
     <div className={css.box}>
       <h1 className={css.title}>상대와의 관계</h1>
-      <Dropdown initialOption='지인' options={realtionship} />
+      <Dropdown initialOption='지인' optionList={realtionship} />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import Profile from '../../../components/Profile/Profile';
+import Profiles from '../../../components/Profiles/Profiles';
 import css from './SelectProfileImage.module.scss';
 
 const SelectProfileImage = () => {
@@ -10,16 +11,7 @@ const SelectProfileImage = () => {
         <div className={css.profileBox}>
           <h2 className={css.selectProfile}>프로필 이미지를 선택해주세요!</h2>
           <div className={css.imageList}>
-            <Profile className={css.image} />
-            <Profile />
-            <Profile />
-            <Profile />
-            <Profile />
-            <Profile />
-            <Profile />
-            <Profile />
-            <Profile />
-            <Profile />
+            <Profiles className={css.image} />
           </div>
         </div>
       </div>

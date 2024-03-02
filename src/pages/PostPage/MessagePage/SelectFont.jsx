@@ -6,7 +6,7 @@ const SelectFont = () => {
   return (
     <div className={css.box}>
       <h1 className={css.title}>폰트 선택</h1>
-      <Dropdown options={font} initialOption='Noto Sans' />
+      <Dropdown optionList={font} initialOption='Noto Sans' />
     </div>
   );
 };
