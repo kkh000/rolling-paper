@@ -4,7 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import css from './TextAreaEditor.module.scss';
 
 const TextAreaEditor = ({ onChange }) => {
-  const [value, setValue] = useState('');
+  const [text, setText] = useState('');
   const modules = useMemo(
     () => ({
       toolbar: [
@@ -28,10 +28,8 @@ const TextAreaEditor = ({ onChange }) => {
     'background',
   ];
 
-  const handleTextChange = (content, delta, source, editor) => {
-    const textValue = editor.getText();
-    console.log(textValue);
-    setValue(content);
+  const handleTextChange = content => {
+    setText(content);
     onChange(content);
   };
 
@@ -43,7 +41,7 @@ const TextAreaEditor = ({ onChange }) => {
         theme='snow'
         modules={modules}
         formats={formats}
-        value={value}
+        value={text}
         onChange={handleTextChange}
       />
     </div>
