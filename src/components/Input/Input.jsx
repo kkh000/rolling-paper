@@ -13,7 +13,7 @@ const Input = ({ value, onChange, placeholder, isDisabled, isError }) => {
         disabled={isDisabled}
         placeholder={placeholder}
       />
-      {isError && <p className={css.errorText}>값을 입력해 주세.</p>}
+      {isError && <p className={css.errorText}>값을 입력해 주세요.</p>}
     </>
   );
 };
