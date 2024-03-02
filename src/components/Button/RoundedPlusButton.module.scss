@@ -1,5 +1,5 @@
-@import '../styles/mixins';
-@import '../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/variables';
 
 .rounded {
   display: flex;
@@ -10,6 +10,7 @@
   background: $gray-500;
   border: none;
   border-radius: 96px;
+  cursor: pointer;
 
   &:disabled {
     background: $gray-300;

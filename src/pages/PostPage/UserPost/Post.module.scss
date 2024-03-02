@@ -1,6 +1,39 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 .layout {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+  flex-grow: 1;
+}
+
+.cardArea {
+  width: 100%;
+  background: $orange-200;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.cardBox {
+  width: 100%;
+  margin: 7rem 20rem 15rem 20rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
   border: 1px solid black;
+}
+
+.card {
+  display: flex;
+  width: 24rem;
+  height: 17.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  background: $white;
+  @include rounded-2xl;
+  @include shadow;
 }
