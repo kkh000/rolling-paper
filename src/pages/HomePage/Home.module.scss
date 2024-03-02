@@ -12,8 +12,10 @@
     @include rounded-2xl;
 
     display: flex;
-    width: 70rem;
+    width: 60rem;
     background: $surface;
+    gap: 10px;
+    padding: 5rem;
 
     .mainImage {
       display: flex;
@@ -69,11 +71,9 @@
 }
 
 .point01 {
-  padding: 5rem 0rem 5rem 4.4rem;
   flex-direction: row;
 }
 
 .point02 {
-  padding: 5rem 4.4rem 5rem 0rem;
   flex-direction: row-reverse;
 }
