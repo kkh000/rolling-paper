@@ -6,19 +6,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 1.9rem;
 
   article {
+    @include rounded-2xl;
+
     display: flex;
     width: 70rem;
-    border-radius: 16px;
     background: $surface;
-    gap: 90px;
 
     .mainImage {
       display: flex;
-      width: 720px;
-      height: 204px;
+      width: 45rem;
+      height: 12rem;
     }
   }
 
@@ -26,57 +26,54 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
 
     .pointNumber {
+      @include text-xs;
+      @include font-bold;
+
       display: flex;
-      border-radius: 50px;
+      border-radius: 3.1rem;
       background: $purple-600;
-      padding: 6px 12px;
-      font-size: 14px;
+      padding: 0.4rem 0.8rem;
       font-style: normal;
-      font-weight: 700;
-      line-height: 20px;
-      letter-spacing: -0.07px;
+      letter-spacing: -0.01rem;
       color: $white;
     }
 
-    .titleBox {
-      gap: 8px;
+    .title {
+      @include text-2xl;
+      @include font-bold;
 
-      .title {
-        color: $gray-900;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 36px;
-        letter-spacing: -0.24px;
-      }
+      color: $gray-900;
+      font-style: normal;
+      letter-spacing: -0.01rem;
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+    }
 
-      .description {
-        color: $gray-500;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 28px;
-        letter-spacing: -0.18px;
-      }
+    .description {
+      @include text-lg;
+      @include font-normal;
+
+      color: $gray-500;
+      font-style: normal;
+      letter-spacing: -0.01rem;
     }
   }
 
   Button {
     position: fixed;
-    bottom: 40px;
+    bottom: 2.5rem;
     transform: translateX(-50%);
   }
 }
 
 .point01 {
-  padding: 80px 0px 80px 60px;
+  padding: 5rem 0rem 5rem 4.4rem;
   flex-direction: row;
 }
 
 .point02 {
-  padding: 80px 60px 80px 0px;
+  padding: 5rem 4.4rem 5rem 0rem;
   flex-direction: row-reverse;
 }
