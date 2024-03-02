@@ -7,10 +7,10 @@
   justify-content: center;
   width: 3.5rem;
   height: 3.5rem;
+  cursor: pointer;
   background: $gray-500;
   border: none;
   border-radius: 96px;
-  cursor: pointer;
 
   &:disabled {
     background: $gray-300;
