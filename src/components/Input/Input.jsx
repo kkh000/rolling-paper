@@ -1,7 +1,7 @@
 import { cn } from '../../utils/classNames';
 import css from './Input.module.scss';
 
-const Input = ({ value, onChange, placeholder, isDisabled, isError }) => {
+const Input = ({ value, onBlur, onChange, placeholder, isDisabled, isError }) => {
   return (
     <>
       <input
@@ -9,6 +9,7 @@ const Input = ({ value, onChange, placeholder, isDisabled, isError }) => {
         onChange={event => {
           onChange(event.target.value);
         }}
+        onBlur={onBlur}
         className={cn(css.input, isError && css.error)}
         disabled={isDisabled}
         placeholder={placeholder}
