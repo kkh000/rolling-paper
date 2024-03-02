@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { ARROW_DOWN_ICON, SHARE_ICON } from '../../constant/constant';
-import BadgeEmoji from '../Badge/BadgeEmoji';
-import Profiles from '../Profiles/Profiles';
+import BadgeEmoji from '../../../components/Badge/BadgeEmoji';
+import Profiles from '../../../components/Profiles/Profiles';
+import { ARROW_DOWN_ICON, SHARE_ICON } from '../../../constant/constant';
 import css from './Bar.module.scss';
 
 //recipientId 이모지 조회를 위해 받아와야 함
@@ -77,7 +77,6 @@ const Bar = ({ recipientId, name }) => {
           <div className={css.profiles}>
             <Profiles />
           </div>
-          <div className={css.profiles}>{messageList}</div>
           <div className={css.writingCount}>
             <p className={css.count}>{writeCount}</p>명이 작성했어요!
           </div>

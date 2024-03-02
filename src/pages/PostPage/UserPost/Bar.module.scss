@@ -1,4 +1,4 @@
-@import '../../styles/index';
+@import '../../../styles/index';
 
 .barArea {
   display: flex;
@@ -65,7 +65,7 @@
   top: 3.1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: .6rem;
+  gap: 0.6rem;
   align-content: center;
   width: 16.8rem;
   padding: 1.5rem;
