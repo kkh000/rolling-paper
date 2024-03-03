@@ -1,5 +1,15 @@
 @import '../../styles/index';
 
+.common-style {
+  @include rounded-2xl;
+
+  display: flex;
+  width: 60rem;
+  background: $surface;
+  gap: 0.6rem;
+  padding: 5rem;
+}
+
 .layout {
   margin-top: 3rem;
   background: $white;
@@ -8,20 +18,22 @@
   align-items: center;
   gap: 1.9rem;
 
-  article {
-    @include rounded-2xl;
+  .point01 {
+    @extend .common-style;
 
+    flex-direction: row;
+  }
+
+  .point02 {
+    @extend .common-style;
+
+    flex-direction: row-reverse;
+  }
+
+  .mainImage {
     display: flex;
-    width: 60rem;
-    background: $surface;
-    gap: 10px;
-    padding: 5rem;
-
-    .mainImage {
-      display: flex;
-      width: 45rem;
-      height: 12rem;
-    }
+    width: 45rem;
+    height: 12rem;
   }
 
   .textBox {
@@ -34,11 +46,10 @@
       @include font-bold;
 
       display: flex;
-      border-radius: 3.1rem;
+      border-radius: 50px;
       background: $purple-600;
       padding: 0.4rem 0.8rem;
       font-style: normal;
-      letter-spacing: -0.01rem;
       color: $white;
     }
 
@@ -48,7 +59,6 @@
 
       color: $gray-900;
       font-style: normal;
-      letter-spacing: -0.01rem;
       margin-top: 1rem;
       margin-bottom: 0.2rem;
     }
@@ -59,7 +69,6 @@
 
       color: $gray-500;
       font-style: normal;
-      letter-spacing: -0.01rem;
     }
   }
 
@@ -68,12 +77,4 @@
     bottom: 2.5rem;
     transform: translateX(-50%);
   }
-}
-
-.point01 {
-  flex-direction: row;
-}
-
-.point02 {
-  flex-direction: row-reverse;
 }
