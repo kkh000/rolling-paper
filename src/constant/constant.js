@@ -15,6 +15,23 @@ export const NONE_PORFILE_IMAGE = '/assets/none-profile.svg';
 export const PLUS_ICON = '/assets/plus.svg';
 export const SHARE_ICON = '/assets/share.svg';
 
+export const ADD_ROLLINGPAPER = '/assets/main-image01.png';
+export const ADD_EMOJI = '/assets/main-image02.png';
+
+export const HOME_ARTICLE_LIST = [
+  {
+    id: '01',
+    title: '누구나 손쉽게, 온라인 롤링 페이퍼를 만들 수 있어요',
+    description: '로그인 없이 자유롭게 만들어요.',
+    image: ADD_ROLLINGPAPER,
+  },
+  {
+    id: '02',
+    title: '서로에게 이모지로 감정을 표현해보세요',
+    description: '롤링 페이퍼에 이모지를 추가할 수 있어요.',
+    image: ADD_EMOJI,
+  },
+];
 
 export const CARD_COLOR_LIST = ['orange', 'purple', 'blue', 'green'];
 export const BACKGROUND_IMAGE_URL_LIST = [
