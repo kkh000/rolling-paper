@@ -3,14 +3,14 @@ import Profile from '../Profile/Profile';
 import css from './Profiles.module.scss';
 
 /**
- * 프로필 리스트를 받아서 그룹 프로필 리스트를 생성해준다
- * @param Profiles
+ * 프로필 리스트와 사이즈를 받아서 그룹 프로필 리스트를 생성해준다
+ * @param { ,Profiles, size }
+ * - Profiles : []
+ * - size : xSmall, small
  * @returns
  */
 const Profiles = ({ profileList, size = 'small' }) => {
   const otherTotals = profileList.length - 3;
-
-  // size = 'xSmall';
 
   return (
     <div className={css.profilsArea}>
