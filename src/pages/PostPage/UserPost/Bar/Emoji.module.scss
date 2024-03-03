@@ -37,3 +37,13 @@
 .arrowDown {
   width: 0.8rem;
 }
+
+.addEmojiButton {
+  position: relative;
+}
+
+.emojiPicker {
+  position: absolute;
+  top: 115%; /* 버튼의 아래에 위치하도록 설정 */
+  right: 0;
+}

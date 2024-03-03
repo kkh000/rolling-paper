@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import EmojiPicker from 'emoji-picker-react';
 import BadgeEmoji from '../../../../components/Badge/BadgeEmoji';
+import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import { ARROW_DOWN_ICON } from '../../../../constant/constant';
 import css from './Emoji.module.scss';
 
@@ -24,6 +26,12 @@ const Emoji = () => {
   const [emojiBoxToggle, setEmojiBoxToggle] = useState(false);
   const handleEmojiBoxClick = () => {
     setEmojiBoxToggle(!emojiBoxToggle);
+  };
+
+  const [showPicker, setShowPicker] = useState(false);
+
+  const handelPickerButtonClick = () => {
+    setShowPicker(!showPicker);
   };
 
   return (
@@ -51,9 +59,15 @@ const Emoji = () => {
           </div>
         )}
       </div>
-      <div className={css.reactionAdd}>
-        {/* TODO: 버튼 컴포넌트 불러오기 */}
-        <button>추가</button>
+      <div className={css.addEmojiButton}>
+        <OutlinedButton size='medium' onClick={handelPickerButtonClick}>
+          추가
+        </OutlinedButton>
+        {showPicker && (
+          <div className={css.emojiPicker}>
+            <EmojiPicker />
+          </div>
+        )}
       </div>
     </div>
   );
