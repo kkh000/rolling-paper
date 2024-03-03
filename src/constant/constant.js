@@ -33,7 +33,7 @@ export const HOME_ARTICLE_LIST = [
   },
 ];
 
-export const CARD_COLOR_LIST = ['orange', 'purple', 'blue', 'green'];
+export const BACKGROUND_COLOR_LIST = ['beige', 'purple', 'blue', 'green'];
 export const BACKGROUND_IMAGE_URL_LIST = [
   'https://i.ibb.co/kgwVr13/xmas2.jpg',
   'https://i.ibb.co/M5fwrdQ/xmas.jpg',
