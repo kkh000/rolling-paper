@@ -2,16 +2,28 @@
 
 .profilsArea {
   position: relative;
+  img {
+    position: absolute;
+    &:nth-child(1) {
+      left: 0;
+    }
+    &:nth-child(2) {
+      left: 25%;
+    }
+    &:nth-child(3) {
+      left: 50%;
+    }
+  }
   display: flex;
   align-items: center;
-  width: 10rem;
+  width: 5rem;
   height: 3rem;
 }
 
 .writerCount {
   position: absolute;
-  left: 5.1rem;
-  z-index: 4;
+  left: 75%;
+  // left: 39%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,14 +39,12 @@
 
   @include rounded-full;
   &.small {
-    left: 4rem;
     width: 2.25rem;
     height: 2.25rem;
     padding: 0 1.3rem;
   }
 
   &.xSmall {
-    left: 3rem;
     width: 1.75rem;
     height: 1.75rem;
     padding: 0 1.1rem;

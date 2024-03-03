@@ -10,6 +10,8 @@ import css from './Profiles.module.scss';
 const Profiles = ({ profileList, size = 'small' }) => {
   const otherTotals = profileList.length - 3;
 
+  // size = 'xSmall';
+
   return (
     <div className={css.profilsArea}>
       {profileList.map(
