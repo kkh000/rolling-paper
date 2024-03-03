@@ -1,3 +1,4 @@
+
 import { useState, useMemo } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -34,7 +35,7 @@ const TextAreaEditor = ({ onChange }) => {
   };
 
   return (
-    <div className={css.box}>
+    <section className={css.box}>
       <h1 className={css.title}>내용을 입력해 주세요</h1>
       <ReactQuill
         style={{ height: '16.3rem', width: '45rem ', margin: '0.8rem 0rem 3.13rem' }}
@@ -44,7 +45,7 @@ const TextAreaEditor = ({ onChange }) => {
         value={text}
         onChange={handleTextChange}
       />
-    </div>
+    </section>
   );
 };
 
