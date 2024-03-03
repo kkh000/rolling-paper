@@ -11,9 +11,14 @@ const NewPost = () => {
   const [inputValue, setInputValue] = useState('');
   const [selectedButton, setSelectedButton] = useState('color');
   const [selectedOption, setSelectedOption] = useState(0);
+  const [isInputError, setIsInputError] = useState(false);
 
   const handleInputChange = value => {
     setInputValue(value);
+  };
+
+  const handleInputBlur = () => {
+    inputValue === '' ? setIsInputError(true) : setIsInputError(false);
   };
 
   const handleButtonClick = () => {
@@ -45,7 +50,9 @@ const NewPost = () => {
           <h2 className={css.title}>To.</h2>
           <Input
             value={inputValue}
+            onBlur={handleInputBlur}
             onChange={handleInputChange}
+            isError={isInputError}
             placeholder='받을 사람을 입력해 주세요.'
           />
         </div>
