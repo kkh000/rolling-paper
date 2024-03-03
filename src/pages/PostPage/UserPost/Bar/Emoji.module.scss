@@ -1,0 +1,39 @@
+@import '../../../../styles/index';
+
+.emojiArea {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-right: 1px;
+  border-left: 1px;
+}
+
+.reactionArea {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reaction {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.reactions {
+  position: absolute;
+  top: 3.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-content: center;
+  width: 16.8rem;
+  padding: 1.5rem;
+  background-color: $white;
+  border: 1px solid $gray-200;
+
+  @include rounded-lg;
+}
+
+.arrowDown {
+  width: 0.8rem;
+}

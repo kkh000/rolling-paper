@@ -1,28 +1,30 @@
-import { useState } from 'react';
 import css from './ToggleButton.module.scss';
 
-const ToggleButton = () => {
-  const [selectedButton, setSelectedButton] = useState('color');
-
-  const handleButtonClick = button => {
-    setSelectedButton(prevSelected => (prevSelected === button ? prevSelected : button));
+const ToggleButton = ({ selectedButton = 'color', onClick }) => {
+  const handleButtonClick = (option, event) => {
+    event.preventDefault();
+    if (option !== selectedButton) onClick();
   };
 
   return (
-    <div className={css.layout}>
+    <section className={css.layout}>
       <button
         className={selectedButton === 'color' ? css.selected : ''}
-        onClick={() => handleButtonClick('color')}
+        onClick={event => {
+          handleButtonClick('color', event);
+        }}
       >
-        색깔
+        컬러
       </button>
       <button
         className={selectedButton === 'image' ? css.selected : ''}
-        onClick={() => handleButtonClick('image')}
+        onClick={event => {
+          handleButtonClick('image', event);
+        }}
       >
         이미지
       </button>
-    </div>
+    </section>
   );
 };
 

@@ -1,0 +1,12 @@
+@import '../../../styles/index';
+@import './mixins';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  padding: 2.9rem 0 3.7rem;
+  width: 45rem;
+  gap: 3.1rem;
+}
+
+@include form-box;
