@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EmojiPicker from 'emoji-picker-react';
 import BadgeEmoji from '../../../../components/Badge/BadgeEmoji';
@@ -31,7 +31,21 @@ const Emoji = () => {
   };
   ////////// ~~~~
 
+  const axiosInstance = createAxiosInstance();
+  const { id } = useParams();
+
   const [showPicker, setShowPicker] = useState(false);
+
+  const [emojiData, setEmojiData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getMainEmojiData();
+      setEmojiData(data);
+    };
+
+    fetchData();
+  }, [id]);
 
   const handlePickerButtonClick = () => {
     setShowPicker(!showPicker);
@@ -40,9 +54,6 @@ const Emoji = () => {
   const handleEmojiClick = emojiObject => {
     postEmojiData(emojiObject);
   };
-
-  const axiosInstance = createAxiosInstance();
-  const { id } = useParams();
 
   const postEmojiData = async emojiObject => {
     try {
@@ -57,13 +68,23 @@ const Emoji = () => {
     }
   };
 
+  const getMainEmojiData = async () => {
+    try {
+      const response = await axiosInstance.get(`/recipients/${id}/reactions/?limit=3`);
+      console.log('GET 요청 성공:', response.data.results);
+      return response.data.results;
+    } catch (error) {
+      console.log('GET 요청 에러:', error);
+    }
+  };
+
   return (
     <div className={css.emojiArea}>
       <div className={css.reactionArea}>
         <div className={css.reaction}>
           {/* TODO: 3개까지만 불러와야 함 */}
-          {emojiList().length > 0 &&
-            emojiList().map(emoji => (
+          {emojiData.length > 0 &&
+            emojiData.map(emoji => (
               <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
             ))}
           <img
