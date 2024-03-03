@@ -1,9 +1,8 @@
 @import '../../../styles/index';
 @import './mixins';
-
 @include form-box;
 
-/*NOTE - 임시로 사용 */
+/* NOTE - 임시로 사용 */
 .textArea {
   width: 100%;
   height: 16.3rem;

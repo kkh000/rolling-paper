@@ -1,21 +1,18 @@
 @import '../../../styles/index';
 @import './mixins';
-
 @include form-box;
 
 .input {
   display: flex;
+  gap: 0.6rem;
+  align-items: center;
   width: 45rem;
   padding: 0.7rem 1rem;
-  align-items: center;
-  gap: 0.6rem;
+  color: $gray-500;
+  background: $white;
+  border: 1px solid $gray-300;
 
   @include rounded-lg;
-  border: 1px solid $gray-300;
-  background: $white;
-
-  color: $gray-500;
-
   @include text-base;
   @include font-normal;
 }

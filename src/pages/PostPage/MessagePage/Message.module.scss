@@ -4,9 +4,9 @@
 .layout {
   display: flex;
   flex-direction: column;
-  padding: 2.9rem 0 3.7rem;
-  width: 45rem;
   gap: 3.1rem;
+  width: 45rem;
+  padding: 2.9rem 0 3.7rem;
 }
 
 @include form-box;
