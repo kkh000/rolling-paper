@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import reactDom from 'react-dom';
-import Badge from '../../../../copy/src/components/Badge/Badge';
 import { allowScroll, preventScroll } from '../../utils/scrolls';
+import Badge from '../Badge/Badge';
+import Button from '../Button/Button';
 import css from './Modal.module.scss';
 
 const Modal = ({ profileImage, creatorName, relationship, createdAt, onClose, message }) => {
@@ -31,9 +32,9 @@ const Modal = ({ profileImage, creatorName, relationship, createdAt, onClose, me
         </div>
         <div className={css.line}></div>
         <p className={css.textBox}>{message}</p>
-        <button className={css.button} onClick={onClose}>
+        <Button size='s' onClick={onClose}>
           확인
-        </button>
+        </Button>
       </div>
     </section>,
     document.getElementById('modal'),
