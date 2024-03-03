@@ -1,0 +1,32 @@
+@import '../../../styles/index';
+
+.layout {
+  margin-top: 2rem;
+  width: 45rem;
+}
+
+.backgroundBox,
+.titleBox,
+.formBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.formBox {
+  gap: 2rem;
+}
+
+.toggleButtonBox,
+.cardListBox {
+  margin: 1.4rem 0;
+}
+
+.title {
+  margin: 0.8rem 0;
+  @include text-2xl;
+  @include font-bold;
+}
+
+.description {
+  @include text-sm;
+}
