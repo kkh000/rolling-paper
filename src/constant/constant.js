@@ -15,6 +15,7 @@ export const NONE_PORFILE_IMAGE = '/assets/none-profile.svg';
 export const PLUS_ICON = '/assets/plus.svg';
 export const SHARE_ICON = '/assets/share.svg';
 
+
 export const CARD_COLOR_LIST = ['orange', 'purple', 'blue', 'green'];
 export const BACKGROUND_IMAGE_URL_LIST = [
   'https://i.ibb.co/kgwVr13/xmas2.jpg',

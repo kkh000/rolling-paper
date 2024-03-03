@@ -5,7 +5,7 @@ import List from './pages/ListPage/List';
 import Edit from './pages/PostPage/EditPage/Edit';
 import Message from './pages/PostPage/MessagePage/Message';
 import NewPost from './pages/PostPage/NewPost/NewPost';
-import Post from './pages/PostPage/Post';
+import Post from './pages/PostPage/UserPost/Post';
 
 const AppRouter = () => {
   return (
