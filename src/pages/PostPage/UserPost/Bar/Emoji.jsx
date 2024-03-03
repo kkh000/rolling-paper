@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import EmojiPicker from 'emoji-picker-react';
 import BadgeEmoji from '../../../../components/Badge/BadgeEmoji';
 import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import { ARROW_DOWN_ICON } from '../../../../constant/constant';
+import createAxiosInstance from '../../../../utils/axios';
 import css from './Emoji.module.scss';
 
 //TODO : recipient_id로 이모지 조회 필요
@@ -27,11 +29,32 @@ const Emoji = () => {
   const handleEmojiBoxClick = () => {
     setEmojiBoxToggle(!emojiBoxToggle);
   };
+  ////////// ~~~~
 
   const [showPicker, setShowPicker] = useState(false);
 
-  const handelPickerButtonClick = () => {
+  const handlePickerButtonClick = () => {
     setShowPicker(!showPicker);
+  };
+
+  const handleEmojiClick = emojiObject => {
+    postEmojiData(emojiObject);
+  };
+
+  const axiosInstance = createAxiosInstance();
+  const { id } = useParams();
+
+  const postEmojiData = async emojiObject => {
+    try {
+      const response = await axiosInstance.post(`/recipients/${id}/reactions/`, {
+        emoji: `${emojiObject.emoji}`,
+        type: 'increase',
+      });
+
+      console.log('POST 요청 성공:', response.data);
+    } catch (error) {
+      console.error('POST 요청 에러:', error);
+    }
   };
 
   return (
@@ -60,12 +83,12 @@ const Emoji = () => {
         )}
       </div>
       <div className={css.addEmojiButton}>
-        <OutlinedButton size='medium' onClick={handelPickerButtonClick}>
+        <OutlinedButton hasIcon='true' size='medium' onClick={handlePickerButtonClick}>
           추가
         </OutlinedButton>
         {showPicker && (
           <div className={css.emojiPicker}>
-            <EmojiPicker />
+            <EmojiPicker onEmojiClick={handleEmojiClick} />
           </div>
         )}
       </div>
