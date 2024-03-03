@@ -28,27 +28,57 @@
     font-size: 1rem;
     border: 0.15rem solid $white;
   }
+
+  &.xSmall {
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 0.15rem solid $white;
+  }
 }
 
-//z-index관리
-.zIndex1 {
-  left: 0;
-  z-index: 1;
+.xSmall {
+  //z-index관리
+  &.zIndex1 {
+    left: 0;
+    z-index: 1;
+  }
+
+  &.zIndex2 {
+    left: 1rem;
+    z-index: 2;
+  }
+
+  &.zIndex3 {
+    left: 2rem;
+    z-index: 3;
+  }
+
+  &.zIndex4 {
+    left: 3rem;
+    z-index: 4;
+  }
 }
 
-.zIndex2 {
-  left: 1.7rem;
-  z-index: 2;
-}
+.small {
+  &.zIndex1 {
+    left: 0;
+    z-index: 1;
+  }
 
-.zIndex3 {
-  left: 3.4rem;
-  z-index: 3;
-}
+  &.zIndex2 {
+    left: 1.3rem;
+    z-index: 2;
+  }
 
-.zIndex4 {
-  left: 5.1rem;
-  z-index: 4;
+  &.zIndex3 {
+    left: 2.6rem;
+    z-index: 3;
+  }
+
+  &.zIndex4 {
+    left: 3.8rem;
+    z-index: 4;
+  }
 }
 
 .profileNoneImage {
