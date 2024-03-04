@@ -20,7 +20,7 @@ const Card = ({ name, messages, reactions, backgroundImage, backgroundColor }) =
 
   return (
     <div className={cn(css.cardArea, css[baseColor])} style={{ background: `${background}` }}>
-      <div className={cn(css.cardLayerArea, css[baseColor])}></div>
+      <div className={cn(css.cardLayerArea, css[baseColor])} />
       <div className={css.contents}>
         <p className={css.titie}>To. {nameSlice(name)}</p>
         <div style={{ color: 'black' }}>
@@ -29,7 +29,7 @@ const Card = ({ name, messages, reactions, backgroundImage, backgroundColor }) =
         <div className={css.writerCount}>
           <p className={css.count}>{messages.length}</p>명이 작성했어요!
         </div>
-        <div className={cn(css.line, css[baseColor])}></div>
+        <div className={cn(css.line, css[baseColor])} />
       </div>
       <div className={css.emojiArea}>
         {reactions.slice(0, 3).map(item => (
