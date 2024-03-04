@@ -2,10 +2,6 @@
 
 .profileImage,
 .profileNoneImage {
-  position: absolute;
-  left: 0;
-  z-index: 0;
-
   @include rounded-full;
 
   // 사이즈 관리
@@ -15,8 +11,8 @@
   }
 
   &.medium {
-    width: 5.6rem;
-    height: 5.6rem;
+    width: 3.5rem;
+    height: 3.5rem;
     margin-right: 0.4rem;
     border: 0;
     border-radius: 10rem;

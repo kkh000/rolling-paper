@@ -10,7 +10,7 @@ import css from './Profiles.module.scss';
  * - Profiles : []
  * - size : xSmall, small
  */
-const Profiles = ({ profileList, size = 'small' }) => {
+const Profiles = ({ profileList = [], size = 'small' }) => {
   return (
     <div className={css.profilesArea}>
       {profileList.slice(0, 3).map(profile => (

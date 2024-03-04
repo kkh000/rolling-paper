@@ -6,7 +6,7 @@ const Card = ({ content, createdAt, font, imageURL, relationship, sender }) => {
   return (
     <div className={css.layout}>
       <section className={css.header}>
-        <Profile url={imageURL} />
+        <Profile imgUrl={imageURL} />
         <div className={css.profile}>
           <p>
             From. <span className={css.name}>{sender}</span>
