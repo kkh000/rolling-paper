@@ -7,23 +7,6 @@ import { ARROW_DOWN_ICON } from '../../../../constant/constant';
 import createAxiosInstance from '../../../../utils/axios';
 import css from './Emoji.module.scss';
 
-//TODO : recipient_id로 이모지 조회 필요
-const emojiList = () => {
-  const testData = [
-    {
-      id: 34,
-      emoji: '🥰',
-      count: 8,
-    },
-    {
-      id: 28,
-      emoji: '😄',
-      count: 7,
-    },
-  ];
-  return testData;
-};
-
 const Emoji = () => {
   const [emojiBoxToggle, setEmojiBoxToggle] = useState(false);
   const handleEmojiBoxClick = () => {
@@ -36,24 +19,9 @@ const Emoji = () => {
 
   const [showPicker, setShowPicker] = useState(false);
 
+  const [mainEmojiData, setMainEmojiData] = useState([]);
   const [emojiData, setEmojiData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getMainEmojiData();
-      setEmojiData(data);
-    };
-
-    fetchData();
-  }, [id]);
-
-  const handlePickerButtonClick = () => {
-    setShowPicker(!showPicker);
-  };
-
-  const handleEmojiClick = emojiObject => {
-    postEmojiData(emojiObject);
-  };
+  const [pickEmoji, setPickEmoji] = useState('');
 
   const postEmojiData = async emojiObject => {
     try {
@@ -78,13 +46,46 @@ const Emoji = () => {
     }
   };
 
+  const getEmojiData = async () => {
+    try {
+      const response = await axiosInstance.get(`/recipients/${id}/reactions/`);
+      console.log('GET 요청 성공:', response.data.results);
+      return response.data.results;
+    } catch (error) {
+      console.log('GET 요청 에러:', error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const mainEmoji = await getMainEmojiData();
+      const allEmoji = await getEmojiData();
+      setMainEmojiData(mainEmoji);
+      setEmojiData(allEmoji);
+    };
+
+    fetchData();
+  }, [pickEmoji]);
+
+  const handlePickerButtonClick = () => {
+    setShowPicker(!showPicker);
+  };
+
+  const handleEmojiClick = async emojiObject => {
+    await postEmojiData(emojiObject);
+    setPickEmoji(emojiObject.emoji);
+
+    const updatedEmojiData = await getEmojiData();
+    setEmojiData(updatedEmojiData);
+    setPickEmoji('');
+  };
+
   return (
     <div className={css.emojiArea}>
       <div className={css.reactionArea}>
         <div className={css.reaction}>
-          {/* TODO: 3개까지만 불러와야 함 */}
-          {emojiData.length > 0 &&
-            emojiData.map(emoji => (
+          {mainEmojiData?.length > 0 &&
+            mainEmojiData.map(emoji => (
               <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
             ))}
           <img
@@ -96,8 +97,8 @@ const Emoji = () => {
         </div>
         {emojiBoxToggle && (
           <div className={css.reactions}>
-            {emojiList().length > 0 &&
-              emojiList().map(emoji => (
+            {emojiData?.length > 0 &&
+              emojiData.map(emoji => (
                 <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
               ))}
           </div>
