@@ -11,20 +11,11 @@ import css from './Profiles.module.scss';
  * - size : xSmall, small
  */
 
-const Profiles = ({ profileList, onChange, size = 'small' }) => {
-  const handleProfileClick = url => {
-    onChange(url);
-  };
-
+const Profiles = ({ profileList, size = 'small' }) => {
   return (
     <div className={css.profilesArea}>
       {profileList.slice(0, 3).map(profile => (
-        <Profile
-          key={profile.id}
-          imgUrl={profile.profileImageURL}
-          size={size}
-          onClick={() => handleProfileClick(profile.profileImageURL)}
-        />
+        <Profile key={profile.id} imgUrl={profile.profileImageURL} size={size} />
       ))}
       {profileList.length > 3 && (
         <div className={cn(css.writerCount, css[size])}>+{profileList.length - 3}</div>

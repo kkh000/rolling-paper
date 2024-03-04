@@ -9,19 +9,12 @@ import css from './Profile.module.scss';
  * @returns
  */
 
-const Profile = ({ imgUrl, onClick, size = 'medium' }) => {
+const Profile = ({ imgUrl, size = 'medium' }) => {
   let imgUrlPath = imgUrl ?? NONE_PORFILE_IMAGE;
 
   const imageStatus = imgUrl ? 'profileImage' : 'profileNoneImage';
 
-  return (
-    <img
-      className={cn(css[imageStatus], css[size])}
-      src={imgUrlPath}
-      alt='profile'
-      onClick={onClick}
-    />
-  );
+  return <img className={cn(css[imageStatus], css[size])} src={imgUrlPath} alt='profile' />;
 };
 
 export default Profile;
