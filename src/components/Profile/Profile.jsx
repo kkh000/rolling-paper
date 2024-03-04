@@ -6,12 +6,17 @@ import css from './Profile.module.scss';
  * @param url
  * @returns div
  */
-const Profile = ({ url }) => {
+const Profile = ({ url, onClick }) => {
   const imgUrl = url || NONE_PORFILE_IMAGE;
 
   return (
     <div className={css.profile}>
-      <img className={url ? css.profileImage : css.profileNoneImage} src={imgUrl} alt='profile' />
+      <img
+        onClick={onClick}
+        className={url ? css.profileImage : css.profileNoneImage}
+        src={imgUrl}
+        alt='profile'
+      />
     </div>
   );
 };

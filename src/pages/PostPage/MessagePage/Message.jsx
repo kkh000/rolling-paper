@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import { RELATIONSHIP_LIST, FONT_LIST } from '../../../constant/constant';
+// import { NONE_PORFILE_IMAGE } from '../../../constant/constant';
 import createAxiosInstance from '../../../utils/axios';
 import FontPicker from './FontPicker';
 import InputName from './InputName';
@@ -16,9 +17,9 @@ const Message = () => {
   const [image, setImage] = useState(null);
   const [relationship, setRelationship] = useState(RELATIONSHIP_LIST[0]);
   const [font, setFont] = useState(FONT_LIST[0]);
-
   const { id } = useParams();
-  console.log(id);
+
+  const defaultImgae = 'https://cdn.pixabay.com/photo/2023/11/06/06/53/watermelon-8368960_1280.png'; // 임시이미지
 
   const handleNameChange = inputValue => {
     setName(inputValue);
@@ -51,8 +52,7 @@ const Message = () => {
       relationship: relationship,
       content: text,
       font: font,
-      profileImageURL:
-        'https://fastly.picsum.photos/id/311/200/200.jpg?hmac=CHiYGYQ3Xpesshw5eYWH7U0Kyl9zMTZLQuRDU4OtyH8',
+      profileImageURL: image || defaultImgae,
       createdAt: new Date().toISOString(),
     };
     console.log(messageData);
@@ -63,7 +63,6 @@ const Message = () => {
       console.error(error);
     }
   };
-  console.log(image);
   return (
     <form onSubmit={handleSubmit} className={css.layout}>
       <InputName onChange={handleNameChange} />

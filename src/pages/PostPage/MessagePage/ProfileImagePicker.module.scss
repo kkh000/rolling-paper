@@ -29,4 +29,8 @@
 .imageList {
   display: flex;
   gap: 0.3rem;
+
+  .imageList div:hover {
+    opacity: 0.4;
+  }
 }

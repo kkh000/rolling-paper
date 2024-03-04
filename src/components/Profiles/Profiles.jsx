@@ -6,7 +6,10 @@ import css from './Profiles.module.scss';
  * @param Profiles
  * @returns
  */
-const Profiles = ({ Profiles }) => {
+const Profiles = ({ Profiles, onChange }) => {
+  const handleProfileClick = url => {
+    onChange(url);
+  };
   //TODO:실제 받는 데이터로 반영 필요
   Profiles = [
     {
@@ -36,7 +39,12 @@ const Profiles = ({ Profiles }) => {
     <div className={css.profilsArea}>
       {Profiles.map &&
         Profiles.map(profile => (
-          <Profile key={profile.id} url={profile.profileImageURL} count={Profiles.length} />
+          <Profile
+            key={profile.id}
+            url={profile.profileImageURL}
+            count={Profiles.length}
+            onClick={() => handleProfileClick(profile.profileImageURL)}
+          />
         ))}
       <Profile type='count' count={Profiles.length} />
     </div>
