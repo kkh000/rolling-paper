@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EmojiPicker from 'emoji-picker-react';
 import BadgeEmoji from '../../../../components/Badge/BadgeEmoji';
@@ -10,7 +10,8 @@ import css from './Emoji.module.scss';
 const Emoji = () => {
   const { id } = useParams();
   const axiosInstance = createAxiosInstance();
-
+  const emojiPickerRef = useRef(null);
+  const emojiBoxRef = useRef(null);
   const [emojiBoxToggle, setEmojiBoxToggle] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
   const [mainEmojiData, setMainEmojiData] = useState([]);
@@ -19,12 +20,10 @@ const Emoji = () => {
 
   const postEmojiData = async emojiObject => {
     try {
-      const response = await axiosInstance.post(`/recipients/${id}/reactions/`, {
+      await axiosInstance.post(`/recipients/${id}/reactions/`, {
         emoji: `${emojiObject.emoji}`,
         type: 'increase',
       });
-
-      console.log('POST 요청 성공:', response.data);
     } catch (error) {
       console.error('POST 요청 에러:', error);
     }
@@ -32,10 +31,8 @@ const Emoji = () => {
 
   const getEmojiData = async (limit = null) => {
     const endpoint = limit ? `?limit=${limit}` : '';
-
     try {
       const response = await axiosInstance.get(`/recipients/${id}/reactions/${endpoint}`);
-      console.log('GET 요청 성공:', response.data.results);
       return response.data.results;
     } catch (error) {
       console.log('GET 요청 에러:', error);
@@ -52,6 +49,21 @@ const Emoji = () => {
 
     fetchData();
   }, [pickEmoji]);
+
+  useEffect(() => {
+    const handleDocumentClick = event => {
+      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
+        setShowPicker(false);
+      }
+      if (emojiBoxRef.current && !emojiBoxRef.current.contains(event.target)) {
+        setEmojiBoxToggle(false);
+      }
+    };
+    document.addEventListener('click', handleDocumentClick);
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, [emojiPickerRef, emojiBoxRef]);
 
   const handleEmojiBoxClick = () => {
     setEmojiBoxToggle(!emojiBoxToggle);
@@ -70,19 +82,9 @@ const Emoji = () => {
     setPickEmoji('');
   };
 
-  useEffect(() => {
-    if (emojiBoxToggle) {
-      setShowPicker(false);
-    }
-
-    if (showPicker) {
-      setEmojiBoxToggle(false);
-    }
-  }, [emojiBoxToggle, showPicker]);
-
   return (
     <div className={css.emojiArea}>
-      <div className={css.reactionArea}>
+      <div ref={emojiBoxRef} className={css.reactionArea}>
         <div className={css.reaction}>
           {mainEmojiData?.length > 0 &&
             mainEmojiData.map(emoji => (
@@ -104,7 +106,7 @@ const Emoji = () => {
           </div>
         )}
       </div>
-      <div className={css.addEmojiButton}>
+      <div ref={emojiPickerRef} className={css.addEmojiButton}>
         <OutlinedButton hasIcon='true' size='medium' onClick={handlePickerButtonClick}>
           추가
         </OutlinedButton>

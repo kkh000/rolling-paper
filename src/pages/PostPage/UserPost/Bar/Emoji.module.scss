@@ -30,6 +30,7 @@
   padding: 1.5rem;
   background-color: $white;
   border: 1px solid $gray-200;
+  z-index: 99;
 
   @include rounded-lg;
 }
@@ -46,4 +47,5 @@
   position: absolute;
   top: 115%; /* 버튼의 아래에 위치하도록 설정 */
   right: 0;
+  z-index: 99;
 }
