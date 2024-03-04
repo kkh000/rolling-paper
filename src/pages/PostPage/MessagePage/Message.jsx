@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import { RELATIONSHIP_LIST, FONT_LIST } from '../../../constant/constant';
 import createAxiosInstance from '../../../utils/axios';
@@ -15,6 +16,9 @@ const Message = () => {
   const [image, setImage] = useState(null);
   const [relationship, setRelationship] = useState(RELATIONSHIP_LIST[0]);
   const [font, setFont] = useState(FONT_LIST[0]);
+
+  const { id } = useParams();
+  console.log(id);
 
   const handleNameChange = inputValue => {
     setName(inputValue);
@@ -43,7 +47,7 @@ const Message = () => {
     const axios = createAxiosInstance();
     const messageData = {
       sender: name,
-      recipientId: 3942,
+      recipientId: id,
       relationship: relationship,
       content: text,
       font: font,
@@ -53,7 +57,7 @@ const Message = () => {
     };
     console.log(messageData);
     try {
-      const result = await axios.post(`/recipients/3942/messages/`, messageData);
+      const result = await axios.post(`/recipients/${id}/messages/`, messageData);
       console.log(result);
     } catch (error) {
       console.error(error);
