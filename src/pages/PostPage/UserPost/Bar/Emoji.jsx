@@ -8,17 +8,11 @@ import createAxiosInstance from '../../../../utils/axios';
 import css from './Emoji.module.scss';
 
 const Emoji = () => {
-  const [emojiBoxToggle, setEmojiBoxToggle] = useState(false);
-  const handleEmojiBoxClick = () => {
-    setEmojiBoxToggle(!emojiBoxToggle);
-  };
-  ////////// ~~~~
-
-  const axiosInstance = createAxiosInstance();
   const { id } = useParams();
+  const axiosInstance = createAxiosInstance();
 
+  const [emojiBoxToggle, setEmojiBoxToggle] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
-
   const [mainEmojiData, setMainEmojiData] = useState([]);
   const [emojiData, setEmojiData] = useState([]);
   const [pickEmoji, setPickEmoji] = useState('');
@@ -36,19 +30,11 @@ const Emoji = () => {
     }
   };
 
-  const getMainEmojiData = async () => {
-    try {
-      const response = await axiosInstance.get(`/recipients/${id}/reactions/?limit=3`);
-      console.log('GET 요청 성공:', response.data.results);
-      return response.data.results;
-    } catch (error) {
-      console.log('GET 요청 에러:', error);
-    }
-  };
+  const getEmojiData = async (limit = null) => {
+    const endpoint = limit ? `?limit=${limit}` : '';
 
-  const getEmojiData = async () => {
     try {
-      const response = await axiosInstance.get(`/recipients/${id}/reactions/`);
+      const response = await axiosInstance.get(`/recipients/${id}/reactions/${endpoint}`);
       console.log('GET 요청 성공:', response.data.results);
       return response.data.results;
     } catch (error) {
@@ -58,7 +44,7 @@ const Emoji = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const mainEmoji = await getMainEmojiData();
+      const mainEmoji = await getEmojiData(3);
       const allEmoji = await getEmojiData();
       setMainEmojiData(mainEmoji);
       setEmojiData(allEmoji);
@@ -66,6 +52,10 @@ const Emoji = () => {
 
     fetchData();
   }, [pickEmoji]);
+
+  const handleEmojiBoxClick = () => {
+    setEmojiBoxToggle(!emojiBoxToggle);
+  };
 
   const handlePickerButtonClick = () => {
     setShowPicker(!showPicker);
