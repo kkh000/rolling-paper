@@ -6,6 +6,8 @@ export const CLOSE_ICON = '/assets/close.svg';
 
 export const ARROW_UP_ICON = '/assets/arrow_up.svg';
 export const ARROW_DOWN_ICON = '/assets/arrow_down.svg';
+export const ARROW_LEFT_ICON = '/assets/arrow_left.svg';
+export const ARROW_RIGHT_ICON = '/assets/arrow_right.svg';
 
 export const EMOJI_ICON_PATH = '/assets/add-lg.svg';
 export const EMOJI_WHITE_ICON_PATH = '/assets/add-lg-white.svg';
