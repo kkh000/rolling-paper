@@ -1,8 +1,10 @@
+import dayjs from 'dayjs';
 import Badge from '../../../../components/Badge/Badge';
 import Profile from '../../../../components/Profile/Profile';
 import css from './Card.module.scss';
 
 const Card = ({ content, createdAt, font, imageURL, relationship, sender }) => {
+  const createdDate = dayjs(createdAt).format('YYYY-MM-DD');
   return (
     <div className={css.layout}>
       <section className={css.header}>
@@ -21,7 +23,7 @@ const Card = ({ content, createdAt, font, imageURL, relationship, sender }) => {
           {font}
         </p>
       </div>
-      <div className={css.createdAt}>{createdAt}</div>
+      <div className={css.createdAt}>{createdDate}</div>
     </div>
   );
 };
