@@ -1,29 +1,46 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { SHARE_ICON } from '../../../../constant/constant';
+import useOutsideClick from '../../../../hooks/useOutsideClick';
 import css from './Share.module.scss';
 
-const Share = () => {
-  const [shareBoxToggle, setShareBoxToggle] = useState(false);
-  const handleShareBoxClick = () => {
-    setShareBoxToggle(!shareBoxToggle);
+const Share = ({ shareList = [], onClick }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
   };
+
+  const handleButtonClick = async callback => {
+    setIsOpen(false);
+    const result = await callback();
+    if (result) onClick();
+  };
+
+  const shareRef = useRef(null);
+
+  useOutsideClick(shareRef, () => setIsOpen(false));
+
   return (
-    <div className={css.share}>
-      <div className={css.shareImage} onClick={handleShareBoxClick}>
-        <img src={SHARE_ICON} alt='share' />
-      </div>
-      {shareBoxToggle && (
-        <div className={css.shareArea}>
-          {/* TODO: 공유 기능 추가 필요 */}
-          <div className={css.shareSns}>
-            <p className={css.shareSnsText}>카카오톡 공유</p>
-          </div>
-          <div className={css.shareSns}>
-            <p className={css.shareSnsText}>URL 공유</p>
-          </div>
-        </div>
+    <section className={css.layout} ref={shareRef}>
+      <button className={css.button} onClick={toggleDropdown}>
+        <img className={css.img} src={SHARE_ICON} alt='share' />
+      </button>
+      {isOpen && (
+        <ul className={css.shareList}>
+          {shareList.map(share => (
+            <li
+              className={css.share}
+              key={share.name}
+              onClick={() => {
+                handleButtonClick(share.handler);
+              }}
+            >
+              {share.name} 공유
+            </li>
+          ))}
+        </ul>
       )}
-    </div>
+    </section>
   );
 };
 

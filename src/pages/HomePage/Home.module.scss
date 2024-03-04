@@ -1,0 +1,80 @@
+@import '../../styles/index';
+
+.common-style {
+  @include rounded-2xl;
+
+  display: flex;
+  width: 60rem;
+  background: $surface;
+  gap: 0.6rem;
+  padding: 5rem;
+}
+
+.layout {
+  margin-top: 3rem;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.9rem;
+
+  .point01 {
+    @extend .common-style;
+
+    flex-direction: row;
+  }
+
+  .point02 {
+    @extend .common-style;
+
+    flex-direction: row-reverse;
+  }
+
+  .mainImage {
+    display: flex;
+    width: 45rem;
+    height: 12rem;
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .pointNumber {
+      @include text-xs;
+      @include font-bold;
+
+      display: flex;
+      border-radius: 50px;
+      background: $purple-600;
+      padding: 0.4rem 0.8rem;
+      font-style: normal;
+      color: $white;
+    }
+
+    .title {
+      @include text-2xl;
+      @include font-bold;
+
+      color: $gray-900;
+      font-style: normal;
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .description {
+      @include text-lg;
+      @include font-normal;
+
+      color: $gray-500;
+      font-style: normal;
+    }
+  }
+
+  Button {
+    position: fixed;
+    bottom: 2.5rem;
+    transform: translateX(-50%);
+  }
+}
