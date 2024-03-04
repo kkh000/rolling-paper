@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import { RELATIONSHIP_LIST, FONT_LIST } from '../../../constant/constant';
-// import { NONE_PORFILE_IMAGE } from '../../../constant/constant';
 import createAxiosInstance from '../../../utils/axios';
 import FontPicker from './FontPicker';
 import InputName from './InputName';
@@ -18,6 +17,7 @@ const Message = () => {
   const [relationship, setRelationship] = useState(RELATIONSHIP_LIST[0]);
   const [font, setFont] = useState(FONT_LIST[0]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const defaultImgae = 'https://cdn.pixabay.com/photo/2023/11/06/06/53/watermelon-8368960_1280.png'; // 임시이미지
 
@@ -52,13 +52,15 @@ const Message = () => {
       relationship: relationship,
       content: text,
       font: font,
-      profileImageURL: image || defaultImgae,
+      profileImageURL: image ? image : defaultImgae,
       createdAt: new Date().toISOString(),
     };
     console.log(messageData);
     try {
       const result = await axios.post(`/recipients/${id}/messages/`, messageData);
       console.log(result);
+      const destination = `/post/${id}`;
+      navigate(destination);
     } catch (error) {
       console.error(error);
     }
