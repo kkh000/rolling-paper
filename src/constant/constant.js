@@ -1,3 +1,6 @@
+import { shareKakao } from '../utils/kakao';
+import { copyToClipboard } from '../utils/share';
+
 export const CHECK_ICON = '/assets/completed.svg';
 export const CLOSE_ICON = '/assets/close.svg';
 
@@ -46,3 +49,9 @@ export const AXIOS_CONTENT_TYPE = 'application/json';
 
 export const FONT_LIST = ['Noto Sans', 'Pretendarad', '나눔명조', '나눔손글씨 손편지체'];
 export const RELATIONSHIP_LIST = ['지인', '친구', '동료', '가족'];
+
+export const SHARE_OPTION_LIST = [
+  { name: '카카오톡', handler: shareKakao },
+  { name: '링크', handler: copyToClipboard },
+];
+export const WEB_URL = 'https://www.naver.com';
