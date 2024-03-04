@@ -21,7 +21,6 @@ const InputName = ({ onChange }) => {
       <Input
         value={inputValue}
         placeholder='이름을 입력해 주세요.'
-        isDisabled={false}
         isError={error}
         onChange={handleInputChange}
         onBlur={handleBlur}
