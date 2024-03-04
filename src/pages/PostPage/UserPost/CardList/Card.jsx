@@ -5,6 +5,9 @@ import css from './Card.module.scss';
 
 const Card = ({ content, createdAt, font, imageURL, relationship, sender }) => {
   const createdDate = dayjs(createdAt).format('YYYY-MM-DD');
+  const fontStyle = {
+    fontFamily: font,
+  };
   return (
     <div className={css.layout}>
       <section className={css.header}>
@@ -18,10 +21,7 @@ const Card = ({ content, createdAt, font, imageURL, relationship, sender }) => {
       </section>
       <div className={css.divider} />
       <div className={css.content}>
-        <p>
-          {content}
-          {font}
-        </p>
+        <p style={fontStyle}>{content}</p>
       </div>
       <div className={css.createdAt}>{createdDate}</div>
     </div>
