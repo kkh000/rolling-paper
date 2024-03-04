@@ -11,6 +11,12 @@ const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError, 
     setIsOpen(!isOpen);
   };
 
+  const handleButtonClick = event => {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleDropdown();
+  };
+
   const handleOptionClick = option => {
     setSelectedOption(option);
     setIsOpen(false);
@@ -22,7 +28,7 @@ const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError, 
       <button
         className={cn(css.button, isError && css.error)}
         disabled={isDisabled}
-        onClick={toggleDropdown}
+        onClick={handleButtonClick}
       >
         {selectedOption || 'Select Option'}
         <img

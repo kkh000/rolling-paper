@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../../../components/Button/Button';
 import { RELATIONSHIP_LIST, FONT_LIST } from '../../../constant/constant';
+import createAxiosInstance from '../../../utils/axios';
 import FontPicker from './FontPicker';
 import InputName from './InputName';
 import css from './Message.module.scss';
@@ -15,8 +16,8 @@ const Message = () => {
   const [relationship, setRelationship] = useState(RELATIONSHIP_LIST[0]);
   const [font, setFont] = useState(FONT_LIST[0]);
 
-  const handleNameChange = name => {
-    setName(name);
+  const handleNameChange = inputValue => {
+    setName(inputValue);
   };
 
   const handleTextChange = text => {
@@ -34,18 +35,30 @@ const Message = () => {
   const handleFontChange = font => {
     setFont(font);
   };
-
   const isActive = name.trim() !== '' && text.trim() !== '';
 
-  /*state 값사용하는곳이 없는경우가 있어서 임시로 지정*/
-  console.log('Name:', name);
-  console.log('Text:', text);
-  console.log('Image:', image);
-  console.log('Relationship:', relationship);
-  console.log('Font:', font);
+  const handleSubmit = async event => {
+    event.preventDefault();
+    const axios = createAxiosInstance();
+    const messageData = {
+      sender: name,
+      relationship: relationship,
+      content: text,
+      font: font,
+      ProfileImageURL: image,
+      createdAt: new Date().toISOString(),
+    };
+    console.log(messageData);
+    try {
+      const result = await axios.post(' /recipients/{recipientId}/messages/', messageData);
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <section className={css.layout}>
+    <form onSubmit={handleSubmit} className={css.layout}>
       <InputName onChange={handleNameChange} />
       <ProfileImagePicker onChange={handleImageChange} />
       <RelationshipPicker onChange={handleRelationshipChange} />
@@ -54,7 +67,7 @@ const Message = () => {
       <Button width={'100%'} isDisabled={!isActive}>
         생성하기
       </Button>
-    </section>
+    </form>
   );
 };
 
