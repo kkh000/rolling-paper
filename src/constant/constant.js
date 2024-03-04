@@ -44,5 +44,5 @@ export const BACKGROUND_IMAGE_URL_LIST = [
 export const AXIOS_BASE_URL = 'https://rolling-api.vercel.app/4-9/';
 export const AXIOS_CONTENT_TYPE = 'application/json';
 
-export const FONT_LIST = ['Noto Sans', 'Pretendarad', '나눔명조', '나눔손글씨 손편지체'];
+export const FONT_LIST = ['Noto Sans', 'Pretendard', '나눔명조', '나눔손글씨 손편지체'];
 export const RELATIONSHIP_LIST = ['지인', '친구', '동료', '가족'];

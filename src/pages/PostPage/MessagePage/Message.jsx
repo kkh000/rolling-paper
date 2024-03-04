@@ -35,6 +35,7 @@ const Message = () => {
   const handleFontChange = font => {
     setFont(font);
   };
+
   const isActive = name.trim() !== '' && text.trim() !== '';
 
   const handleSubmit = async event => {
@@ -42,21 +43,23 @@ const Message = () => {
     const axios = createAxiosInstance();
     const messageData = {
       sender: name,
+      recipientId: 3942,
       relationship: relationship,
       content: text,
       font: font,
-      ProfileImageURL: image,
+      profileImageURL:
+        'https://fastly.picsum.photos/id/311/200/200.jpg?hmac=CHiYGYQ3Xpesshw5eYWH7U0Kyl9zMTZLQuRDU4OtyH8',
       createdAt: new Date().toISOString(),
     };
     console.log(messageData);
     try {
-      const result = await axios.post(' /recipients/{recipientId}/messages/', messageData);
+      const result = await axios.post(`/recipients/3942/messages/`, messageData);
       console.log(result);
     } catch (error) {
       console.error(error);
     }
   };
-
+  console.log(image);
   return (
     <form onSubmit={handleSubmit} className={css.layout}>
       <InputName onChange={handleNameChange} />
