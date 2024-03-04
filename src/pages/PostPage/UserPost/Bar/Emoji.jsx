@@ -70,6 +70,16 @@ const Emoji = () => {
     setPickEmoji('');
   };
 
+  useEffect(() => {
+    if (emojiBoxToggle) {
+      setShowPicker(false);
+    }
+
+    if (showPicker) {
+      setEmojiBoxToggle(false);
+    }
+  }, [emojiBoxToggle, showPicker]);
+
   return (
     <div className={css.emojiArea}>
       <div className={css.reactionArea}>
