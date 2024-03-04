@@ -1,0 +1,32 @@
+@import '../../styles/index';
+
+.carousel {
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+  margin: 0 -0.5rem;
+  gap: 0 1rem;
+}
+
+.item {
+  flex: 0 0 calc((100% - 3rem) / 4);
+}
+
+.leftButton {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+}
+
+.rightButton {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
