@@ -1,5 +1,9 @@
 @import '../../styles/index';
 
+.layout {
+  position: relative;
+}
+
 .carousel {
   overflow: hidden;
   position: relative;
@@ -17,16 +21,30 @@
   flex: 0 0 calc((100% - 3rem) / 4);
 }
 
-.leftButton {
+.leftButton,
+.rightButton {
   position: absolute;
   transform: translateY(-50%);
   top: 50%;
-  left: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background: $white;
+  border: 1px solid $gray-400;
+  width: 2rem;
+  height: 2rem;
+  @include rounded-3xl;
+
+  &:hover {
+    opacity: 0.8;
+    background-color: $gray-200;
+  }
+}
+
+.leftButton {
+  left: -1rem;
 }
 
 .rightButton {
-  transform: translateY(-50%);
-  position: absolute;
-  top: 50%;
-  right: 0;
+  right: -1rem;
 }
