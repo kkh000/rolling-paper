@@ -21,6 +21,12 @@
   margin: 1.4rem 0;
 }
 
+.toggleButtonBox {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .title {
   margin: 0.8rem 0;
   @include text-2xl;
@@ -29,4 +35,13 @@
 
 .description {
   @include text-sm;
+}
+
+.uploadImageButton {
+  background: $purple-400;
+  color: white;
+  padding: 1rem;
+  border: none;
+  @include rounded-2xl;
+  @include font-bold;
 }
