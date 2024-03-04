@@ -1,13 +1,13 @@
-import { BACKGROUND_COLOR_LIST, BACKGROUND_IMAGE_URL_LIST } from '../../../../constant/constant';
 import { cn } from '../../../../utils/classNames';
 import OptionCard from '../OptionCard/OptionCard';
 import css from './OptionCardList.module.scss';
 
-const OptionCardList = ({ selectedButton, selectedOption, onClick }) => {
-  const cardList = selectedButton === 'color' ? BACKGROUND_COLOR_LIST : BACKGROUND_IMAGE_URL_LIST;
+const OptionCardList = ({ cardList, selectedButton, selectedOption, onClick }) => {
+  const topCards = cardList.slice(0, 4);
+  console.log(topCards);
   return (
     <ul className={css.layout}>
-      {cardList.map((card, index) => (
+      {topCards.map((card, index) => (
         <li
           className={cn(selectedOption === index && css.selected)}
           key={index}
