@@ -10,19 +10,19 @@ import css from './CardList.module.scss';
 const testId = '4025';
 const CardList = () => {
   const [showModal, setShowModal] = useState(false);
-  const [messageData, setMessageData] = useState({});
+  const [messagesData, setMessagesData] = useState({});
   const axios = createAxiosInstance();
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(`/recipients/${testId}/messages/?limit=1000`);
-      setMessageData(data);
+      setMessagesData(data);
     };
 
     fetchData();
   }, []);
 
-  console.log(messageData);
+  console.log(messagesData);
   const toggleModal = () => setShowModal(!showModal);
   const handleSendMessageClick = e => {
     e.stopPropagation();
@@ -34,16 +34,9 @@ const CardList = () => {
         <div className={css.card}>
           <RoundedPlusButton onClick={e => handleSendMessageClick(e)} />
         </div>
-        {/* data 받아서 map 돌릴예정 */}
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {messagesData?.results?.map(data => (
+          <Card key={data.id} {...data} />
+        ))}
       </div>
       {showModal && (
         <Modal

@@ -2,23 +2,26 @@ import Badge from '../../../../components/Badge/Badge';
 import Profile from '../../../../components/Profile/Profile';
 import css from './Card.module.scss';
 
-const Card = () => {
+const Card = ({ content, createdAt, font, imageURL, relationship, sender }) => {
   return (
     <div className={css.layout}>
       <section className={css.header}>
-        <Profile />
+        <Profile url={imageURL} />
         <div className={css.profile}>
           <p>
-            From. <span className={css.name}>이름</span>
+            From. <span className={css.name}>{sender}</span>
           </p>
-          <Badge relationship='지인' />
+          <Badge relationship={relationship} />
         </div>
       </section>
       <div className={css.divider} />
       <div className={css.content}>
-        <p>롤링페이퍼 내용</p>
+        <p>
+          {content}
+          {font}
+        </p>
       </div>
-      <div className={css.createdAt}>2024.03.02</div>
+      <div className={css.createdAt}>{createdAt}</div>
     </div>
   );
 };
