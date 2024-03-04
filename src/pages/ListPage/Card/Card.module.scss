@@ -1,0 +1,94 @@
+@import '../../../styles/index';
+
+.cardArea {
+  width: 17.19rem;
+  height: 16.25rem;
+  border-radius: 1rem;
+  border: 0.06rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.63rem;
+
+  position: relative;
+}
+
+.cardLayerArea {
+  width: 17.19rem;
+  height: 16.25rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &.white {
+    background-color: $black;
+    opacity: 20%;
+  }
+}
+
+.contents {
+  width: 90%;
+  height: 70%;
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titie {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  letter-spacing: -0.01em;
+  text-align: left;
+  margin: 0.82rem 0 0.44rem;
+}
+
+.writerCount {
+  margin: 0.44rem 0 0.63rem;
+  display: flex;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.63rem;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.count {
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.63rem;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.line {
+  opacity: 12%;
+  height: 0.94rem;
+  &.white {
+    border-bottom: 0.15rem solid $white;
+  }
+
+  &.black {
+    border-bottom: 0.15rem solid $black;
+  }
+}
+
+.emojiArea {
+  display: flex;
+  gap: 0.63rem;
+  height: 2.5rem;
+  margin-top: 0.63rem;
+  z-index: 1;
+}
+
+.white {
+  color: white;
+}
+.black {
+  color: black;
+}
