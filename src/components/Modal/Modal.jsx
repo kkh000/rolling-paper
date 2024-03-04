@@ -5,7 +5,10 @@ import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import css from './Modal.module.scss';
 
-const Modal = ({ profileImage, creatorName, relationship, createdAt, onClose, message }) => {
+const Modal = ({ profileImage, creatorName, relationship, createdAt, onClose, message, font }) => {
+  const fontStyle = {
+    fontFamily: font,
+  };
   useEffect(() => {
     const prevScrollY = preventScroll();
     return () => {
@@ -31,7 +34,9 @@ const Modal = ({ profileImage, creatorName, relationship, createdAt, onClose, me
           <div className={css.cardCreatedAt}>{createdAt}</div>
         </div>
         <div className={css.line}></div>
-        <p className={css.textBox}>{message}</p>
+        <p className={css.textBox} style={fontStyle}>
+          {message}
+        </p>
         <Button size='s' onClick={onClose}>
           확인
         </Button>

@@ -3,12 +3,12 @@ import Profile from '../../../../components/Profile/Profile';
 import { createdDate } from '../../../../utils/createdDate';
 import css from './Card.module.scss';
 
-const Card = ({ content, createdAt, font, imageURL, relationship, sender }) => {
+const Card = ({ content, createdAt, font, imageURL, relationship, sender, onClick }) => {
   const fontStyle = {
     fontFamily: font,
   };
   return (
-    <div className={css.layout}>
+    <div className={css.layout} onClick={onClick}>
       <section className={css.header}>
         <Profile imgUrl={imageURL} />
         <div className={css.profile}>
