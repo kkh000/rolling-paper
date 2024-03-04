@@ -13,8 +13,8 @@ const CardList = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [messagesData, setMessagesData] = useState({});
-  const [selectedCardData, setSelectedCardData] = useState({});
-  const { content, createdAt, font, profileImageURL, relationship, sender } = selectedCardData;
+  const [selectedMessageData, setSelectedMessageData] = useState({});
+  const { content, createdAt, font, profileImageURL, relationship, sender } = selectedMessageData;
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(`/recipients/${testId}/messages/?limit=1000`);
@@ -24,10 +24,11 @@ const CardList = () => {
     fetchData();
   }, []);
 
+  console.log(messagesData);
   const toggleModal = cardData => {
     setShowModal(!showModal);
     if (!showModal) {
-      setSelectedCardData(cardData);
+      setSelectedMessageData(cardData);
     }
   };
   const handleSendMessageClick = e => {
