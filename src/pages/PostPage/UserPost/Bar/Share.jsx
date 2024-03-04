@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { SHARE_ICON } from '../../../../constant/constant';
+import useOutsideClick from '../../../../hooks/useOutsideClick';
 import css from './Share.module.scss';
 
 const Share = ({ shareList = [], onClick }) => {
@@ -15,8 +16,12 @@ const Share = ({ shareList = [], onClick }) => {
     if (result) onClick();
   };
 
+  const shareRef = useRef(null);
+
+  useOutsideClick(shareRef, () => setIsOpen(false));
+
   return (
-    <section className={css.layout}>
+    <section className={css.layout} ref={shareRef}>
       <button className={css.button} onClick={toggleDropdown}>
         <img className={css.img} src={SHARE_ICON} alt='share' />
       </button>
