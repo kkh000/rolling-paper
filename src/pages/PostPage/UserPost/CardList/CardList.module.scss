@@ -1,0 +1,30 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.cardArea {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  width: 100%;
+  background: $orange-200;
+}
+
+.cardBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 75.2rem;
+  margin: 7rem 8rem 10rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24rem;
+  height: 17.5rem;
+  background: $white;
+
+  @include rounded-2xl;
+  @include shadow;
+}

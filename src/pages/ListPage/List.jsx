@@ -6,7 +6,6 @@ import css from './List.module.scss';
 const List = () => {
   //TODO : 인기 롤링 페이퍼, 최신 롤링 페이퍼 데이터 받아오기
   //TODO : Carousel적용 필요
-
   const bestRollingList = [];
   const newRollingList = [];
 
@@ -22,6 +21,8 @@ const List = () => {
                 name={data.name}
                 messages={data.recentMessages}
                 reactions={data.topReactions}
+                backgroundImage={data.backgroundImageURL}
+                backgroundColor={data.backgroundColor}
               />
             ))}
         </div>
@@ -36,13 +37,15 @@ const List = () => {
                 name={data.name}
                 messages={data.recentMessages}
                 reactions={data.topReactions}
+                backgroundImage={data.backgroundImageURL}
+                backgroundColor={data.backgroundColor}
               />
             ))}
         </div>
       </section>
       <section className={css.buttomArea}>
         <Link to='/post' className={css.button}>
-          <Buttom size={280}>나도 만들어보기</Buttom>
+          <Buttom width={'17.5rem'}>나도 만들어보기</Buttom>
         </Link>
       </section>
     </div>
