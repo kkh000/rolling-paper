@@ -29,22 +29,26 @@ const Emoji = () => {
     }
   };
 
-  const getEmojiData = async (limit = null) => {
-    const endpoint = limit ? `?limit=${limit}` : '';
-    try {
-      const response = await axios.get(`/recipients/${id}/reactions/${endpoint}`);
-      return response.data.results;
-    } catch (error) {
-      console.log('GET 요청 에러:', error);
-    }
-  };
-
   useEffect(() => {
     const loadEmojiData = async () => {
-      const mainEmoji = await getEmojiData(3);
-      const allEmoji = await getEmojiData();
-      setMainEmojiData(mainEmoji);
-      setEmojiData(allEmoji);
+      const getEmojiData = async (limit = null) => {
+        const endpoint = limit ? `?limit=${limit}` : '';
+        try {
+          const response = await axios.get(`/recipients/${id}/reactions/${endpoint}`);
+          return response.data.results;
+        } catch (error) {
+          console.log('GET 요청 에러:', error);
+        }
+      };
+
+      try {
+        const mainEmoji = await getEmojiData(3);
+        const allEmoji = await getEmojiData();
+        setMainEmojiData(mainEmoji);
+        setEmojiData(allEmoji);
+      } catch (error) {
+        console.error('에러 발생:', error);
+      }
     };
 
     loadEmojiData();
