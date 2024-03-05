@@ -3,9 +3,9 @@ import css from './OutlinedButton.module.scss';
 
 const OutlinedButton = ({
   isDisabled = false,
-  hasIcon = true,
-  size = 'small',
-  children = 'Enabled',
+  hasIcon = false,
+  size = 'extraLarge',
+  children,
   onClick,
 }) => {
   return (
