@@ -3,17 +3,20 @@ import { ARROW_DOWN_ICON, ARROW_UP_ICON } from '../../constant/constant';
 import { cn } from '../../utils/classNames';
 import css from './Dropdown.module.scss';
 
-const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError }) => {
+const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(initialOption);
 
-  const toggleDropdown = () => {
+  const handleButtonClick = event => {
+    event.preventDefault();
+    event.stopPropagation();
     setIsOpen(!isOpen);
   };
 
   const handleOptionClick = option => {
     setSelectedOption(option);
     setIsOpen(false);
+    onChange(option);
   };
 
   return (
@@ -21,7 +24,7 @@ const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError }
       <button
         className={cn(css.button, isError && css.error)}
         disabled={isDisabled}
-        onClick={toggleDropdown}
+        onClick={handleButtonClick}
       >
         {selectedOption || 'Select Option'}
         <img

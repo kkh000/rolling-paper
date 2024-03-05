@@ -1,12 +1,11 @@
 @import '../../../styles/index';
 @import './mixins';
-
 @include form-box;
 
 .profileImage {
   display: flex;
-  align-items: center;
   gap: 2rem;
+  align-items: center;
 }
 
 .defaultImage {

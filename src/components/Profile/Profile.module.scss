@@ -1,28 +1,43 @@
 @import '../../styles/index';
 
-.profile {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
+.profileImage,
+.profileNoneImage {
   background-color: $gray-300;
 
   @include rounded-full;
-}
 
-.profileImage {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  // 사이즈 관리
+  &.large {
+    width: 5rem;
+    height: 5rem;
+  }
 
-  @include rounded-full;
+  &.medium {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 0.4rem;
+    border: 0;
+    border-radius: 10rem;
+  }
 
-  object-fit: cover;
+  &.small {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
+    border: 0.15rem solid $white;
+  }
+
+  &.xSmall {
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 0.15rem solid $white;
+  }
 }
 
 .profileNoneImage {
-  width: 1.6rem;
-  height: 1.6rem;
+  grid-area: img;
+  width: 1.75rem;
+  padding: 0.4rem;
+  background-color: $gray-300;
+  background-size: cover;
 }
