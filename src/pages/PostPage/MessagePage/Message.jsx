@@ -65,6 +65,7 @@ const Message = () => {
       console.error(error);
     }
   };
+
   return (
     <form onSubmit={handleSubmit} className={css.layout}>
       <InputName onChange={handleNameChange} />

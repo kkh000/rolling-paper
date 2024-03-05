@@ -7,14 +7,10 @@ const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError, 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(initialOption);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
   const handleButtonClick = event => {
     event.preventDefault();
     event.stopPropagation();
-    toggleDropdown();
+    setIsOpen(!isOpen);
   };
 
   const handleOptionClick = option => {
