@@ -52,11 +52,11 @@ const Emoji = () => {
 
   useEffect(() => {
     const handleDocumentClick = event => {
-      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
-        setShowPicker(false);
-      }
       if (emojiBoxRef.current && !emojiBoxRef.current.contains(event.target)) {
         setEmojiBoxToggle(false);
+      }
+      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
+        setShowPicker(false);
       }
     };
     document.addEventListener('click', handleDocumentClick);
@@ -84,8 +84,8 @@ const Emoji = () => {
 
   return (
     <div className={css.emojiArea}>
-      <div ref={emojiBoxRef} className={css.reactionArea}>
-        <div className={css.reaction}>
+      <div ref={emojiBoxRef} className={css.emojiBadgeBox}>
+        <div className={css.mainEmojiBadge}>
           {mainEmojiData?.length > 0 &&
             mainEmojiData.map(emoji => (
               <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
@@ -98,7 +98,7 @@ const Emoji = () => {
           />
         </div>
         {emojiBoxToggle && (
-          <div className={css.reactions}>
+          <div className={css.allEmojiBadge}>
             {emojiData?.length > 0 &&
               emojiData.map(emoji => (
                 <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
