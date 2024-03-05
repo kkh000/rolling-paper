@@ -9,7 +9,7 @@ import css from './Emoji.module.scss';
 
 const Emoji = () => {
   const { id } = useParams();
-  const axiosInstance = createAxiosInstance();
+  const axios = createAxiosInstance();
   const emojiPickerRef = useRef(null);
   const emojiBoxRef = useRef(null);
   const [emojiBoxToggle, setEmojiBoxToggle] = useState(false);
@@ -20,7 +20,7 @@ const Emoji = () => {
 
   const postEmojiData = async emojiObject => {
     try {
-      await axiosInstance.post(`/recipients/${id}/reactions/`, {
+      await axios.post(`/recipients/${id}/reactions/`, {
         emoji: `${emojiObject.emoji}`,
         type: 'increase',
       });
@@ -32,7 +32,7 @@ const Emoji = () => {
   const getEmojiData = async (limit = null) => {
     const endpoint = limit ? `?limit=${limit}` : '';
     try {
-      const response = await axiosInstance.get(`/recipients/${id}/reactions/${endpoint}`);
+      const response = await axios.get(`/recipients/${id}/reactions/${endpoint}`);
       return response.data.results;
     } catch (error) {
       console.log('GET 요청 에러:', error);
