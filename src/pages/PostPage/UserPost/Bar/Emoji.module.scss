@@ -8,20 +8,21 @@
   border-left: 1px;
 }
 
-.reactionArea {
+.emojiBadgeBox {
   display: flex;
   justify-content: flex-end;
 }
 
-.reaction {
+.mainEmojiBadge {
   display: flex;
   gap: 0.5rem;
   align-items: center;
 }
 
-.reactions {
+.allEmojiBadge {
   position: absolute;
   top: 3.1rem;
+  z-index: 99;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -36,4 +37,15 @@
 
 .arrowDown {
   width: 0.8rem;
+}
+
+.addEmojiButton {
+  position: relative;
+}
+
+.emojiPicker {
+  position: absolute;
+  top: 115%;
+  right: 0;
+  z-index: 99;
 }
