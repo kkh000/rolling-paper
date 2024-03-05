@@ -8,43 +8,42 @@ import Card from './Card';
 import css from './CardList.module.scss';
 
 const testId = '4025';
-const initURL = `/recipients/${testId}/messages/?limit=8`;
+
 const CardList = () => {
   const axios = createAxiosInstance();
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [messagesList, setMessagesList] = useState([]);
   const [selectedMessageData, setSelectedMessageData] = useState({});
-  const [nextPageURL, setNextPageURL] = useState(initURL);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasNextPage, setHasNextPage] = useState(true);
   const { content, createdAt, font, profileImageURL, relationship, sender } = selectedMessageData;
+  const pageSize = 8;
+  const getDataURL = `recipients/${testId}/messages/?limit=${currentPage * pageSize}`;
 
   const fetchMessagesData = async url => {
-    const {
-      data: { next, results },
-    } = await axios.get(url);
-    setMessagesList(prevList => [...prevList, ...results]);
-    setNextPageURL(next);
+    try {
+      const {
+        data: { results, next },
+      } = await axios.get(url);
+      setMessagesList(results);
+      setCurrentPage(currentPage + 1);
+      setHasNextPage(!!next);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleScroll = () => {
-    if (!nextPageURL) return;
-    if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
-    ) {
-      fetchMessagesData(nextPageURL);
+    if (!hasNextPage) return;
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+
+    if (scrollHeight - scrollTop <= clientHeight + 500) {
+      fetchMessagesData(getDataURL);
     }
   };
-  useEffect(() => {
-    fetchMessagesData(nextPageURL);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [nextPageURL]);
 
   const toggleModal = cardData => {
     setShowModal(!showModal);
@@ -52,18 +51,31 @@ const CardList = () => {
       setSelectedMessageData(cardData);
     }
   };
+
   const handleSendMessageClick = e => {
     e.stopPropagation();
     navigate(`/post/${testId}/message`);
   };
+
+  useEffect(() => {
+    fetchMessagesData(getDataURL);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [currentPage]);
+
   return (
     <div className={css.cardArea}>
       <div className={css.cardBox}>
         <div className={css.card}>
           <RoundedPlusButton onClick={e => handleSendMessageClick(e)} />
         </div>
-        {messagesList?.map(data => (
-          <Card key={data.id} {...data} onClick={() => toggleModal(data)} />
+        {messagesList?.map((data, idx) => (
+          <Card key={idx} {...data} onClick={() => toggleModal(data)} />
         ))}
       </div>
       {showModal && (
