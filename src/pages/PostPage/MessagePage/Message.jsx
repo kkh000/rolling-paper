@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import { RELATIONSHIP_LIST, FONT_LIST } from '../../../constant/constant';
+import createAxiosInstance from '../../../utils/axios';
 import FontPicker from './FontPicker';
 import InputName from './InputName';
 import css from './Message.module.scss';
@@ -14,9 +16,13 @@ const Message = () => {
   const [image, setImage] = useState(null);
   const [relationship, setRelationship] = useState(RELATIONSHIP_LIST[0]);
   const [font, setFont] = useState(FONT_LIST[0]);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  const handleNameChange = name => {
-    setName(name);
+  const defaultImgae = 'https://cdn.pixabay.com/photo/2023/11/06/06/53/watermelon-8368960_1280.png'; // 임시이미지
+
+  const handleNameChange = inputValue => {
+    setName(inputValue);
   };
 
   const handleTextChange = text => {
@@ -37,15 +43,31 @@ const Message = () => {
 
   const isActive = name.trim() !== '' && text.trim() !== '';
 
-  /*state 값사용하는곳이 없는경우가 있어서 임시로 지정*/
-  console.log('Name:', name);
-  console.log('Text:', text);
-  console.log('Image:', image);
-  console.log('Relationship:', relationship);
-  console.log('Font:', font);
+  const handleSubmit = async event => {
+    event.preventDefault();
+    const axios = createAxiosInstance();
+    const messageData = {
+      sender: name,
+      recipientId: id,
+      relationship: relationship,
+      content: text,
+      font: font,
+      profileImageURL: image ? image : defaultImgae,
+      createdAt: new Date().toISOString(),
+    };
+    console.log(messageData);
+    try {
+      const result = await axios.post(`/recipients/${id}/messages/`, messageData);
+      console.log(result);
+      const destination = `/post/${id}`;
+      navigate(destination);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <section className={css.layout}>
+    <form onSubmit={handleSubmit} className={css.layout}>
       <InputName onChange={handleNameChange} />
       <ProfileImagePicker onChange={handleImageChange} />
       <RelationshipPicker onChange={handleRelationshipChange} />
@@ -54,7 +76,7 @@ const Message = () => {
       <Button width={'100%'} isDisabled={!isActive}>
         생성하기
       </Button>
-    </section>
+    </form>
   );
 };
 

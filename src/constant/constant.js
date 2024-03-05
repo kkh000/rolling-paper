@@ -49,7 +49,7 @@ export const BACKGROUND_IMAGE_URL_LIST = [
 export const AXIOS_BASE_URL = 'https://rolling-api.vercel.app/4-9/';
 export const AXIOS_CONTENT_TYPE = 'application/json';
 
-export const FONT_LIST = ['Noto Sans', 'Pretendarad', '나눔명조', '나눔손글씨 손편지체'];
+export const FONT_LIST = ['Noto Sans', 'Pretendard', '나눔명조', '나눔손글씨 손편지체'];
 export const RELATIONSHIP_LIST = ['지인', '친구', '동료', '가족'];
 
 export const SHARE_OPTION_LIST = [
@@ -57,3 +57,17 @@ export const SHARE_OPTION_LIST = [
   { name: '링크', handler: copyToClipboard },
 ];
 export const WEB_URL = 'https://www.naver.com';
+
+
+export const PROFILE_IMAGE_URL_LIST = [
+  "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/sprint-proj-image/default_avatar.png",
+        "https://picsum.photos/id/522/100/100",
+        "https://picsum.photos/id/547/100/100",
+        "https://picsum.photos/id/268/100/100",
+        "https://picsum.photos/id/1082/100/100",
+        "https://picsum.photos/id/571/100/100",
+        "https://picsum.photos/id/494/100/100",
+        "https://picsum.photos/id/859/100/100",
+        "https://picsum.photos/id/437/100/100",
+        "https://picsum.photos/id/1064/100/100"
+]
