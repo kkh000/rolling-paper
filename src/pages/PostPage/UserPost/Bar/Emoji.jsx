@@ -40,14 +40,15 @@ const Emoji = () => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const loadEmojiData = async () => {
       const mainEmoji = await getEmojiData(3);
       const allEmoji = await getEmojiData();
       setMainEmojiData(mainEmoji);
       setEmojiData(allEmoji);
     };
 
-    fetchData();
+    loadEmojiData();
+    setPickEmoji('');
   }, [pickEmoji]);
 
   useEffect(() => {
@@ -76,10 +77,6 @@ const Emoji = () => {
   const handleEmojiClick = async emojiObject => {
     await postEmojiData(emojiObject);
     setPickEmoji(emojiObject.emoji);
-
-    const updatedEmojiData = await getEmojiData();
-    setEmojiData(updatedEmojiData);
-    setPickEmoji('');
   };
 
   return (
