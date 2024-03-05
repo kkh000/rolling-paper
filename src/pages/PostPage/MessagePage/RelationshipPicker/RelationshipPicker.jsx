@@ -1,6 +1,6 @@
-import Dropdown from '../../../components/Dropdown/Dropdown';
-import { RELATIONSHIP_LIST } from '../../../constant/constant';
-import css from './Message.module.scss';
+import Dropdown from '../../../../components/Dropdown/Dropdown';
+import { RELATIONSHIP_LIST } from '../../../../constant/constant';
+import css from '../Message.module.scss';
 
 const RelationshipPicker = ({ onChange }) => {
   return (
