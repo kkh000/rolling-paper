@@ -11,12 +11,8 @@ const Card = ({ name, messages, reactions, backgroundImage, backgroundColor }) =
     return name;
   };
 
-  let baseColor = 'black';
-  let background = backgroundColor;
-  if (backgroundImage) {
-    baseColor = 'white';
-    background = `url(${backgroundImage})`;
-  }
+  let baseColor = backgroundImage ? 'white' : '';
+  let background = backgroundImage ? `url(${backgroundImage})` : backgroundColor;
 
   return (
     <div className={cn(css.cardArea, css[baseColor])} style={{ background: `${background}` }}>
@@ -29,7 +25,7 @@ const Card = ({ name, messages, reactions, backgroundImage, backgroundColor }) =
         <div className={css.writerCount}>
           <p className={css.count}>{messages.length}</p>명이 작성했어요!
         </div>
-        <div className={cn(css.line, css[baseColor])} />
+        <div className={css.line} />
       </div>
       <div className={css.emojiArea}>
         {reactions.slice(0, 3).map(item => (

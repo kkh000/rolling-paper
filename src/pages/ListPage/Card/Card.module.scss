@@ -3,7 +3,7 @@
 .cardArea {
   width: 17.19rem;
   height: 16.25rem;
-  border-radius: 1rem;
+  @include rounded-2xl;
   border: 0.06rem;
   display: flex;
   justify-content: center;
@@ -16,14 +16,14 @@
 .cardLayerArea {
   width: 17.19rem;
   height: 16.25rem;
-  border-radius: 1rem;
+  @include rounded-2xl;
   position: absolute;
   top: 0;
   left: 0;
 
   &.white {
     background-color: $black;
-    opacity: 20%;
+    opacity: 30%;
   }
 }
 
@@ -41,7 +41,6 @@
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2.25rem;
-  letter-spacing: -0.01em;
   text-align: left;
   margin: 0.82rem 0 0.44rem;
 }
@@ -53,7 +52,6 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.63rem;
-  letter-spacing: -0.01em;
   text-align: left;
 }
 
@@ -62,20 +60,13 @@
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.63rem;
-  letter-spacing: -0.01em;
   text-align: left;
 }
 
 .line {
-  opacity: 12%;
+  opacity: 30%;
   height: 0.94rem;
-  &.white {
-    border-bottom: 0.15rem solid $white;
-  }
-
-  &.black {
-    border-bottom: 0.15rem solid $black;
-  }
+  border-bottom: 0.15rem solid $white;
 }
 
 .emojiArea {
@@ -88,7 +79,4 @@
 
 .white {
   color: white;
-}
-.black {
-  color: black;
 }
