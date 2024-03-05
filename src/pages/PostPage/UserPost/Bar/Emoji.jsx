@@ -4,6 +4,7 @@ import EmojiPicker from 'emoji-picker-react';
 import BadgeEmoji from '../../../../components/Badge/BadgeEmoji';
 import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import { ARROW_DOWN_ICON } from '../../../../constant/constant';
+import useOutsideClick from '../../../../hooks/useOutsideClick';
 import createAxiosInstance from '../../../../utils/axios';
 import css from './Emoji.module.scss';
 
@@ -55,21 +56,6 @@ const Emoji = () => {
     setPickEmoji('');
   }, [pickEmoji]);
 
-  useEffect(() => {
-    const handleDocumentClick = event => {
-      if (emojiBoxRef.current && !emojiBoxRef.current.contains(event.target)) {
-        setEmojiBoxToggle(false);
-      }
-      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
-        setShowPicker(false);
-      }
-    };
-    document.addEventListener('click', handleDocumentClick);
-    return () => {
-      document.removeEventListener('click', handleDocumentClick);
-    };
-  }, [emojiPickerRef, emojiBoxRef]);
-
   const handleEmojiBoxClick = () => {
     setEmojiBoxToggle(!emojiBoxToggle);
   };
@@ -83,14 +69,16 @@ const Emoji = () => {
     setPickEmoji(emojiObject.emoji);
   };
 
+  useOutsideClick(emojiBoxRef, () => setEmojiBoxToggle(false));
+  useOutsideClick(emojiPickerRef, () => setShowPicker(false));
+
   return (
     <div className={css.emojiArea}>
       <div ref={emojiBoxRef} className={css.emojiBadgeBox}>
         <div className={css.mainEmojiBadge}>
-          {mainEmojiData?.length > 0 &&
-            mainEmojiData.map(emoji => (
-              <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
-            ))}
+          {mainEmojiData.map(emoji => (
+            <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
+          ))}
           <img
             className={css.arrowDown}
             src={ARROW_DOWN_ICON}
@@ -100,10 +88,9 @@ const Emoji = () => {
         </div>
         {emojiBoxToggle && (
           <div className={css.allEmojiBadge}>
-            {emojiData?.length > 0 &&
-              emojiData.map(emoji => (
-                <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
-              ))}
+            {emojiData.map(emoji => (
+              <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
+            ))}
           </div>
         )}
       </div>

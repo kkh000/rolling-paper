@@ -22,6 +22,7 @@
 .allEmojiBadge {
   position: absolute;
   top: 3.1rem;
+  z-index: 99;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -30,7 +31,6 @@
   padding: 1.5rem;
   background-color: $white;
   border: 1px solid $gray-200;
-  z-index: 99;
 
   @include rounded-lg;
 }
