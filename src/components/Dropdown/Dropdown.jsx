@@ -3,7 +3,14 @@ import { ARROW_DOWN_ICON, ARROW_UP_ICON } from '../../constant/constant';
 import { cn } from '../../utils/classNames';
 import css from './Dropdown.module.scss';
 
-const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError, onChange }) => {
+const Dropdown = ({
+  optionList = [],
+  initialOption = null,
+  isTablet,
+  isDisabled,
+  isError,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(initialOption);
 
@@ -33,7 +40,7 @@ const Dropdown = ({ optionList = [], initialOption = null, isDisabled, isError, 
         />
       </button>
       {isOpen && (
-        <ul className={css.optionsBox}>
+        <ul className={cn(css.optionsBox, isTablet && css.tablet)}>
           {optionList.map((option, index) => (
             <li className={css.option} key={index} onClick={() => handleOptionClick(option)}>
               {option}

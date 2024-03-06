@@ -1,0 +1,9 @@
+@import '../../../../styles/index';
+@import '../mixins';
+@include form-box;
+
+@media screen and (max-width: 767px) {
+  .box {
+    margin-bottom: 184px;
+  }
+}
