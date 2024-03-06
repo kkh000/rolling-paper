@@ -1,0 +1,63 @@
+@import '../../../../styles/index';
+@import '../mixins';
+@include form-box;
+
+.profileImage {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.defaultImage {
+  width: 5rem;
+  height: 5rem;
+}
+
+.profileBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.selectProfile {
+  color: $gray-500;
+
+  @include text-base;
+  @include font-normal;
+}
+
+.imageList {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.profileList{
+  margin: 0;
+}
+
+.profileButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5rem;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.profileButton::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.profileButton:focus::after {
+  content: ' ';
+  background-image: url('./enabled.svg');
+  background-size: contain;
+}

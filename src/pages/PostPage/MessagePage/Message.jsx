@@ -1,25 +1,23 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
-import { RELATIONSHIP_LIST, FONT_LIST } from '../../../constant/constant';
+import { RELATIONSHIP_LIST, FONT_LIST, PROFILE_IMAGE_URL_LIST } from '../../../constant/constant';
 import createAxiosInstance from '../../../utils/axios';
-import FontPicker from './FontPicker';
-import InputName from './InputName';
+import FontPicker from './FontPicker/FontPicker';
+import InputName from './InputName/InputName';
 import css from './Message.module.scss';
-import ProfileImagePicker from './ProfileImagePicker';
-import RelationshipPicker from './RelationshipPicker';
-import TextAreaEditor from './TextAreaEditor';
+import ProfileImagePicker from './ProfileImagePicker/ProfileImagePicker';
+import RelationshipPicker from './RelationshipPicker/RelationshipPicker';
+import TextAreaEditor from './TextAreaEditor/TextAreaEditor';
 
 const Message = () => {
   const [name, setName] = useState('');
   const [text, setText] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(PROFILE_IMAGE_URL_LIST[0]);
   const [relationship, setRelationship] = useState(RELATIONSHIP_LIST[0]);
   const [font, setFont] = useState(FONT_LIST[0]);
   const { id } = useParams();
   const navigate = useNavigate();
-
-  const defaultImgae = 'https://cdn.pixabay.com/photo/2023/11/06/06/53/watermelon-8368960_1280.png'; // 임시이미지
 
   const handleNameChange = inputValue => {
     setName(inputValue);
@@ -52,7 +50,7 @@ const Message = () => {
       relationship: relationship,
       content: text,
       font: font,
-      profileImageURL: image ? image : defaultImgae,
+      profileImageURL: image,
       createdAt: new Date().toISOString(),
     };
     console.log(messageData);
@@ -65,6 +63,8 @@ const Message = () => {
       console.error(error);
     }
   };
+
+
 
   return (
     <form onSubmit={handleSubmit} className={css.layout}>
