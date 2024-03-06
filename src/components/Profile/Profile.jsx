@@ -8,6 +8,7 @@ import css from './Profile.module.scss';
  * @param {,imgUrl, size}
  * @returns
  */
+
 const Profile = ({ imgUrl, size = 'medium' }) => {
   let imgUrlPath = imgUrl ?? NONE_PORFILE_IMAGE;
 

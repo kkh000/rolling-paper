@@ -12,8 +12,9 @@
 .headerContents {
   display: flex;
   justify-content: space-between;
-  width: 62.8%;
+  width: 75.44rem;
   height: 2.5rem;
+  align-items: center;
 }
 
 .logoArea {
@@ -22,6 +23,10 @@
   align-items: center;
   width: 6.6rem;
   height: 1.9rem;
+
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .logo {
@@ -33,9 +38,8 @@
   font-family: Poppins;
   color: $gray-800;
   text-align: center;
-  letter-spacing: 0;
 
-  @include text-xl;
+  @include text-2xl;
   @include font-bold;
 }
 

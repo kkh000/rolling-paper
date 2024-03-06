@@ -1,0 +1,27 @@
+@import '../../styles/index';
+
+.sectionArea {
+  width: 72.5rem;
+  margin-top: 3rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.paperList {
+  width: 100%;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 20px;
+}
+
+.buttomArea {
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+}
