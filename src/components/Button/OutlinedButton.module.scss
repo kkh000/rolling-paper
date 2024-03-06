@@ -1,12 +1,12 @@
 @import '../../styles/index';
 
-button {
+.outlinedButtonStyle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: $gray-900;
   background: $white;
-  border: 0.1rem solid $gray-300;
+  border: 1px solid $gray-300;
 
   &:disabled {
     color: $white;
@@ -32,6 +32,7 @@ button {
 }
 
 .extraLarge {
+  @extend .outlinedButtonStyle;
   @include rounded-xl;
 
   padding: 0.8rem 1rem;
@@ -41,11 +42,11 @@ button {
     @include font-bold;
 
     width: 10rem;
-    letter-spacing: -0.1rem;
   }
 }
 
 .large {
+  @extend .outlinedButtonStyle;
   @include rounded-sm;
 
   gap: 0.6rem;
@@ -56,11 +57,11 @@ button {
     @include font-normal;
 
     // width: 5.6rem;
-    letter-spacing: -0.01rem;
   }
 }
 
 .medium {
+  @extend .outlinedButtonStyle;
   @include rounded-sm;
 
   gap: 0.2rem;
@@ -75,6 +76,7 @@ button {
 }
 
 .small {
+  @extend .outlinedButtonStyle;
   @include rounded-sm;
 
   gap: 0.2rem;
@@ -90,6 +92,5 @@ button {
     @include font-normal;
 
     // width: 5.6rem;
-    letter-spacing: -0.01rem;
   }
 }
