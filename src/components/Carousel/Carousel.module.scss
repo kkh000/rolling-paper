@@ -5,16 +5,16 @@
 }
 
 .carousel {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   white-space: nowrap;
 }
 
 .slides {
   display: flex;
-  transition: transform 0.5s ease;
-  margin: 0 -0.5rem;
   gap: 0 1rem;
+  margin: 0 -0.5rem;
+  transition: transform 0.5s ease;
 }
 
 .item {
@@ -24,20 +24,21 @@
 .leftButton,
 .rightButton {
   position: absolute;
-  transform: translateY(-50%);
   top: 50%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  background: $white;
-  border: 1px solid $gray-400;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
+  background: none;
+  background: $white;
+  border: none;
+  border: 1px solid $gray-400;
+  transform: translateY(-50%);
+
   @include rounded-3xl;
 
   &:hover {
-    opacity: 0.8;
     background-color: $gray-200;
+    opacity: 0.8;
   }
 }
 

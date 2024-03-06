@@ -1,8 +1,8 @@
 @import '../../../styles/index';
 
 .layout {
-  margin-top: 2rem;
   width: 45rem;
+  margin-top: 2rem;
 }
 
 .backgroundBox,
@@ -23,12 +23,13 @@
 
 .toggleButtonBox {
   display: flex;
-  align-items: center;
   gap: 2rem;
+  align-items: center;
 }
 
 .title {
   margin: 0.8rem 0;
+
   @include text-2xl;
   @include font-bold;
 }
@@ -38,10 +39,11 @@
 }
 
 .uploadImageButton {
-  background: $purple-400;
-  color: white;
   padding: 1rem;
+  color: white;
+  background: $purple-400;
   border: none;
+
   @include rounded-2xl;
   @include font-bold;
 }

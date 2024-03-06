@@ -8,10 +8,10 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  text-align: left;
   background: $white;
   border: 1px solid $gray-300;
-  text-align: left;
-  margin: 0.3rem;
 
   @include rounded-sm;
 }
@@ -23,9 +23,9 @@
 .shareList {
   position: absolute;
   right: 0;
-  white-space: nowrap;
   z-index: 1;
   overflow: hidden;
+  white-space: nowrap;
   background: $white;
   border: 1px solid $gray-300;
 
