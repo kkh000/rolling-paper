@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
+import Button from '../../components/Button/OutlinedButton';
 import css from './Header.module.scss';
 
 const Header = () => {
   const rollingIcon = '/assets/rolling-icon.svg';
   const locationPath = useLocation().pathname;
 
-  const showCreateButton = locationPath === '/' || locationPath === '/List' ? true : false;
+  const showCreateButton = locationPath === '/' || locationPath === '/list' ? true : false;
 
   return (
     <div className={css.headerArea}>
@@ -16,8 +17,11 @@ const Header = () => {
             <p className={css.logoText}>Rolling</p>
           </div>
         </Link>
-        {/* TODO 버튼 컴포넌트를 받아서 변경 필요 */}
-        {showCreateButton && <button>버튼</button>}
+        {showCreateButton && (
+          <Link to='/post'>
+            <Button size='medium'>롤링 페이퍼 만들기</Button>
+          </Link>
+        )}
       </div>
     </div>
   );
