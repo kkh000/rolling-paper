@@ -6,7 +6,6 @@ import css from './Dropdown.module.scss';
 const Dropdown = ({
   optionList = [],
   initialOption = null,
-  isTablet,
   isDisabled,
   isError,
   onChange,
@@ -40,7 +39,7 @@ const Dropdown = ({
         />
       </button>
       {isOpen && (
-        <ul className={cn(css.optionsBox, isTablet && css.tablet)}>
+        <ul className={cn(css.optionsBox, css.tablet)}>
           {optionList.map((option, index) => (
             <li className={css.option} key={index} onClick={() => handleOptionClick(option)}>
               {option}
