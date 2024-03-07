@@ -14,11 +14,13 @@ const Home = () => {
             <h1 className={css.title}>{title}</h1>
             <p className={css.description}>{description}</p>
           </div>
-          <img className={css.mainImage} src={image} alt='롤링 소개 이미지' />
+          <img className={css.articleImage} src={image} alt='롤링 소개 이미지' />
         </article>
       ))}
       <Link to='/list'>
-        <Button width={'280px'}>구경해보기</Button>
+        <div className={css.listLinkButton}>
+          <Button>구경해보기</Button>
+        </div>
       </Link>
     </section>
   );
