@@ -19,7 +19,7 @@ const Home = () => {
       ))}
       <Link to='/list'>
         <div className={css.listLinkButton}>
-          <Button>구경해보기</Button>
+          <Button width={'100%'}>구경해보기</Button>
         </div>
       </Link>
     </section>
