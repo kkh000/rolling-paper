@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import RoundedPlusButton from '../../../../components/Button/RoundedPlusButton';
 import Modal from '../../../../components/Modal/Modal';
 import createAxiosInstance from '../../../../utils/axios';
 import { createdDate } from '../../../../utils/createdDate';
 import Card from './Card';
 import css from './CardList.module.scss';
-
-const testId = '4025';
 
 const CardList = () => {
   const axios = createAxiosInstance();
@@ -20,8 +18,9 @@ const CardList = () => {
   const [hasNextPage, setHasNextPage] = useState(true);
   const { content, createdAt, font, profileImageURL, relationship, sender } = selectedMessageData;
   const pageSize = 8;
-  const messagesDataURL = `recipients/${testId}/messages/?limit=${currentPage * pageSize}`;
-  const backgroundDataURL = `recipients/${testId}/`;
+  const { id } = useParams();
+  const messagesDataURL = `recipients/${id}/messages/?limit=${currentPage * pageSize}`;
+  const backgroundDataURL = `recipients/${id}/`;
   const [backgroundColor, backgroundImageURL] = backgroundList;
 
   const backgroundColorList = {
@@ -76,7 +75,7 @@ const CardList = () => {
 
   const handleSendMessageClick = e => {
     e.stopPropagation();
-    navigate(`/post/${testId}/message`);
+    navigate(`/post/${id}/message`);
   };
 
   useEffect(() => {
