@@ -44,6 +44,7 @@ const TextAreaEditor = ({ onChange }) => {
         value={text}
         onChange={handleTextChange}
       />
+      <div dangerouslySetInnerHTML={{ __html: text }} />
     </section>
   );
 };
