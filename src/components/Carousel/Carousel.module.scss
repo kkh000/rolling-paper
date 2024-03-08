@@ -5,47 +5,39 @@
 }
 
 .carousel {
-  position: relative;
   overflow: hidden;
-  white-space: nowrap;
 }
 
 .slides {
   display: flex;
-  gap: 0 1rem;
-  margin: 0 -0.5rem;
+
   transition: transform 0.5s ease;
 }
 
 .item {
-  flex: 0 0 calc((100% - 3rem) / 4);
+  flex: 0 0 calc(25% - 1rem);
+  margin-right: 1rem;
 }
 
 .leftButton,
 .rightButton {
   position: absolute;
+  transform: translateY(-50%);
   top: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: $white;
+  border: 1px solid $gray-400;
+  border-radius: 50%;
   width: 2rem;
   height: 2rem;
-  cursor: pointer;
-  background: none;
-  background: $white;
-  border: none;
-  border: 1px solid $gray-400;
-  transform: translateY(-50%);
-
-  @include rounded-3xl;
-
-  &:hover {
-    background-color: $gray-200;
-    opacity: 0.8;
-  }
 }
 
 .leftButton {
-  left: -1rem;
+  left: -0.8rem;
 }
 
 .rightButton {
-  right: -1rem;
+  right: -0.2rem;
 }
