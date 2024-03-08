@@ -6,12 +6,12 @@
   display: flex;
   width: 100%;
   max-width: 75rem;
-  padding: 3rem 4.5rem;
+  padding: 3rem 5rem;
   background: $surface;
 
   @media (max-width: 1199px) {
     flex-direction: column;
-    gap: 3.1rem;
+    gap: 2.5rem;
     min-width: 45rem;
     padding: 2rem;
   }
