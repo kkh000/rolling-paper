@@ -20,7 +20,11 @@ const Card = ({ content, createdAt, font, profileImageURL, relationship, sender,
       </section>
       <div className={css.divider} />
       <div className={css.content}>
-        <p style={fontStyle} dangerouslySetInnerHTML={{ __html: content }} />
+        <p
+          className={css.textBox}
+          style={fontStyle}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
       <div className={css.createdAt}>{createdDate(createdAt)}</div>
     </div>

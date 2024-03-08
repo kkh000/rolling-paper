@@ -13,7 +13,7 @@ const Input = ({ value, onBlur, onChange, placeholder, isDisabled, isError }) =>
         className={cn(css.input, isError && css.error)}
         disabled={isDisabled}
         placeholder={placeholder}
-        maxLength={13}
+        maxLength={10}
       />
       {isError && <p className={css.errorText}>값을 입력해 주세요.</p>}
     </>
