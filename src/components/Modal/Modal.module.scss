@@ -55,6 +55,8 @@
   grid-row: span 2;
   width: 3.5rem;
   height: 3.5rem;
+
+  @include rounded-full;
 }
 
 .profileTitle {

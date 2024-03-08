@@ -1,3 +1,5 @@
+@import '../../styles/index';
+
 .layout {
   position: relative;
 }
@@ -8,6 +10,7 @@
 
 .slides {
   display: flex;
+
   transition: transform 0.5s ease;
 }
 
@@ -24,8 +27,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: $white;
+  border: 1px solid $gray-400;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;

@@ -1,0 +1,24 @@
+:root {
+  .ql-toolbar {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 3rem;
+    background-color: #eee;
+    padding: 0.8rem 1rem;
+  }
+
+  .ql-container {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 15.6rem;
+    padding: 1rem;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+}
