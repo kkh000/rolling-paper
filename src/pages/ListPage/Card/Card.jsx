@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import BadgeEmoji from '../../../components/Badge/BadgeEmoji';
 import Profiles from '../../../components/Profiles/Profiles';
 import { cn } from '../../../utils/classNames';
 import css from '../Card/Card.module.scss';
 
-const Card = ({ name, messages, reactions, backgroundImage, backgroundColor }) => {
+const Card = ({ id, name, messages = [], reactions = [], backgroundImage, backgroundColor }) => {
   const nameSlice = name => {
     if (name.length > 20) {
       name = name.slice(0, 21) + '...';
@@ -15,24 +16,26 @@ const Card = ({ name, messages, reactions, backgroundImage, backgroundColor }) =
   let background = backgroundImage ? `url(${backgroundImage})` : backgroundColor;
 
   return (
-    <div className={cn(css.cardArea, css[baseColor])} style={{ background: `${background}` }}>
-      <div className={cn(css.cardLayerArea, css[baseColor])} />
-      <div className={css.contents}>
-        <p className={css.titie}>To. {nameSlice(name)}</p>
-        <div style={{ color: 'black' }}>
-          <Profiles profileList={messages} />
+    <Link to={`/post/${id}`} className={css.removeLinkDecoration}>
+      <div className={cn(css.cardArea, css[baseColor])} style={{ background: `${background}` }}>
+        <div className={cn(css.cardLayerArea, css[baseColor])} />
+        <div className={css.contents}>
+          <p className={css.titie}>To. {nameSlice(name)}</p>
+          <div style={{ color: 'black' }}>
+            <Profiles profileList={messages} />
+          </div>
+          <div className={css.writerCount}>
+            <p className={css.count}>{messages.length}</p>명이 작성했어요!
+          </div>
+          <div className={css.line} />
         </div>
-        <div className={css.writerCount}>
-          <p className={css.count}>{messages.length}</p>명이 작성했어요!
+        <div className={css.emojiArea}>
+          {reactions.slice(0, 3).map(item => (
+            <BadgeEmoji key={item.id} emoji={item.emoji} count={item.count} />
+          ))}
         </div>
-        <div className={css.line} />
       </div>
-      <div className={css.emojiArea}>
-        {reactions.slice(0, 3).map(item => (
-          <BadgeEmoji key={item.id} emoji={item.emoji} count={item.count} />
-        ))}
-      </div>
-    </div>
+    </Link>
   );
 };
 
