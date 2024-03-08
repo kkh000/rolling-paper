@@ -8,12 +8,12 @@
 
 .slides {
   display: flex;
-  gap: 1rem;
   transition: transform 0.5s ease;
 }
 
 .item {
   flex: 0 0 calc(25% - 1rem);
+  margin-right: 1rem;
 }
 
 .leftButton,
@@ -36,5 +36,5 @@
 }
 
 .rightButton {
-  right: -0.8rem;
+  right: -0.2rem;
 }
