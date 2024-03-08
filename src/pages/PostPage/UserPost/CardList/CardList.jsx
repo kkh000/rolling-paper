@@ -94,9 +94,10 @@ const CardList = () => {
       for (const id of selectedMessageIdList) {
         await deleteTargetMessage(id);
       }
+      setIsEditing(false);
+      navigate(`/post/${id}`);
+      window.location.reload();
     }
-    navigate(`/post/${id}`);
-    window.location.reload();
   };
 
   const handleDeletePost = async id => {
@@ -105,7 +106,7 @@ const CardList = () => {
       if (isConfirm) {
         const deleteApiUrl = `recipients/${id}/`;
         await axios.delete(deleteApiUrl);
-        console.log('페이지 삭제가 완료되었습니다.');
+        navigate(`/post/${id}`);
       }
     } catch (error) {
       console.error(error);
@@ -132,9 +133,7 @@ const CardList = () => {
             <OutlinedButton
               size='large'
               onClick={() => {
-                setIsEditing(false);
                 handleSaveClick();
-                navigate(`/post/${id}`);
               }}
             >
               저장하기
@@ -143,7 +142,6 @@ const CardList = () => {
               size='large'
               onClick={() => {
                 handleDeletePost(id);
-                navigate('/list');
               }}
             >
               페이지 삭제하기
