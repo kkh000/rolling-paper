@@ -67,6 +67,7 @@ const Emoji = () => {
   const handleEmojiClick = async emojiObject => {
     await postEmojiData(emojiObject);
     setPickEmoji(emojiObject.emoji);
+    setShowPicker(false);
   };
 
   useOutsideClick(emojiBoxRef, () => setEmojiBoxToggle(false));
