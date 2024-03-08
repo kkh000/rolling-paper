@@ -2,12 +2,10 @@ import { cn } from '../../../../utils/classNames';
 import OptionCard from '../OptionCard/OptionCard';
 import css from './OptionCardList.module.scss';
 
-const OptionCardList = ({ cardList, selectedButton, selectedOption, onClick }) => {
-  const topCards = cardList.slice(0, 4);
-  console.log(topCards);
+const OptionCardList = ({ cardList = [], selectedButton, selectedOption, onClick }) => {
   return (
     <ul className={css.layout}>
-      {topCards.map((card, index) => (
+      {cardList.map((card, index) => (
         <li
           className={cn(selectedOption === index && css.selected)}
           key={index}
