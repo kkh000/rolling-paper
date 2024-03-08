@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import { HOME_ARTICLE_LIST } from '../../constant/constant';
-import { cn } from '../../utils/classNames';
 import css from './Home.module.scss';
 
 const Home = () => {
   return (
     <section className={css.layout}>
       {HOME_ARTICLE_LIST.map(({ id, title, description, image }) => (
-        <article key={id} className={cn(css[`point${id}`])}>
+        <article key={id} className={css.homeArticle}>
           <div className={css.textBox}>
             <p className={css.pointNumber}>Point. {id}</p>
             <h1 className={css.title}>{title}</h1>
