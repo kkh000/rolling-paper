@@ -1,24 +1,28 @@
 import Badge from '../../../../components/Badge/Badge';
 import Profile from '../../../../components/Profile/Profile';
+import { createdDate } from '../../../../utils/createdDate';
 import css from './Card.module.scss';
 
-const Card = () => {
+const Card = ({ content, createdAt, font, profileImageURL, relationship, sender, onClick }) => {
+  const fontStyle = {
+    fontFamily: font,
+  };
   return (
-    <div className={css.layout}>
+    <div className={css.layout} onClick={onClick}>
       <section className={css.header}>
-        <Profile />
+        <Profile imgUrl={profileImageURL} />
         <div className={css.profile}>
           <p>
-            From. <span className={css.name}>이름</span>
+            From. <span className={css.name}>{sender}</span>
           </p>
-          <Badge relationship='지인' />
+          <Badge relationship={relationship} />
         </div>
       </section>
       <div className={css.divider} />
       <div className={css.content}>
-        <p>롤링페이퍼 내용</p>
+        <p style={fontStyle}>{content}</p>
       </div>
-      <div className={css.createdAt}>2024.03.02</div>
+      <div className={css.createdAt}>{createdDate(createdAt)}</div>
     </div>
   );
 };

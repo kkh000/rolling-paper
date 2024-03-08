@@ -4,19 +4,19 @@
   @include rounded-2xl;
 
   display: flex;
-  width: 60rem;
-  background: $surface;
   gap: 0.6rem;
+  width: 60rem;
   padding: 5rem;
+  background: $surface;
 }
 
 .layout {
-  margin-top: 3rem;
-  background: $white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1.9rem;
+  align-items: center;
+  margin-top: 3rem;
+  background: $white;
 
   .point01 {
     @extend .common-style;
@@ -46,33 +46,33 @@
       @include font-bold;
 
       display: flex;
-      border-radius: 50px;
-      background: $purple-600;
       padding: 0.4rem 0.8rem;
       font-style: normal;
       color: $white;
+      background: $purple-600;
+      border-radius: 50px;
     }
 
     .title {
       @include text-2xl;
       @include font-bold;
 
-      color: $gray-900;
-      font-style: normal;
       margin-top: 1rem;
       margin-bottom: 0.2rem;
+      font-style: normal;
+      color: $gray-900;
     }
 
     .description {
       @include text-lg;
       @include font-normal;
 
-      color: $gray-500;
       font-style: normal;
+      color: $gray-500;
     }
   }
 
-  Button {
+  button {
     position: fixed;
     bottom: 2.5rem;
     transform: translateX(-50%);
