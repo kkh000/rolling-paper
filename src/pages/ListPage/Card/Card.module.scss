@@ -27,6 +27,11 @@
   }
 }
 
+.removeLinkDecoration {
+  text-decoration: none;
+  color: $black;
+}
+
 .contents {
   width: 90%;
   height: 70%;
