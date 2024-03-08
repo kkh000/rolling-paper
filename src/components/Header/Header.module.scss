@@ -11,22 +11,20 @@
 
 .headerContents {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 75.44rem;
   height: 2.5rem;
-  align-items: center;
 }
 
 .logoArea {
   display: flex;
+  flex-flow: column wrap;
   gap: 0.5rem;
   align-items: center;
+  justify-content: center;
   width: 6.6rem;
   height: 1.9rem;
-
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .logo {

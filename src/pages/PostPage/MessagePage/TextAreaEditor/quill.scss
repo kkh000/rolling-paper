@@ -1,17 +1,17 @@
 :root {
   .ql-toolbar {
+    height: 3rem;
+    padding: 0.8rem 1rem;
+    background-color: #eee;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    height: 3rem;
-    background-color: #eee;
-    padding: 0.8rem 1rem;
   }
 
   .ql-container {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
     height: 15.6rem;
     padding: 1rem;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 
   strong {

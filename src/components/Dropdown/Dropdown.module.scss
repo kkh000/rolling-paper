@@ -35,7 +35,7 @@
   padding: 0.8rem 1rem;
 }
 
-@media (min-width: 767px) and (max-width: 1024px) {
+@media (width >= 767px) and (width <= 1024px) {
   .tablet {
     position: relative;
   }
