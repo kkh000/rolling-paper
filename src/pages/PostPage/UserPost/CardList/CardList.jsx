@@ -32,8 +32,8 @@ const CardList = () => {
     green: '#d0f5c3',
   };
   const backgroundStyle = {
-    backgroundImage: `url(${backgroundImageURL})`,
     background: backgroundColorList[backgroundColor],
+    backgroundImage: `url(${backgroundImageURL})`,
   };
 
   const fetchBackgroundData = async url => {
