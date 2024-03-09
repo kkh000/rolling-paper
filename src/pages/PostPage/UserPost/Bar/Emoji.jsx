@@ -32,18 +32,9 @@ const Emoji = () => {
 
   useEffect(() => {
     const loadEmojiData = async () => {
-      const getEmojiData = async () => {
-        try {
-          const response = await axios.get(url);
-          return response.data.results;
-        } catch (error) {
-          console.log('GET 요청 에러:', error);
-        }
-      };
-
       try {
-        const allEmoji = await getEmojiData();
-        setEmojiData(allEmoji);
+        const response = await axios.get(url);
+        setEmojiData(response.data.results);
       } catch (error) {
         console.error('에러 발생:', error);
       }
