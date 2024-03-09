@@ -82,6 +82,7 @@
   overflow: auto;
   color: $gray-600;
   word-wrap: break-word;
+  overflow: hidden;
 
   @include text-lg;
 }

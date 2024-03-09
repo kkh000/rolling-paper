@@ -39,7 +39,7 @@ const Card = ({
         </div>
         <div className={css.emojiArea}>
           {reactions.slice(0, 3).map(item => (
-            <BadgeEmoji key={item.id} emoji={item.emoji} count={item.count} />
+            <BadgeEmoji key={item.id} emoji={item.emoji} count={item.count} size='card' />
           ))}
         </div>
       </div>

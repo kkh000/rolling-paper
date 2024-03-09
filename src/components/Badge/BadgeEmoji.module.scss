@@ -2,6 +2,7 @@
 
 .badgeEmoji {
   display: flex;
+  justify-content: center;
   width: 4.5rem;
   gap: 0.5rem;
   padding: 0.5rem 0.7rem;
@@ -12,4 +13,24 @@
   @include rounded-4xl;
   @include text-base;
   @include font-normal;
+}
+
+.badgeEmojiCard {
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.7rem;
+  line-height: 20px;
+  color: $white;
+  background: rgb(0 0 0 / 54%);
+
+  @include rounded-4xl;
+  @include text-base;
+  @include font-normal;
+
+  @media (max-width: 767px) {
+    width: 3.8rem;
+    @include text-xs;
+  }
 }
