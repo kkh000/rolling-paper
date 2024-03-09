@@ -2,7 +2,7 @@
 @import '../mixins';
 @include form-box;
 
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .box {
     margin-bottom: 11.5rem;
   }

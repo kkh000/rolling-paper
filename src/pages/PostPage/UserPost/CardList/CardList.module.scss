@@ -3,9 +3,19 @@
 
 .cardArea {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
+  gap: 1rem;
+  align-items: center;
   width: 100%;
+  padding: 3rem 0;
+
+  .editButtonArea {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    width: 75.2rem;
+  }
 }
 
 .cardBox {
@@ -13,7 +23,6 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   width: 75.2rem;
-  margin: 7rem 8rem 10rem;
 }
 
 .card {
