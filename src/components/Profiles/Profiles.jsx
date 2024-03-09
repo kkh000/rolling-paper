@@ -11,14 +11,14 @@ import css from './Profiles.module.scss';
  * - size : xSmall, small
  */
 
-const Profiles = ({ profileList = [], size = 'small' }) => {
+const Profiles = ({ profileList = [], size = 'small', messageCount = 0 }) => {
   return (
     <div className={css.profilesArea}>
       {profileList.slice(0, 3).map(profile => (
         <Profile key={profile.id} imgUrl={profile.profileImageURL} size={size} />
       ))}
-      {profileList.length > 3 && (
-        <div className={cn(css.writerCount, css[size])}>+{profileList.length - 3}</div>
+      {messageCount > 3 && (
+        <div className={cn(css.writerCount, css[size])}>+{messageCount - 3}</div>
       )}
     </div>
   );

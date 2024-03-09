@@ -3,37 +3,24 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Buttom from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
-import createAxiosInstance from '../../utils/axios';
+import { BACKGROUND_COLOR_VALUE_LIST } from '../../constant/constant';
+import useFetchData from '../../hooks/useFetchData';
 import Card from '../ListPage/Card/Card';
 import css from './List.module.scss';
 
 const List = () => {
-  const axios = createAxiosInstance();
   const [bestRollingList, setBestRollingList] = useState([]);
   const [newRollingList, setNewRollingList] = useState([]);
-  const [loadData, setLoadData] = useState(false);
 
-  const rollingData = async type => {
-    try {
-      if (type === 'best') {
-        const response = await axios.get(`/recipients/?limit=1000&sort=like`);
-        setBestRollingList(response.data.results);
-      } else {
-        const response = await axios.get(`/recipients/?limit=1000`);
-        setNewRollingList(response.data.results);
-      }
-    } catch (error) {
-      console.log('ERROR : ', error.messages);
-    }
-  };
+  const { data: bestResponse } = useFetchData(`/recipients/?limit=1000&sort=like`);
+  const { data: newResponse } = useFetchData(`/recipients/?limit=1000`);
 
   useEffect(() => {
-    if (!loadData) {
-      rollingData('best');
-      rollingData('new');
-      setLoadData(true);
+    if (newResponse && newResponse.results && bestResponse && bestResponse.results) {
+      setBestRollingList(bestResponse.results);
+      setNewRollingList(newResponse.results);
     }
-  }, [bestRollingList]);
+  }, [bestResponse, newResponse]);
 
   return (
     <div className={css.section}>
@@ -47,10 +34,11 @@ const List = () => {
                   key={data.id}
                   id={data.id}
                   name={data.name}
+                  messageCount={data.messageCount}
                   messages={data.recentMessages}
                   reactions={data.topReactions}
                   backgroundImage={data.backgroundImageURL}
-                  backgroundColor={data.backgroundColor}
+                  backgroundColor={BACKGROUND_COLOR_VALUE_LIST[data.backgroundColor]}
                 />
               ))}
           </Carousel>
@@ -66,10 +54,11 @@ const List = () => {
                   key={data.id}
                   id={data.id}
                   name={data.name}
+                  messageCount={data.messageCount}
                   messages={data.recentMessages}
                   reactions={data.topReactions}
                   backgroundImage={data.backgroundImageURL}
-                  backgroundColor={data.backgroundColor}
+                  backgroundColor={BACKGROUND_COLOR_VALUE_LIST[data.backgroundColor]}
                 />
               ))}
           </Carousel>
