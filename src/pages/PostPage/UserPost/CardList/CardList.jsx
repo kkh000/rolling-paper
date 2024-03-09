@@ -104,6 +104,7 @@ const CardList = () => {
       if (isConfirm) {
         const deleteApiUrl = `recipients/${id}/`;
         await axios.delete(deleteApiUrl);
+        navigate('/list');
       }
     } catch (error) {
       console.error(error);
