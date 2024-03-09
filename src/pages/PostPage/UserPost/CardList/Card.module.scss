@@ -1,5 +1,10 @@
 @import '../../../../styles/variables';
 @import '../../../../styles/mixins';
+@font-face {
+  font-family: '나눔손글씨 손편지체';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Handletter.woff')
+    format('woff');
+}
 
 .layout {
   display: flex;
@@ -48,10 +53,19 @@
   padding: 0 1rem;
   overflow: hidden;
   color: $gray-600;
-  text-overflow: ellipsis;
-  white-space: wrap;
 
   @include text-lg;
+}
+
+.textBox {
+  width: 21rem;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .createdAt {

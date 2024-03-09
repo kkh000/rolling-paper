@@ -1,4 +1,9 @@
 @import '../../styles/index';
+@font-face {
+  font-family: '나눔손글씨 손편지체';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Handletter.woff')
+    format('woff');
+}
 
 .background {
   position: fixed;
@@ -93,6 +98,10 @@
   padding-right: 1.3rem;
   margin: 1rem 2.5rem 1.5rem;
   overflow-y: auto;
+
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 
   &::-webkit-scrollbar {
     width: 0.1rem;
