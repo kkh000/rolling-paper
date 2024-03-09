@@ -115,12 +115,6 @@ const CardList = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (isEditing) return;
-  //   fetchMessagesData(messagesDataURL);
-  //   fetchBackgroundData(backgroundDataURL);
-  // }, [isEditing]);
-
   useEffect(() => {
     if (isEditing) return;
     fetchMessagesDataDebounced();
