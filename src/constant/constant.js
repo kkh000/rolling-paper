@@ -40,6 +40,12 @@ export const HOME_ARTICLE_LIST = [
 ];
 
 export const BACKGROUND_COLOR_LIST = ['beige', 'purple', 'blue', 'green'];
+export const BACKGROUND_COLOR_VALUE_LIST = {
+  beige: '#ffe2ad',
+  purple: '#ecd9ff',
+  blue: '#b1e4ff',
+  green: '#d0f5c3',
+};
 export const BACKGROUND_IMAGE_URL_LIST = [
   'https://i.ibb.co/kgwVr13/xmas2.jpg',
   'https://i.ibb.co/M5fwrdQ/xmas.jpg',

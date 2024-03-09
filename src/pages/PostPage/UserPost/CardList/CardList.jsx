@@ -4,6 +4,7 @@ import _debounce from 'lodash/debounce';
 import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import RoundedPlusButton from '../../../../components/Button/RoundedPlusButton';
 import Modal from '../../../../components/Modal/Modal';
+import { BACKGROUND_COLOR_VALUE_LIST } from '../../../../constant/constant';
 import createAxiosInstance from '../../../../utils/axios';
 import { createdDate } from '../../../../utils/createdDate';
 import Card from './Card';
@@ -26,14 +27,9 @@ const CardList = () => {
   const pageSize = 8;
   const messagesDataURL = `recipients/${id}/messages/?limit=${currentPage * pageSize}`;
   const backgroundDataURL = `recipients/${id}/`;
-  const backgroundColorList = {
-    beige: '#ffe2ad',
-    purple: '#ecd9ff',
-    blue: '#b1e4ff',
-    green: '#d0f5c3',
-  };
+
   const backgroundStyle = {
-    background: backgroundColorList[backgroundColor],
+    background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
   };
 
