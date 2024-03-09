@@ -1,8 +1,8 @@
 @import '../../../styles/index';
 
 .cardArea {
-  width: 17.19rem;
-  height: 16.25rem;
+  width: 15rem;
+  height: 15rem;
   @include rounded-2xl;
   border: 0.06rem;
   display: flex;
@@ -14,8 +14,8 @@
 }
 
 .cardLayerArea {
-  width: 17.19rem;
-  height: 16.25rem;
+  width: 15rem;
+  height: 15rem;
   @include rounded-2xl;
   position: absolute;
   top: 0;
@@ -34,7 +34,7 @@
 
 .contents {
   width: 90%;
-  height: 70%;
+  height: 82%;
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -43,25 +43,28 @@
 }
 
 .titie {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 2.25rem;
   text-align: left;
-  margin: 0.82rem 0 0.44rem;
+  margin: 1.5rem 0 0;
+}
+
+.profilesArea {
+  color: $black;
 }
 
 .writerCount {
   margin: 0.44rem 0 0.63rem;
   display: flex;
-  font-family: Pretendard;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.63rem;
   text-align: left;
+  align-items: center;
 }
 
 .count {
-  font-family: Pretendard;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.63rem;
@@ -69,19 +72,61 @@
 }
 
 .line {
-  opacity: 30%;
-  height: 0.94rem;
-  border-bottom: 0.15rem solid $white;
+  opacity: 70%;
+  height: 0.7rem;
+  border-bottom: 0.06rem solid $white;
+  margin: 0.5rem 0 0;
 }
 
 .emojiArea {
   display: flex;
   gap: 0.63rem;
   height: 2.5rem;
-  margin-top: 0.63rem;
+  margin-top: 0;
   z-index: 1;
 }
 
 .white {
   color: white;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (max-width: 1199px) {
+}
+
+/* 767px까지 적용될 스타일 */
+@media (max-width: 767px) {
+  .cardArea {
+    width: 13rem;
+    height: 14.5rem;
+  }
+
+  .cardLayerArea {
+    width: 13rem;
+    height: 14.5rem;
+  }
+
+  .titie {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+  }
+
+  .Profile_profileImage .writerCount {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+  }
+
+  .count {
+    font-size: 0.87rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+  }
+
+  .emojiArea {
+    height: 2rem;
+    gap: 0.25rem;
+    align-items: center;
+  }
 }

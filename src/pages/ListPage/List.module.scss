@@ -1,8 +1,15 @@
 @import '../../styles/index';
 
-.sectionArea {
+.section {
   width: 72.5rem;
   margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionArea {
+  width: 90%;
 }
 
 .title {
@@ -14,11 +21,58 @@
 }
 
 .paperList {
-  margin: 1.5rem 0;
+  margin: 0.5rem 0 1.5rem;
 }
 
 .buttomArea {
-  margin: 3rem;
+  width: 90%;
+  margin: 2rem;
   display: flex;
   justify-content: center;
+
+  position: fixed;
+  bottom: 0;
+}
+
+.linkButton {
+  width: 17.5rem;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (max-width: 1199px) {
+  .sectionArea {
+    width: calc(-9.5rem + 100vw);
+  }
+
+  .linkButton {
+    width: 100%;
+  }
+
+  .buttomArea {
+    width: calc(-9.5rem + 100vw);
+  }
+}
+
+/* 767px까지 적용될 스타일 */
+@media (max-width: 767px) {
+  .section {
+    margin-top: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.875rem;
+    text-align: left;
+  }
+
+  .sectionArea {
+    width: calc(-2.5rem + 100vw);
+    margin-bottom: 0.6rem;
+  }
+
+  .buttomArea {
+    width: calc(-2.5rem + 100vw);
+    margin: 1rem 0 2rem;
+  }
 }
