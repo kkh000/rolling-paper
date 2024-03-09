@@ -6,11 +6,7 @@ import Emoji from './Emoji';
 import Share from './Share';
 import WritingCount from './WritingCount';
 
-//recipientId 이모지 조회를 위해 받아와야 함
-const Bar = ({ recipientId, name }) => {
-  //TODO 테스트 후 제거 필요
-  console.log('::recipientId::', recipientId);
-  name = '테스트';
+const Bar = ({ name = '', messages = [], messageCount = 0 }) => {
   const [showToast, setShowToast] = useState(false);
 
   const handleShareSucess = () => {
@@ -26,7 +22,7 @@ const Bar = ({ recipientId, name }) => {
     <div className={css.barArea}>
       <p className={css.name}> To. {name}</p>
       <div className={css.barContents}>
-        <WritingCount />
+        <WritingCount messages={messages} messageCount={messageCount} />
         <Emoji />
         <section className={css.shareLayout}>
           <Share shareList={SHARE_OPTION_LIST} onClick={handleShareSucess} />

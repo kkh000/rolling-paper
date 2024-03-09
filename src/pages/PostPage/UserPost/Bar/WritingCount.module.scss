@@ -1,7 +1,8 @@
 @import '../../../../styles/index';
 
-.writeArea {
+.layout {
   display: flex;
+  justify-content: space-around;
   gap: 0.6rem;
   align-items: center;
 }
