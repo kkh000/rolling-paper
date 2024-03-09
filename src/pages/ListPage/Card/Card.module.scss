@@ -4,6 +4,13 @@
   width: 15rem;
   height: 15rem;
   @include rounded-2xl;
+  border: 0.06rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.63rem;
+
+  position: relative;
 }
 
 .cardLayerArea {
@@ -13,14 +20,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 17.19rem;
-  height: 16.25rem;
-
-  @include rounded-2xl;
 
   &.white {
     background-color: $black;
-    opacity: 0.3;
+    opacity: 30%;
   }
 }
 
@@ -34,11 +37,9 @@
   height: 82%;
   display: flex;
   position: relative;
-  display: flex;
-  flex-flow: column nowrap;
+  flex-wrap: nowrap;
+  flex-direction: column;
   justify-content: center;
-  width: 90%;
-  height: 70%;
 }
 
 .titie {
@@ -54,7 +55,6 @@
 }
 
 .writerCount {
-  display: flex;
   margin: 0.44rem 0 0.63rem;
   display: flex;
   font-size: 1rem;
@@ -79,7 +79,6 @@
 }
 
 .emojiArea {
-  z-index: 1;
   display: flex;
   gap: 0.63rem;
   height: 2.5rem;
