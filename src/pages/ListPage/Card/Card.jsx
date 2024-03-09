@@ -21,8 +21,8 @@ const Card = ({ id, name, messages = [], reactions = [], backgroundImage, backgr
         <div className={cn(css.cardLayerArea, css[baseColor])} />
         <div className={css.contents}>
           <p className={css.titie}>To. {nameSlice(name)}</p>
-          <div style={{ color: 'black' }}>
-            <Profiles profileList={messages} />
+          <div className={css.profilesArea}>
+            <Profiles profileList={messages} size='xSmall' />
           </div>
           <div className={css.writerCount}>
             <p className={css.count}>{messages.length}</p>명이 작성했어요!

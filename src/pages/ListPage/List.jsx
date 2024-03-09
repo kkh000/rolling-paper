@@ -36,7 +36,7 @@ const List = () => {
   }, [bestRollingList]);
 
   return (
-    <div>
+    <div className={css.section}>
       <section className={css.sectionArea}>
         <h1 className={css.title}>인기 롤링 페이퍼🔥</h1>
         <div className={css.paperList}>
@@ -76,9 +76,11 @@ const List = () => {
         </div>
       </section>
       <section className={css.buttomArea}>
-        <Link to='/post' className={css.button}>
-          <Buttom width={'17.5rem'}>나도 만들어보기</Buttom>
-        </Link>
+        <div className={css.linkButton}>
+          <Link to='/post' className={css.button}>
+            <Buttom width={'100%'}>나도 만들어보기</Buttom>
+          </Link>
+        </div>
       </section>
     </div>
   );
