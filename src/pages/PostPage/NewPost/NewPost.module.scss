@@ -47,3 +47,10 @@
   @include rounded-2xl;
   @include font-bold;
 }
+
+@media screen and (max-width: $mobile-width) {
+  .layout {
+    width: 100%;
+    padding: 1rem;
+  }
+}

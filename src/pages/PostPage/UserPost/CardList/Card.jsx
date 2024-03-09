@@ -65,7 +65,11 @@ const Card = ({
       </section>
       <div className={css.divider} />
       <div className={css.content}>
-        <p style={fontStyle}>{content}</p>
+        <p
+          className={css.textBox}
+          style={fontStyle}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
       <div className={css.createdAt}>{createdDate(createdAt)}</div>
     </div>

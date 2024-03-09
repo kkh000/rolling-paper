@@ -34,9 +34,11 @@ const Modal = ({ profileImage, creatorName, relationship, createdAt, onClose, me
           <div className={css.cardCreatedAt}>{createdAt}</div>
         </div>
         <div className={css.line}></div>
-        <p className={css.textBox} style={fontStyle}>
-          {message}
-        </p>
+        <p
+          className={css.textBox}
+          style={fontStyle}
+          dangerouslySetInnerHTML={{ __html: message }}
+        />
         <Button size='s' onClick={onClose}>
           확인
         </Button>

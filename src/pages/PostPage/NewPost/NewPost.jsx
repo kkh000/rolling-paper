@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import ToggleButton from '../../../components/Button/ToggleButton';
 import Input from '../../../components/Input/Input';
@@ -8,13 +9,12 @@ import css from './NewPost.module.scss';
 import OptionCardList from './OptionCardList/OptionCardList';
 
 const NewPost = () => {
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState('');
   const [selectedButton, setSelectedButton] = useState('color');
   const [selectedOption, setSelectedOption] = useState(0);
   const [isInputError, setIsInputError] = useState(false);
-  // const [image, setImage] = useState(null);
   const [cardList, setCardList] = useState(BACKGROUND_COLOR_LIST);
-  const fileInputRef = useRef(null);
 
   const handleInputChange = value => {
     setInputValue(value);
@@ -35,14 +35,6 @@ const NewPost = () => {
     setCardList(BACKGROUND_COLOR_LIST);
   };
 
-  const handleImageChange = event => {
-    setCardList([URL.createObjectURL(event.target.files[0]), ...cardList]);
-  };
-
-  const handleUploadButtonClick = () => {
-    fileInputRef.current.click();
-  };
-
   const handleSubmit = async event => {
     event.preventDefault();
     const axios = createAxiosInstance();
@@ -52,11 +44,10 @@ const NewPost = () => {
       backgroundImageURL:
         selectedButton === 'color' ? null : BACKGROUND_IMAGE_URL_LIST[selectedOption],
     };
-    console.log(postData);
 
     try {
       const result = await axios.post('/recipients/', postData);
-      console.log(result);
+      navigate(`/post/${result.data.id}`);
     } catch (error) {
       console.error(error);
     }
@@ -80,22 +71,6 @@ const NewPost = () => {
           <p className={css.description}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
           <div className={css.toggleButtonBox}>
             <ToggleButton selectedButton={selectedButton} onClick={handleButtonClick} />
-            {selectedButton === 'image' && (
-              <button
-                type='button'
-                className={css.uploadImageButton}
-                onClick={handleUploadButtonClick}
-              >
-                <input
-                  type='file'
-                  accept='image/*'
-                  style={{ display: 'none' }}
-                  ref={fileInputRef}
-                  onChange={handleImageChange}
-                />
-                나만의 이미지 추가하기
-              </button>
-            )}
           </div>
           <div className={css.cardListBox}>
             <OptionCardList

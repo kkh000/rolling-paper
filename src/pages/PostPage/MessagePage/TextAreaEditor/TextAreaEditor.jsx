@@ -9,25 +9,14 @@ const TextAreaEditor = ({ onChange }) => {
   const modules = useMemo(
     () => ({
       toolbar: [
+        [{ size: ['small', false, 'large', 'huge'] }],
         ['bold', 'italic', 'underline', 'strike'],
-        [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
-        [{ align: [] }, { color: [] }],
+        [{ align: [] }, { color: [] }, { background: [] }],
       ],
     }),
     [],
   );
-  const formats = [
-    'bold',
-    'italic',
-    'underline',
-    'strike',
-    'list',
-    'bullet',
-    'indent',
-    'align',
-    'color',
-    'background',
-  ];
+  const formats = ['bold', 'italic', 'underline', 'strike', 'size', 'align', 'color', 'background'];
 
   const handleTextChange = content => {
     setText(content);

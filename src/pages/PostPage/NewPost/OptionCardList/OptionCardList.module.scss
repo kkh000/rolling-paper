@@ -1,5 +1,13 @@
+@import '../../../../styles/index';
+
 .layout {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0 1.6rem;
+  gap: 1.6rem;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

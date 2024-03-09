@@ -44,3 +44,10 @@
 .noneUnder {
   text-decoration: none;
 }
+
+/* 768px부터 적용될 스타일 */
+@media (max-width: 1199px) {
+  .headerContents {
+    width: 90%;
+  }
+}
