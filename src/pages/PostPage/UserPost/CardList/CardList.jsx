@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import _debounce from 'lodash/debounce';
 import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import RoundedPlusButton from '../../../../components/Button/RoundedPlusButton';
 import Modal from '../../../../components/Modal/Modal';
+import { BACKGROUND_COLOR_VALUE_LIST } from '../../../../constant/constant';
 import createAxiosInstance from '../../../../utils/axios';
 import { createdDate } from '../../../../utils/createdDate';
 import Card from './Card';
@@ -25,14 +27,9 @@ const CardList = () => {
   const pageSize = 8;
   const messagesDataURL = `recipients/${id}/messages/?limit=${currentPage * pageSize}`;
   const backgroundDataURL = `recipients/${id}/`;
-  const backgroundColorList = {
-    beige: '#ffe2ad',
-    purple: '#ecd9ff',
-    blue: '#b1e4ff',
-    green: '#d0f5c3',
-  };
+
   const backgroundStyle = {
-    background: backgroundColorList[backgroundColor],
+    background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
   };
 
@@ -56,16 +53,19 @@ const CardList = () => {
     }
   };
 
-  const handleScroll = () => {
-    if (!hasNextPage) return;
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+  const fetchMessagesDataDebounced = useCallback(
+    _debounce(() => {
+      if (!hasNextPage) return;
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight || window.innerHeight;
 
-    if (scrollHeight - scrollTop <= clientHeight + 500) {
-      fetchMessagesData(messagesDataURL);
-    }
-  };
+      if (scrollHeight - scrollTop <= clientHeight + 700) {
+        fetchMessagesData(messagesDataURL);
+      }
+    }, 50),
+    [currentPage, hasNextPage],
+  );
 
   const toggleModal = cardData => {
     setShowModal(!showModal);
@@ -104,6 +104,7 @@ const CardList = () => {
       if (isConfirm) {
         const deleteApiUrl = `recipients/${id}/`;
         await axios.delete(deleteApiUrl);
+        navigate('/list');
       }
     } catch (error) {
       console.error(error);
@@ -112,14 +113,14 @@ const CardList = () => {
 
   useEffect(() => {
     if (isEditing) return;
-    fetchMessagesData(messagesDataURL);
+    fetchMessagesDataDebounced();
     fetchBackgroundData(backgroundDataURL);
-  }, [isEditing]);
+  }, [isEditing, currentPage, fetchMessagesDataDebounced]);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', fetchMessagesDataDebounced);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', fetchMessagesDataDebounced);
     };
   }, [currentPage]);
 
