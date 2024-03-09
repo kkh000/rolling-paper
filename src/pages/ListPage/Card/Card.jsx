@@ -4,7 +4,15 @@ import Profiles from '../../../components/Profiles/Profiles';
 import { cn } from '../../../utils/classNames';
 import css from '../Card/Card.module.scss';
 
-const Card = ({ id, name, messages = [], reactions = [], backgroundImage, backgroundColor }) => {
+const Card = ({
+  id,
+  name,
+  messageCount,
+  messages = [],
+  reactions = [],
+  backgroundImage,
+  backgroundColor,
+}) => {
   const nameSlice = name => {
     if (name.length > 20) {
       name = name.slice(0, 21) + '...';
@@ -22,10 +30,10 @@ const Card = ({ id, name, messages = [], reactions = [], backgroundImage, backgr
         <div className={css.contents}>
           <p className={css.titie}>To. {nameSlice(name)}</p>
           <div className={css.profilesArea}>
-            <Profiles profileList={messages} size='xSmall' />
+            <Profiles profileList={messages} size='xSmall' messageCount={messageCount} />
           </div>
           <div className={css.writerCount}>
-            <p className={css.count}>{messages.length}</p>명이 작성했어요!
+            <p className={css.count}>{messageCount}</p>명이 작성했어요!
           </div>
           <div className={css.line} />
         </div>
