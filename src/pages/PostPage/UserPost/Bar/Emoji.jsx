@@ -15,13 +15,13 @@ const Emoji = () => {
   const emojiBoxRef = useRef(null);
   const [emojiBoxToggle, setEmojiBoxToggle] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
-  const [mainEmojiData, setMainEmojiData] = useState([]);
   const [emojiData, setEmojiData] = useState([]);
   const [pickEmoji, setPickEmoji] = useState('');
+  const url = `/recipients/${id}/reactions/`;
 
   const postEmojiData = async emojiObject => {
     try {
-      await axios.post(`/recipients/${id}/reactions/`, {
+      await axios.post(url, {
         emoji: `${emojiObject.emoji}`,
         type: 'increase',
       });
@@ -32,21 +32,9 @@ const Emoji = () => {
 
   useEffect(() => {
     const loadEmojiData = async () => {
-      const getEmojiData = async (limit = null) => {
-        const endpoint = limit ? `?limit=${limit}` : '';
-        try {
-          const response = await axios.get(`/recipients/${id}/reactions/${endpoint}`);
-          return response.data.results;
-        } catch (error) {
-          console.log('GET 요청 에러:', error);
-        }
-      };
-
       try {
-        const mainEmoji = await getEmojiData(3);
-        const allEmoji = await getEmojiData();
-        setMainEmojiData(mainEmoji);
-        setEmojiData(allEmoji);
+        const { data } = await axios.get(url);
+        setEmojiData(data.results);
       } catch (error) {
         console.error('에러 발생:', error);
       }
@@ -67,6 +55,7 @@ const Emoji = () => {
   const handleEmojiClick = async emojiObject => {
     await postEmojiData(emojiObject);
     setPickEmoji(emojiObject.emoji);
+    setShowPicker(false);
   };
 
   useOutsideClick(emojiBoxRef, () => setEmojiBoxToggle(false));
@@ -76,7 +65,7 @@ const Emoji = () => {
     <div className={css.emojiArea}>
       <div ref={emojiBoxRef} className={css.emojiBadgeBox}>
         <div className={css.mainEmojiBadge}>
-          {mainEmojiData.map(emoji => (
+          {emojiData.slice(0, 3).map(emoji => (
             <BadgeEmoji key={emoji.id} emoji={emoji.emoji} count={emoji.count}></BadgeEmoji>
           ))}
           <img
