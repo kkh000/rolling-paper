@@ -10,34 +10,24 @@ import { createdDate } from '../../../../utils/createdDate';
 import Card from './Card';
 import css from './CardList.module.scss';
 
-const CardList = () => {
+const CardList = ({ backgroundColor, backgroundImageURL }) => {
   const axios = createAxiosInstance();
   const navigate = useNavigate();
   const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
   const [messagesList, setMessagesList] = useState([]);
   const [selectedMessageData, setSelectedMessageData] = useState({});
-  const [backgroundList, setBackgroundList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
-  const [backgroundColor, backgroundImageURL] = backgroundList;
   const [isEditing, setIsEditing] = useState(false);
   const [selectedMessageIdList, setSelectedMessageIdList] = useState([]);
   const { content, createdAt, font, profileImageURL, relationship, sender } = selectedMessageData;
   const pageSize = 8;
   const messagesDataURL = `recipients/${id}/messages/?limit=${currentPage * pageSize}`;
-  const backgroundDataURL = `recipients/${id}/`;
 
   const backgroundStyle = {
     background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
-  };
-
-  const fetchBackgroundData = async url => {
-    const {
-      data: { backgroundColor, backgroundImageURL },
-    } = await axios.get(url);
-    setBackgroundList([backgroundColor, backgroundImageURL]);
   };
 
   const fetchMessagesData = async url => {
@@ -114,7 +104,6 @@ const CardList = () => {
   useEffect(() => {
     if (isEditing) return;
     fetchMessagesDataDebounced();
-    fetchBackgroundData(backgroundDataURL);
   }, [isEditing, currentPage, fetchMessagesDataDebounced]);
 
   useEffect(() => {
