@@ -12,6 +12,7 @@
   text-align: left;
   background: $white;
   border: 1px solid $gray-300;
+  cursor: pointer;
 
   @include rounded-sm;
 }
