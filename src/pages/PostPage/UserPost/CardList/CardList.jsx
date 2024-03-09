@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import _debounce from 'lodash/debounce';
 import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import RoundedPlusButton from '../../../../components/Button/RoundedPlusButton';
 import Modal from '../../../../components/Modal/Modal';
@@ -56,16 +57,19 @@ const CardList = () => {
     }
   };
 
-  const handleScroll = () => {
-    if (!hasNextPage) return;
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+  const fetchMessagesDataDebounced = useCallback(
+    _debounce(() => {
+      if (!hasNextPage) return;
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight || window.innerHeight;
 
-    if (scrollHeight - scrollTop <= clientHeight + 500) {
-      fetchMessagesData(messagesDataURL);
-    }
-  };
+      if (scrollHeight - scrollTop <= clientHeight + 700) {
+        fetchMessagesData(messagesDataURL);
+      }
+    }, 50),
+    [currentPage, hasNextPage],
+  );
 
   const toggleModal = cardData => {
     setShowModal(!showModal);
@@ -111,16 +115,22 @@ const CardList = () => {
     }
   };
 
-  useEffect(() => {
-    if (isEditing) return;
-    fetchMessagesData(messagesDataURL);
-    fetchBackgroundData(backgroundDataURL);
-  }, [isEditing]);
+  // useEffect(() => {
+  //   if (isEditing) return;
+  //   fetchMessagesData(messagesDataURL);
+  //   fetchBackgroundData(backgroundDataURL);
+  // }, [isEditing]);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    if (isEditing) return;
+    fetchMessagesDataDebounced();
+    fetchBackgroundData(backgroundDataURL);
+  }, [isEditing, currentPage, fetchMessagesDataDebounced]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', fetchMessagesDataDebounced);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', fetchMessagesDataDebounced);
     };
   }, [currentPage]);
 
