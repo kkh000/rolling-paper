@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import ToggleButton from '../../../components/Button/ToggleButton';
 import Input from '../../../components/Input/Input';
@@ -8,13 +9,14 @@ import css from './NewPost.module.scss';
 import OptionCardList from './OptionCardList/OptionCardList';
 
 const NewPost = () => {
+  const navigate = useNavigate();
+  const fileInputRef = useRef(null);
+
   const [inputValue, setInputValue] = useState('');
   const [selectedButton, setSelectedButton] = useState('color');
   const [selectedOption, setSelectedOption] = useState(0);
   const [isInputError, setIsInputError] = useState(false);
-  // const [image, setImage] = useState(null);
   const [cardList, setCardList] = useState(BACKGROUND_COLOR_LIST);
-  const fileInputRef = useRef(null);
 
   const handleInputChange = value => {
     setInputValue(value);
@@ -52,11 +54,10 @@ const NewPost = () => {
       backgroundImageURL:
         selectedButton === 'color' ? null : BACKGROUND_IMAGE_URL_LIST[selectedOption],
     };
-    console.log(postData);
 
     try {
       const result = await axios.post('/recipients/', postData);
-      console.log(result);
+      navigate(`/post/${result.data.id}`);
     } catch (error) {
       console.error(error);
     }
