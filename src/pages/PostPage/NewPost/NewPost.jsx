@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import ToggleButton from '../../../components/Button/ToggleButton';
@@ -10,8 +10,6 @@ import OptionCardList from './OptionCardList/OptionCardList';
 
 const NewPost = () => {
   const navigate = useNavigate();
-  const fileInputRef = useRef(null);
-
   const [inputValue, setInputValue] = useState('');
   const [selectedButton, setSelectedButton] = useState('color');
   const [selectedOption, setSelectedOption] = useState(0);
@@ -35,14 +33,6 @@ const NewPost = () => {
 
     setSelectedButton('color');
     setCardList(BACKGROUND_COLOR_LIST);
-  };
-
-  const handleImageChange = event => {
-    setCardList([URL.createObjectURL(event.target.files[0]), ...cardList]);
-  };
-
-  const handleUploadButtonClick = () => {
-    fileInputRef.current.click();
   };
 
   const handleSubmit = async event => {
@@ -81,22 +71,6 @@ const NewPost = () => {
           <p className={css.description}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
           <div className={css.toggleButtonBox}>
             <ToggleButton selectedButton={selectedButton} onClick={handleButtonClick} />
-            {selectedButton === 'image' && (
-              <button
-                type='button'
-                className={css.uploadImageButton}
-                onClick={handleUploadButtonClick}
-              >
-                <input
-                  type='file'
-                  accept='image/*'
-                  style={{ display: 'none' }}
-                  ref={fileInputRef}
-                  onChange={handleImageChange}
-                />
-                나만의 이미지 추가하기
-              </button>
-            )}
           </div>
           <div className={css.cardListBox}>
             <OptionCardList
