@@ -1,13 +1,25 @@
 @import '../../styles/index';
 
-.common-style {
+.homeArticleStyle {
   @include rounded-2xl;
 
   display: flex;
-  gap: 0.6rem;
-  width: 60rem;
-  padding: 5rem;
+  width: 100%;
+  max-width: 75rem;
+  padding: 3rem 5rem;
   background: $surface;
+
+  @media (max-width: 1199px) {
+    flex-direction: column;
+    gap: 2.5rem;
+    min-width: 45rem;
+    padding: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    min-width: 20rem;
+    padding: 1.5rem;
+  }
 }
 
 .layout {
@@ -15,25 +27,37 @@
   flex-direction: column;
   gap: 1.9rem;
   align-items: center;
+  padding: 0 1.5rem;
   margin-top: 3rem;
   background: $white;
 
-  .point01 {
-    @extend .common-style;
-
-    flex-direction: row;
+  @media (max-width: 1199px) {
+    margin-bottom: 6.9rem;
   }
 
-  .point02 {
-    @extend .common-style;
+  .homeArticle:nth-child(odd) {
+    @extend .homeArticleStyle;
 
-    flex-direction: row-reverse;
+    @media (min-width: 1200px) {
+      flex-direction: row;
+    }
   }
 
-  .mainImage {
+  .homeArticle:nth-child(even) {
+    @extend .homeArticleStyle;
+
+    @media (min-width: 1200px) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .articleImage {
     display: flex;
     width: 45rem;
-    height: 12rem;
+
+    @media (max-width: 1199px) {
+      width: 100%;
+    }
   }
 
   .textBox {
@@ -61,6 +85,10 @@
       margin-bottom: 0.2rem;
       font-style: normal;
       color: $gray-900;
+
+      @media (max-width: 767px) {
+        @include text-lg;
+      }
     }
 
     .description {
@@ -69,12 +97,22 @@
 
       font-style: normal;
       color: $gray-500;
+
+      @media (max-width: 767px) {
+        @include text-sm;
+      }
     }
   }
 
-  button {
+  .listLinkButton {
     position: fixed;
     bottom: 2.5rem;
+    width: 17.5rem;
     transform: translateX(-50%);
+
+    @media (max-width: 1199px) {
+      width: 100%;
+      padding: 0 1.5rem;
+    }
   }
 }
