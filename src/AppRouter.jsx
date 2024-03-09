@@ -15,7 +15,6 @@ const AppRouter = () => {
           <Route path='/list' element={<List />} />
           <Route path='/post' element={<NewPost />} />
           <Route path='/post/:id' element={<Post />} />
-          <Route path='/post/:id/edit' element={<Post />} />
           <Route path='/post/:id/message' element={<Message />} />
         </Route>
       </Routes>

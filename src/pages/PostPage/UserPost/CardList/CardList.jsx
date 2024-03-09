@@ -95,8 +95,6 @@ const CardList = () => {
         await deleteTargetMessage(id);
       }
       setIsEditing(false);
-      navigate(`/post/${id}`);
-      window.location.reload();
     }
   };
 
@@ -106,7 +104,6 @@ const CardList = () => {
       if (isConfirm) {
         const deleteApiUrl = `recipients/${id}/`;
         await axios.delete(deleteApiUrl);
-        navigate(`/post/${id}`);
       }
     } catch (error) {
       console.error(error);
@@ -114,9 +111,10 @@ const CardList = () => {
   };
 
   useEffect(() => {
+    if (isEditing) return;
     fetchMessagesData(messagesDataURL);
     fetchBackgroundData(backgroundDataURL);
-  }, []);
+  }, [isEditing]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -151,7 +149,6 @@ const CardList = () => {
           <OutlinedButton
             size='large'
             onClick={() => {
-              navigate(`/post/${id}/edit`);
               setIsEditing(true);
             }}
           >
