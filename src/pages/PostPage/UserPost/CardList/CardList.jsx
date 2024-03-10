@@ -29,7 +29,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
     background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
   };
-  console.log(selectedMessageIdList);
+
   const fetchMessagesData = async url => {
     try {
       const {
@@ -104,7 +104,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
 
   useEffect(() => {
     if (isEditing) return;
-    fetchMessagesDataDebounced();
+    fetchMessagesData(messagesDataURL);
   }, [isEditing]);
 
   useEffect(() => {
