@@ -19,13 +19,14 @@ const Bar = ({ name = '', messages = [], messageCount = 0 }) => {
   };
 
   return (
-    <div className={css.barArea}>
+    <div className={css.layout}>
       <p className={css.name}> To. {name}</p>
-      <div className={css.barContents}>
+      <div className={css.contents}>
         <div className={css.writingCount}>
           <WritingCount messages={messages} messageCount={messageCount} />
         </div>
         <Emoji />
+        <div className={css.line}></div>
         <Share shareList={SHARE_OPTION_LIST} onSuccess={handleShareSuccess} />
         {showToast && (
           <div className={css.toastBox}>

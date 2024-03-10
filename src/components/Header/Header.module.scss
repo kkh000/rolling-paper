@@ -1,4 +1,5 @@
 @import '../../styles/index';
+@import '../../styles/media';
 
 .layout {
   display: flex;
@@ -14,4 +15,10 @@
   width: 100%;
   max-width: 75rem;
   padding: 1.5rem;
+}
+
+@include media(mobile) {
+  .displayNone {
+    display: none;
+  }
 }

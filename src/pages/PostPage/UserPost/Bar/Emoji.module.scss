@@ -44,15 +44,15 @@
   position: relative;
 }
 
-.emojiContent {
-  @include media(mobile) {
-    display: none;
-  }
-}
-
 .emojiPicker {
   position: absolute;
   top: 115%;
   right: 0;
   z-index: 99;
+}
+
+@include media(mobile) {
+  .buttonText {
+    display: none;
+  }
 }
