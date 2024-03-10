@@ -147,9 +147,11 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
         )}
       </div>
       <div className={css.cardBox}>
-        <div className={css.card}>
-          <RoundedPlusButton onClick={e => handleSendMessageClick(e)} />
-        </div>
+        {!isEditing && (
+          <div className={css.card}>
+            <RoundedPlusButton onClick={e => handleSendMessageClick(e)} />
+          </div>
+        )}
         {messagesList?.map(data => (
           <Card
             key={data.id}
