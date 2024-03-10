@@ -1,6 +1,8 @@
 import { shareKakao } from '../utils/kakao';
 import { copyToClipboard } from '../utils/share';
 
+export const ROLLING_ICON = '/assets/rolling-icon.svg';
+
 export const CHECK_ICON = '/assets/completed.svg';
 export const CLOSE_ICON = '/assets/close.svg';
 

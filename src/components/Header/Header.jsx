@@ -1,21 +1,17 @@
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../../components/Button/OutlinedButton';
+import { ROLLING_ICON } from '../../constant/constant';
 import css from './Header.module.scss';
 
 const Header = () => {
-  const rollingIcon = '/assets/rolling-icon.svg';
-  const locationPath = useLocation().pathname;
-
-  const showCreateButton = locationPath === '/' || locationPath === '/list' ? true : false;
+  const pathName = useLocation().pathname;
+  const showCreateButton = pathName === '/' || pathName === '/list' ? true : false;
 
   return (
-    <div className={css.headerArea}>
-      <div className={css.headerContents}>
-        <Link to='/' className={css.noneUnder}>
-          <div className={css.logoArea}>
-            <img className={css.logo} src={rollingIcon} alt='rolling' />
-            <p className={css.logoText}>Rolling</p>
-          </div>
+    <header className={css.layout}>
+      <div className={css.contents}>
+        <Link to='/'>
+          <img className={css.logo} src={ROLLING_ICON} alt='rolling' />
         </Link>
         {showCreateButton && (
           <Link to='/post'>
@@ -23,7 +19,7 @@ const Header = () => {
           </Link>
         )}
       </div>
-    </div>
+    </header>
   );
 };
 
