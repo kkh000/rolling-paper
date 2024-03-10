@@ -3,7 +3,7 @@ import { SHARE_ICON } from '../../../../constant/constant';
 import useOutsideClick from '../../../../hooks/useOutsideClick';
 import css from './Share.module.scss';
 
-const Share = ({ shareList = [], onClick }) => {
+const Share = ({ shareList = [], onSuccess }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -13,7 +13,7 @@ const Share = ({ shareList = [], onClick }) => {
   const handleButtonClick = async callback => {
     setIsOpen(false);
     const result = await callback();
-    if (result) onClick();
+    if (result) onSuccess();
   };
 
   const shareRef = useRef(null);
