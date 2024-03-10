@@ -1,78 +1,55 @@
 @import '../../styles/index';
+@import '../../styles/media';
 
-.section {
-  width: 72.5rem;
-  margin-top: 3rem;
+.layout {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  width: 100%;
 }
 
-.sectionArea {
-  width: 90%;
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 75rem;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 2.25rem;
-  letter-spacing: -0.01em;
-  text-align: left;
+  @include text-3xl;
 }
 
-.paperList {
-  margin: 0.5rem 0 1.5rem;
-}
-
-.buttomArea {
-  width: 90%;
-  margin: 2rem;
-  display: flex;
-  justify-content: center;
-
-  position: fixed;
-  bottom: 0;
-}
-
-.linkButton {
+.buttonBox {
   width: 17.5rem;
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* 768px부터 적용될 스타일 */
-@media (max-width: 1199px) {
-  .sectionArea {
-    width: calc(-9.5rem + 100vw);
-  }
-
-  .linkButton {
-    width: 100%;
-  }
-
-  .buttomArea {
-    width: calc(-9.5rem + 100vw);
-  }
-}
-
-/* 767px까지 적용될 스타일 */
-@media (max-width: 767px) {
-  .section {
-    margin-top: 1.5rem;
+@include media(tablet) {
+  .box {
+    padding: 1.5rem 0;
   }
 
   .title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.875rem;
-    text-align: left;
+    padding: 0 1.5rem;
   }
 
-  .sectionArea {
-    width: calc(-2.5rem + 100vw);
-    margin-bottom: 0.6rem;
-  }
-
-  .buttomArea {
-    width: calc(-2.5rem + 100vw);
-    margin: 1rem 0 2rem;
+  .buttonBox {
+    width: 100%;
+    padding: 0 1.5rem;
   }
 }
