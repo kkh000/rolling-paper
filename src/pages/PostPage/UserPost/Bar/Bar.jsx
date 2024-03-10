@@ -24,7 +24,7 @@ const Bar = ({ name = '', messages = [], messageCount = 0 }) => {
       <div className={css.barContents}>
         <WritingCount messages={messages} messageCount={messageCount} />
         <Emoji />
-        <Share shareList={SHARE_OPTION_LIST} onClick={handleShareSucess} />
+        <Share shareList={SHARE_OPTION_LIST} onSuccess={handleShareSucess} />
         {showToast && (
           <div className={css.toastBox}>
             <Toast onClick={handleToastClose}>URL이 복사되었습니다.</Toast>
