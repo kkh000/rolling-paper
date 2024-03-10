@@ -1,7 +1,9 @@
 @import '../../styles/index';
+@import '../../styles/media';
 
 .layout {
   position: relative;
+  width: 100%;
 }
 
 .carousel {
@@ -39,4 +41,19 @@
 
 .rightButton {
   right: -0.2rem;
+}
+
+@include media(tablet) {
+  .carousel {
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .leftButton,
+  .rightButton {
+    display: none;
+  }
 }
