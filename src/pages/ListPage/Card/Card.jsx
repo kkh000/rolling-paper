@@ -13,8 +13,8 @@ const Card = ({
   backgroundImage,
   backgroundColor,
 }) => {
-  let baseColor = backgroundImage ? 'white' : '';
-  let background = backgroundImage ? `url(${backgroundImage})` : backgroundColor;
+  const baseColor = backgroundImage ? 'white' : '';
+  const background = backgroundImage ? `url(${backgroundImage})` : backgroundColor;
 
   return (
     <Link to={`/post/${id}`} className={css.link}>
