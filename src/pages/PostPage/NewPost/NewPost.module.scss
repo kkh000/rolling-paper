@@ -1,4 +1,5 @@
 @import '../../../styles/index';
+@import '../../../styles/meida';
 
 .layout {
   width: 45rem;
@@ -48,7 +49,7 @@
   @include font-bold;
 }
 
-@media screen and (max-width: $mobile-width) {
+@include media(mobile) {
   .layout {
     width: 100%;
     padding: 1rem;
