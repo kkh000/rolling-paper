@@ -31,18 +31,22 @@
   @include rounded-2xl;
 
   background: $white;
+
+  @media (max-width: 767px) {
+    width: 28rem;
+  }
 }
 
 .informationBox {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 32.5rem;
+  width: 100%;
   padding: 2.5rem 2.8rem 1.3rem 2.5rem;
 }
 
 .line {
-  width: 32.5rem;
+  width: 100%;
   height: 0.06rem;
   margin: 0 auto;
   background: $gray-200;
@@ -93,9 +97,9 @@
 }
 
 .textBox {
-  width: 31.3rem;
+  width: 100%;
   height: 215rem;
-  padding-right: 1.3rem;
+  padding: 0 3rem;
   margin: 1rem 2.5rem 1.5rem;
   overflow-y: auto;
 

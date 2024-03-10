@@ -104,7 +104,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
   useEffect(() => {
     if (isEditing) return;
     fetchMessagesDataDebounced();
-  }, [isEditing, currentPage, fetchMessagesDataDebounced]);
+  }, [isEditing]);
 
   useEffect(() => {
     window.addEventListener('scroll', fetchMessagesDataDebounced);
