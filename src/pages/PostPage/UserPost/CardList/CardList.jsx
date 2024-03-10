@@ -29,7 +29,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
     background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
   };
-
+  console.log(selectedMessageIdList);
   const fetchMessagesData = async url => {
     try {
       const {
@@ -84,6 +84,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
       for (const id of selectedMessageIdList) {
         await deleteTargetMessage(id);
       }
+      setSelectedMessageIdList([]);
       setIsEditing(false);
     }
   };
