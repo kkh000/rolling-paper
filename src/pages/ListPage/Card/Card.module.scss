@@ -23,6 +23,24 @@
   }
 }
 
+.loading {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: $gray-200;
+  }
+
+  50% {
+    background-color: $gray-300;
+  }
+
+  100% {
+    background-color: $gray-400;
+  }
+}
+
 .contents {
   display: flex;
   width: 100%;
@@ -77,6 +95,10 @@
     background-color: $black;
     opacity: 30%;
   }
+}
+
+.invisible {
+  display: none;
 }
 
 @media (max-width: 767px) {

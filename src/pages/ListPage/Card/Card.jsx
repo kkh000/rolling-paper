@@ -12,14 +12,18 @@ const Card = ({
   reactions = [],
   backgroundImage,
   backgroundColor,
+  skeleton,
 }) => {
   const baseColor = backgroundImage ? 'white' : '';
   const background = backgroundImage ? `url(${backgroundImage})` : backgroundColor;
 
   return (
     <Link to={`/post/${id}`} className={css.link}>
-      <article className={cn(css.layout, css[baseColor])} style={{ background: `${background}` }}>
-        <div className={css.contents}>
+      <article
+        className={cn(css.layout, css[baseColor], skeleton && css.loading)}
+        style={{ background: `${background}` }}
+      >
+        <div className={cn(css.contents, skeleton && css.invisible)}>
           <h2 className={css.titie}>To. {name}</h2>
           <div className={css.profilesArea}>
             <Profiles profileList={messages} size='xSmall' messageCount={messageCount} />
