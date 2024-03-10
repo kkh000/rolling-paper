@@ -1,9 +1,9 @@
 @import '../../styles/index';
-@import '../../styles/meida';
+@import '../../styles/media';
 
 .layout {
   position: relative;
-  width: 101%;
+  width: 100%;
 }
 
 .carousel {
@@ -12,35 +12,35 @@
 
 .slides {
   display: flex;
-  transition: transform 1.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .item {
-  flex: 1 0 calc(25% - 1rem);
-  margin-right: 2rem;
+  flex: 0 0 calc(25% - 1rem);
+  margin-right: 1rem;
 }
 
 .leftButton,
 .rightButton {
   position: absolute;
-  top: 51%;
-  width: 3rem;
-  height: 3rem;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
   background: none;
   background-color: $white;
   border: none;
-  border: 2px solid $gray-400;
-  border-radius: 51%;
-  transform: translateY(-49%);
+  border: 1px solid $gray-400;
+  border-radius: 50%;
+  transform: translateY(-50%);
 }
 
 .leftButton {
-  left: 1.8rem;
+  left: -0.8rem;
 }
 
 .rightButton {
-  right: 1.2rem;
+  right: -0.2rem;
 }
 
 @include media(tablet) {
