@@ -24,14 +24,12 @@ const Bar = ({ name = '', messages = [], messageCount = 0 }) => {
       <div className={css.barContents}>
         <WritingCount messages={messages} messageCount={messageCount} />
         <Emoji />
-        <section className={css.shareLayout}>
-          <Share shareList={SHARE_OPTION_LIST} onClick={handleShareSucess} />
-          {showToast && (
-            <div className={css.toastBox}>
-              <Toast onClick={handleToastClose}>URL이 복사되었습니다.</Toast>
-            </div>
-          )}
-        </section>
+        <Share shareList={SHARE_OPTION_LIST} onClick={handleShareSucess} />
+        {showToast && (
+          <div className={css.toastBox}>
+            <Toast onClick={handleToastClose}>URL이 복사되었습니다.</Toast>
+          </div>
+        )}
       </div>
     </div>
   );

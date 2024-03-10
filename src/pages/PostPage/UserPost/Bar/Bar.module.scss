@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem 6rem;
+  max-width: 75rem;
+  padding: 1.5rem;
 }
 
 .name {
@@ -15,18 +16,14 @@
 }
 
 .barContents {
-  position: relative;
   display: flex;
   gap: 1.8rem;
   align-items: center;
 }
 
-.shareLayout {
-  position: relative;
-}
-
 .toastBox {
-  position: absolute;
-  right: 0;
-  transform: translate(25%, 25%);
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1rem;
 }
