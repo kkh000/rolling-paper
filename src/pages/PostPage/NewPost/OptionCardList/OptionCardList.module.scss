@@ -1,4 +1,5 @@
 @import '../../../../styles/index';
+@import '../../../../styles/meida';
 
 .layout {
   display: grid;
@@ -6,7 +7,7 @@
   gap: 1.6rem;
 }
 
-@media screen and (max-width: $mobile-width) {
+@include media(mobile) {
   .layout {
     grid-template-columns: repeat(2, 1fr);
   }

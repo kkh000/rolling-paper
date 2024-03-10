@@ -3,15 +3,15 @@ import css from './OptionCard.module.scss';
 
 const OptionCard = ({ selectedButton, isSelected, card }) => {
   return (
-    <div className={css.layout}>
+    <>
       {selectedButton === 'color' ? (
         <div className={cn(css.layout, css[card], isSelected && css.selected)}></div>
       ) : (
-        <div className={cn(isSelected && css.selected)}>
-          <img className={css.layout} src={card} />
+        <div className={cn(css.layout, isSelected && css.selected)}>
+          <img className={css.image} src={card} />
         </div>
       )}
-    </div>
+    </>
   );
 };
 
