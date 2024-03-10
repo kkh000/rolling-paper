@@ -1,3 +1,4 @@
+@import '../../styles/media';
 @import '../../styles/index';
 
 .badgeEmoji {
@@ -29,7 +30,7 @@
   @include text-base;
   @include font-normal;
 
-  @media (max-width: 767px) {
+  @include media(mobile) {
     width: 3.8rem;
     @include text-xs;
   }

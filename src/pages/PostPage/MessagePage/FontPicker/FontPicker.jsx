@@ -7,7 +7,7 @@ const FontPicker = ({ onChange }) => {
     <section className={css.box}>
       <h1 className={css.title}>폰트 선택</h1>
       <Dropdown
-        isTablet={true}
+        isTabletChange={true}
         optionList={FONT_LIST}
         initialOption={FONT_LIST[0]}
         onChange={onChange}
