@@ -11,8 +11,8 @@ const List = () => {
   const [bestRollingList, setBestRollingList] = useState([]);
   const [newRollingList, setNewRollingList] = useState([]);
 
-  const { data: bestResponse } = useFetchData(`/recipients/?limit=1000&sort=like`);
-  const { data: newResponse } = useFetchData(`/recipients/?limit=1000`);
+  const { data: bestResponse } = useFetchData(`/recipients/?limit=10&sort=like`);
+  const { data: newResponse } = useFetchData(`/recipients/?limit=10`);
 
   useEffect(() => {
     if (newResponse && newResponse.results && bestResponse && bestResponse.results) {
