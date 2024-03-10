@@ -1,6 +1,8 @@
 @import '../../styles/index';
 
 .layout {
+  display: flex;
+  justify-content: center;
   width: 100%;
   border-bottom: 1px solid $gray-200;
 }
