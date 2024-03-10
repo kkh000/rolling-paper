@@ -48,12 +48,6 @@ export const BACKGROUND_COLOR_VALUE_LIST = {
   blue: '#b1e4ff',
   green: '#d0f5c3',
 };
-export const BACKGROUND_IMAGE_URL_LIST = [
-  'https://i.ibb.co/kgwVr13/xmas2.jpg',
-  'https://i.ibb.co/M5fwrdQ/xmas.jpg',
-  'https://i.ibb.co/zhfb9x3/forest.jpg',
-  'https://i.ibb.co/xD8zBpL/nighthouse.jpg',
-];
 
 export const AXIOS_BASE_URL = 'https://rolling-api.vercel.app/4-9/';
 export const AXIOS_CONTENT_TYPE = 'application/json';
