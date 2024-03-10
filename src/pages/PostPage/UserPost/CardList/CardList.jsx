@@ -28,6 +28,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
   const backgroundStyle = {
     background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
+    backgroundSize: 'cover',
   };
 
   const fetchMessagesData = async url => {
