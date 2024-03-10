@@ -47,6 +47,7 @@ const AutoSearching = ({ dataList = [] }) => {
       <input
         className={css.input}
         type='text'
+        placeholder='이름을 검색해 보세요.'
         value={keyword}
         onFocus={() => {
           setShowAutoSuggestion(true);
