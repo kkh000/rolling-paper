@@ -85,7 +85,7 @@ const Emoji = () => {
       </div>
       <div ref={emojiPickerRef} className={css.addEmojiButton}>
         <OutlinedButton hasIcon='true' size='medium' onClick={handlePickerButtonClick}>
-          추가
+          <p className={css.emojiContent}>추가</p>
         </OutlinedButton>
         {showPicker && (
           <div className={css.emojiPicker}>
