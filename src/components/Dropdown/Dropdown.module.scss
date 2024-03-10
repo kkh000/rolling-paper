@@ -1,5 +1,6 @@
 @import '../../styles/media';
 @import '../../styles/index';
+@import '../../styles//media';
 @import '../Input/Input.module';
 
 .layout {
@@ -37,7 +38,13 @@
 }
 
 @include media(tablet) {
-  .tabletPosition {
+  .tabletDropDown {
     position: relative;
+  }
+}
+
+@include media(mobile) {
+  .tabletDropDown {
+    position: absolute;
   }
 }

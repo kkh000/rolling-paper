@@ -40,7 +40,7 @@ const Dropdown = ({
         />
       </button>
       {isOpen && (
-        <ul className={cn(css.optionsBox, isTabletChange && css.tablet)}>
+        <ul className={cn(css.optionsBox, isTabletChange && css.tabletDropDown)}>
           {optionList.map((option, index) => (
             <li className={css.option} key={index} onClick={() => handleOptionClick(option)}>
               {option}
