@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Buttom from '../../components/Button/Button';
+import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
 import { BACKGROUND_COLOR_VALUE_LIST } from '../../constant/constant';
 import useFetchData from '../../hooks/useFetchData';
@@ -23,10 +22,10 @@ const List = () => {
   }, [bestResponse, newResponse]);
 
   return (
-    <div className={css.section}>
-      <section className={css.sectionArea}>
-        <h1 className={css.title}>인기 롤링 페이퍼🔥</h1>
-        <div className={css.paperList}>
+    <div className={css.layout}>
+      <section className={css.box}>
+        <article className={css.article}>
+          <h2 className={css.title}>인기 롤링 페이퍼🔥</h2>
           <Carousel>
             {bestRollingList &&
               bestRollingList.map(data => (
@@ -42,11 +41,9 @@ const List = () => {
                 />
               ))}
           </Carousel>
-        </div>
-      </section>
-      <section className={css.sectionArea}>
-        <h1 className={css.title}>최근에 만든 롤링 페이퍼 ⭐️</h1>
-        <div className={css.paperList}>
+        </article>
+        <article className={css.article}>
+          <h2 className={css.title}>최근에 만든 롤링 페이퍼 ⭐️</h2>
           <Carousel>
             {newRollingList &&
               newRollingList.map(data => (
@@ -62,13 +59,9 @@ const List = () => {
                 />
               ))}
           </Carousel>
-        </div>
-      </section>
-      <section className={css.buttomArea}>
-        <div className={css.linkButton}>
-          <Link to='/post' className={css.button}>
-            <Buttom width={'100%'}>나도 만들어보기</Buttom>
-          </Link>
+        </article>
+        <div className={css.buttonBox}>
+          <Button width={'100%'}>나도 만들어보기</Button>
         </div>
       </section>
     </div>
