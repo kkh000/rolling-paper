@@ -1,3 +1,4 @@
+@import '../../../../styles//media';
 @import '../../../../styles/index';
 @import '../mixins';
 @include form-box;
@@ -30,7 +31,7 @@
   display: flex;
   gap: 0.3rem;
 
-  @media screen and (width <= 767px) {
+  @include media(mobile) {
     flex-wrap: wrap;
     gap: 0.1rem;
   }
@@ -71,7 +72,7 @@
     background-size: contain;
   }
 
-  @media screen and (width <= 767px) {
+  @include media(mobile) {
     width: 2.5rem;
 
     &::after {
@@ -81,7 +82,7 @@
   }
 }
 
-@media screen and (width <= 767px) {
+@include media(mobile) {
   .imageList {
     flex-wrap: wrap;
     gap: 0.1rem;
