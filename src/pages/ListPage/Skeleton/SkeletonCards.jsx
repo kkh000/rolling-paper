@@ -1,18 +1,17 @@
-import { cn } from '../../../utils/classNames';
 import css from './SkeletonCards.module.scss';
 const SkeletonCard = () => {
   return (
     <article className={css.layout}>
       <div className={css.contents}>
-        <div className={cn(css.title, css.loading)} />
-        <div className={cn(css.profilesBox, css.loading)} />
-        <div className={cn(css.text, css.loading)}></div>
+        <div className={css.title} />
+        <div className={css.profilesBox} />
+        <div className={css.text}></div>
       </div>
       <div className={css.line} />
-      <div className={cn(css.emojiBox, css.loading)}>
-        <div className={cn(css.emoji, css.loading)} />
-        <div className={cn(css.emoji, css.loading)} />
-        <div className={cn(css.emoji, css.loading)} />
+      <div className={css.emojiBox}>
+        <div className={css.emoji} />
+        <div className={css.emoji} />
+        <div className={css.emoji} />
       </div>
     </article>
   );
