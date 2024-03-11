@@ -16,9 +16,17 @@
   height: 17.5rem;
   cursor: pointer;
   background: $white;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 
   @include rounded-2xl;
   @include shadow;
+
+  &:hover {
+    box-shadow: 5px 5px 10px 5px rgb(0 0 0 / 20%);
+    transform: scale(0.95);
+  }
 }
 
 .selected {
