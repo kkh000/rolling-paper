@@ -1,0 +1,19 @@
+@import '../../styles/index';
+@import '../../styles/media';
+
+.uploadImageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  @include rounded-sm;
+  @include text-base;
+  color: $white;
+  background: $purple-700;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

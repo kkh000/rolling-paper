@@ -20,6 +20,13 @@
   gap: 0.8rem;
 }
 
+.addImage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .selectProfile {
   color: $gray-500;
 
