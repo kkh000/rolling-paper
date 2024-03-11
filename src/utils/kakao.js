@@ -1,5 +1,3 @@
-import { WEB_URL } from '../constant/constant';
-
 const { Kakao } = window;
 Kakao.cleanup();
 Kakao.init(process.env.REACT_APP_KAKAO_API_KEY);
