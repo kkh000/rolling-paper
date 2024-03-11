@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useFetchData from '../../../hooks/useFetchData';
 import Bar from './Bar/Bar';
 import CardList from './CardList/CardList';
@@ -8,12 +8,15 @@ import CardListSkeleton from './Skeleton/CardListSkeleton';
 const Post = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
-  const { data: response, isLoading } = useFetchData(`recipients/${id}/`);
+  const { data: response, isLoading, error } = useFetchData(`recipients/${id}/`);
   const { name, recentMessages, messageCount, backgroundColor, backgroundImageURL } = data;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (response) setData(response);
   }, [response]);
+
+  if (error) return navigate('/notFound');
 
   return (
     <div className={css.layout}>
