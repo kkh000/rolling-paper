@@ -27,7 +27,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
   const messagesDataURL = `recipients/${id}/messages/?limit=${currentPage * pageSize}`;
 
   const backgroundStyle = {
-    background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
+    backgroundColor: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
     backgroundSize: 'cover',
   };
