@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Button from '../../../components/Button/Button';
 import ToggleButton from '../../../components/Button/ToggleButton';
 import Input from '../../../components/Input/Input';
-import { BACKGROUND_COLOR_LIST, BACKGROUND_IMAGE_URL_LIST } from '../../../constant/constant.js';
+import { BACKGROUND_COLOR_LIST } from '../../../constant/constant.js';
 import createAxiosInstance from '../../../utils/axios';
 import css from './NewPost.module.scss';
 import OptionCardList from './OptionCardList/OptionCardList';
@@ -14,7 +15,17 @@ const NewPost = () => {
   const [selectedButton, setSelectedButton] = useState('color');
   const [selectedOption, setSelectedOption] = useState(0);
   const [isInputError, setIsInputError] = useState(false);
-  const [cardList, setCardList] = useState(BACKGROUND_COLOR_LIST);
+  const [backgroundImageList, setBackgroundImageList] = useState([]);
+
+  useEffect(() => {
+    const fetchBackgroundList = async () => {
+      const { data: response } = await axios.get(
+        'https://rolling-api.vercel.app/background-images/',
+      );
+      setBackgroundImageList(response.imageUrls);
+    };
+    fetchBackgroundList();
+  }, []);
 
   const handleInputChange = value => {
     setInputValue(value);
@@ -25,14 +36,8 @@ const NewPost = () => {
   };
 
   const handleButtonClick = () => {
-    if (selectedButton === 'color') {
-      setSelectedButton('image');
-      setCardList(BACKGROUND_IMAGE_URL_LIST);
-      return;
-    }
-
+    if (selectedButton === 'color') return setSelectedButton('image');
     setSelectedButton('color');
-    setCardList(BACKGROUND_COLOR_LIST);
   };
 
   const handleSubmit = async event => {
@@ -41,8 +46,7 @@ const NewPost = () => {
     const postData = {
       name: inputValue,
       backgroundColor: BACKGROUND_COLOR_LIST[selectedOption],
-      backgroundImageURL:
-        selectedButton === 'color' ? null : BACKGROUND_IMAGE_URL_LIST[selectedOption],
+      backgroundImageURL: selectedButton === 'color' ? null : backgroundImageList[selectedOption],
     };
 
     try {
@@ -74,7 +78,7 @@ const NewPost = () => {
           </div>
           <div className={css.cardListBox}>
             <OptionCardList
-              cardList={cardList}
+              cardList={selectedButton === 'color' ? BACKGROUND_COLOR_LIST : backgroundImageList}
               selectedButton={selectedButton}
               selectedOption={selectedOption}
               onClick={setSelectedOption}

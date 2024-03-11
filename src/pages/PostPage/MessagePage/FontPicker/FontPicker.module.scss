@@ -1,8 +1,9 @@
+@import '../../../../styles//media';
 @import '../../../../styles/index';
 @import '../mixins';
 @include form-box;
 
-@media screen and (width <= 767px) {
+@include media(mobile) {
   .box {
     margin-bottom: 11.5rem;
   }

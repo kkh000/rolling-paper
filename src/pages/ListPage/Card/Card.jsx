@@ -13,28 +13,21 @@ const Card = ({
   backgroundImage,
   backgroundColor,
 }) => {
-  const nameSlice = name => {
-    if (name.length > 20) {
-      name = name.slice(0, 21) + '...';
-    }
-    return name;
-  };
-
-  let baseColor = backgroundImage ? 'white' : '';
-  let background = backgroundImage ? `url(${backgroundImage})` : backgroundColor;
+  const baseColor = backgroundImage ? 'white' : '';
+  const background = backgroundImage ? `url(${backgroundImage})` : backgroundColor;
 
   return (
-    <Link to={`/post/${id}`} className={css.removeLinkDecoration}>
-      <div className={cn(css.cardArea, css[baseColor])} style={{ background: `${background}` }}>
-        <div className={cn(css.cardLayerArea, css[baseColor])} />
+    <Link to={`/post/${id}`} className={css.link}>
+      <article className={cn(css.layout, css[baseColor])} style={{ background: `${background}` }}>
         <div className={css.contents}>
-          <p className={css.titie}>To. {nameSlice(name)}</p>
+          <h2 className={css.titie}>To. {name}</h2>
           <div className={css.profilesArea}>
             <Profiles profileList={messages} size='xSmall' messageCount={messageCount} />
           </div>
-          <div className={css.writerCount}>
-            <p className={css.count}>{messageCount}</p>명이 작성했어요!
-          </div>
+
+          <p className={css.text}>
+            <span className={css.count}>{messageCount}</span>명이 작성했어요!
+          </p>
           <div className={css.line} />
         </div>
         <div className={css.emojiArea}>
@@ -42,7 +35,8 @@ const Card = ({
             <BadgeEmoji key={item.id} emoji={item.emoji} count={item.count} size='card' />
           ))}
         </div>
-      </div>
+        <div className={cn(css.cardLayer, css[baseColor])} />
+      </article>
     </Link>
   );
 };

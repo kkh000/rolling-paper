@@ -9,7 +9,7 @@ import WritingCount from './WritingCount';
 const Bar = ({ name = '', messages = [], messageCount = 0 }) => {
   const [showToast, setShowToast] = useState(false);
 
-  const handleShareSucess = () => {
+  const handleShareSuccess = () => {
     setShowToast(true);
     setTimeout(() => setShowToast(false), 5000);
   };
@@ -19,12 +19,15 @@ const Bar = ({ name = '', messages = [], messageCount = 0 }) => {
   };
 
   return (
-    <div className={css.barArea}>
+    <div className={css.layout}>
       <p className={css.name}> To. {name}</p>
-      <div className={css.barContents}>
-        <WritingCount messages={messages} messageCount={messageCount} />
+      <div className={css.contents}>
+        <div className={css.writingCount}>
+          <WritingCount messages={messages} messageCount={messageCount} />
+        </div>
         <Emoji />
-        <Share shareList={SHARE_OPTION_LIST} onSuccess={handleShareSucess} />
+        <div className={css.line}></div>
+        <Share shareList={SHARE_OPTION_LIST} onSuccess={handleShareSuccess} />
         {showToast && (
           <div className={css.toastBox}>
             <Toast onClick={handleToastClose}>URL이 복사되었습니다.</Toast>
