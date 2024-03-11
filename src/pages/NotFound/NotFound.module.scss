@@ -12,14 +12,14 @@
 }
 
 .contents {
-  width: 28.3rem;
-  height: 28.3rem;
   display: flex;
   flex-direction: column;
-  margin: auto;
-  padding-top: 5rem;
-  align-items: center;
   gap: 1.5rem;
+  align-items: center;
+  width: 28.3rem;
+  height: 28.3rem;
+  padding-top: 5rem;
+  margin: auto;
 }
 
 .errorArea {
@@ -45,7 +45,7 @@
 }
 
 .people {
+  margin-top: 0.94rem;
   font-size: 1rem;
   color: $gray-600;
-  margin-top: 0.94rem;
 }

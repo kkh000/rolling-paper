@@ -5,7 +5,7 @@ import css from './Search.module.scss';
 
 const Search = () => {
   const location = useLocation();
-  const rollingList = location.state.data || [];
+  const rollingList = location.state?.data || [];
   return (
     <div className={css.layout}>
       <h2 className={css.title}>검색 결과🤡</h2>

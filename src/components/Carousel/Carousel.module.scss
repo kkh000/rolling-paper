@@ -7,8 +7,8 @@
 }
 
 .carousel {
-  overflow: hidden;
   padding-bottom: 1rem;
+  overflow: hidden;
 }
 
 .slides {
@@ -21,13 +21,21 @@
   margin-right: 1rem;
 }
 
+.leftButton {
+  left: -0.8rem;
+}
+
+.rightButton {
+  right: -0.2rem;
+}
+
 .leftButton,
 .rightButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -45,14 +53,6 @@
       transform: scale(0.9);
     }
   }
-}
-
-.leftButton {
-  left: -0.8rem;
-}
-
-.rightButton {
-  right: -0.2rem;
 }
 
 @include media(tablet) {

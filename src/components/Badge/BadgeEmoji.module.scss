@@ -3,9 +3,9 @@
 
 .badgeEmoji {
   display: flex;
+  gap: 0.5rem;
   justify-content: center;
   width: 4.5rem;
-  gap: 0.5rem;
   padding: 0.5rem 0.7rem;
   line-height: 20px;
   color: $white;
@@ -18,9 +18,9 @@
 
 .badgeEmojiCard {
   display: flex;
+  gap: 0.4rem;
   justify-content: center;
   width: 4rem;
-  gap: 0.4rem;
   padding: 0.5rem 0.7rem;
   line-height: 20px;
   color: $white;
@@ -32,6 +32,7 @@
 
   @include media(mobile) {
     width: 3.8rem;
+
     @include text-xs;
   }
 }
