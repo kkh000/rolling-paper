@@ -1,4 +1,6 @@
+@import '../../../styles//media';
 @import '../../../styles/index';
+@import '../../../styles/media';
 @import './mixins';
 
 .layout {
@@ -9,10 +11,9 @@
   max-width: 45rem;
   padding: 2.9rem 0 3.7rem;
 
-  @media screen and (width <= 767px) {
+@include media(mobile) {
     min-width: 20rem;
     padding: 3.125rem;
-  }
 }
 
 @include form-box;

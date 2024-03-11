@@ -10,6 +10,7 @@
 }
 
 .emojiBadgeBox {
+  position: relative;
   display: flex;
   justify-content: flex-end;
 }
@@ -34,6 +35,10 @@
   border: 1px solid $gray-200;
 
   @include rounded-lg;
+
+  @include media(mobile) {
+    right: -8rem;
+  }
 }
 
 .arrowDown {
@@ -49,6 +54,10 @@
   top: 115%;
   right: 0;
   z-index: 99;
+
+  @include media(mobile) {
+    right: -8rem;
+  }
 }
 
 @include media(mobile) {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import AutoSearching from '../../components/AutoSearching/AutoSearching';
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
 import { BACKGROUND_COLOR_VALUE_LIST } from '../../constant/constant';
@@ -67,7 +68,9 @@ const List = () => {
           </Carousel>
         </article>
         <div className={css.buttonBox}>
-          <Button width={'100%'}>나도 만들어보기</Button>
+          <Link to='/post'>
+            <Button width={'100%'}>나도 만들어보기</Button>
+          </Link>
         </div>
       </section>
     </div>
