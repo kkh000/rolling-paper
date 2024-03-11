@@ -1,3 +1,4 @@
+@import '../../styles/media';
 @import '../../styles/index';
 @import '../../styles//media';
 @import '../Input/Input.module';
@@ -37,13 +38,13 @@
 }
 
 @include media(tablet) {
-  .tabletDorpbox {
+  .tabletDropDown {
     position: relative;
   }
 }
 
 @include media(mobile) {
-  .tabletDorpbox {
+  .tabletDropDown {
     position: absolute;
   }
 }

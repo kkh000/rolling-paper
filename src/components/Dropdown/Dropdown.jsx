@@ -8,7 +8,7 @@ const Dropdown = ({
   initialOption = null,
   isDisabled,
   isError,
-  isTablet,
+  isTabletChange,
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +40,7 @@ const Dropdown = ({
         />
       </button>
       {isOpen && (
-        <ul className={cn(css.optionsBox, isTablet && css.tabletDorpbox)}>
+        <ul className={cn(css.optionsBox, isTabletChange && css.tabletDropDown)}>
           {optionList.map((option, index) => (
             <li className={css.option} key={index} onClick={() => handleOptionClick(option)}>
               {option}

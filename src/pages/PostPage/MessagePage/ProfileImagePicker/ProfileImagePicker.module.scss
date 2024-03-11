@@ -1,4 +1,4 @@
-@import '../../../../styles//media';
+@import '../../../../styles/media';
 @import '../../../../styles/index';
 @import '../mixins';
 @include form-box;
@@ -73,22 +73,6 @@
   }
 
   @include media(mobile) {
-    width: 2.5rem;
-
-    &::after {
-      width: 1rem;
-      height: 1rem;
-    }
-  }
-}
-
-@include media(mobile) {
-  .imageList {
-    flex-wrap: wrap;
-    gap: 0.1rem;
-  }
-
-  .profileButton {
     width: 2.5rem;
 
     &::after {
