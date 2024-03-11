@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import AutoSearching from '../../components/AutoSearching/AutoSearching';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
@@ -12,7 +13,7 @@ const List = () => {
   const [bestRollingList, setBestRollingList] = useState([]);
   const [newRollingList, setNewRollingList] = useState([]);
 
-  const { data: bestResponse } = useFetchData(`/recipients/?limit=10&sort=like`);
+  const { data: bestResponse } = useFetchData(`/recipients/?limit=1000&sort=like`);
   const { data: newResponse } = useFetchData(`/recipients/?limit=10`);
 
   useEffect(() => {
@@ -25,22 +26,27 @@ const List = () => {
   return (
     <div className={css.layout}>
       <section className={css.box}>
+        <div className={css.searchBox}>
+          <AutoSearching dataList={bestRollingList} />
+        </div>
         <article className={css.article}>
           <h2 className={css.title}>인기 롤링 페이퍼🔥</h2>
           <Carousel>
             {bestRollingList &&
-              bestRollingList.map(data => (
-                <Card
-                  key={data.id}
-                  id={data.id}
-                  name={data.name}
-                  messageCount={data.messageCount}
-                  messages={data.recentMessages}
-                  reactions={data.topReactions}
-                  backgroundImage={data.backgroundImageURL}
-                  backgroundColor={BACKGROUND_COLOR_VALUE_LIST[data.backgroundColor]}
-                />
-              ))}
+              bestRollingList
+                .slice(0, 10)
+                .map(data => (
+                  <Card
+                    key={data.id}
+                    id={data.id}
+                    name={data.name}
+                    messageCount={data.messageCount}
+                    messages={data.recentMessages}
+                    reactions={data.topReactions}
+                    backgroundImage={data.backgroundImageURL}
+                    backgroundColor={BACKGROUND_COLOR_VALUE_LIST[data.backgroundColor]}
+                  />
+                ))}
           </Carousel>
         </article>
         <article className={css.article}>

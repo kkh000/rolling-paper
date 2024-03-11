@@ -1,0 +1,23 @@
+@import '../../styles/index';
+@import '../../styles/media';
+
+.layout {
+  margin-bottom: 3rem;
+}
+
+.title {
+  @include text-3xl;
+  padding: 1rem;
+}
+
+.box {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@include media(tablet) {
+  .box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -5,6 +5,7 @@ import List from './pages/ListPage/List';
 import Message from './pages/PostPage/MessagePage/Message';
 import NewPost from './pages/PostPage/NewPost/NewPost';
 import Post from './pages/PostPage/UserPost/Post';
+import Search from './pages/Search/Search';
 
 const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ const AppRouter = () => {
         <Route path='/' element={<App />}>
           <Route index element={<Home />} />
           <Route path='/list' element={<List />} />
+          <Route path='/search' element={<Search />} />
           <Route path='/post' element={<NewPost />} />
           <Route path='/post/:id' element={<Post />} />
           <Route path='/post/:id/message' element={<Message />} />

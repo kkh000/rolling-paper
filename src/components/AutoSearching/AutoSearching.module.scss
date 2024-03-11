@@ -1,0 +1,47 @@
+@import '../../styles/index';
+
+.layout {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+  border: 2px solid $purple-500;
+  padding: 0.6rem 1.5rem;
+  @include rounded-xl;
+}
+
+.input {
+  width: 100%;
+  border: none;
+
+  @include text-xl;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.itemBox {
+  width: 100%;
+  overflow: hidden;
+  background: $white;
+  position: absolute;
+  left: 0;
+  top: 4rem;
+  z-index: 1;
+  border: 2px solid $purple-300;
+  @include rounded-xl;
+}
+
+.item {
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+
+  span {
+    @include font-bold;
+  }
+
+  &:hover {
+    background: $purple-100;
+  }
+}
