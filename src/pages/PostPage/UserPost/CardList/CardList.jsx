@@ -5,7 +5,7 @@ import Button from '../../../../components/Button/Button';
 import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import RoundedPlusButton from '../../../../components/Button/RoundedPlusButton';
 import Modal from '../../../../components/Modal/Modal';
-import { BACKGROUND_COLOR_VALUE_LIST } from '../../../../constant/constant';
+import { BACKGROUND_COLOR_VALUE_LIST, ARROW_BACK_ICON } from '../../../../constant/constant';
 import createAxiosInstance from '../../../../utils/axios';
 import { createdDate } from '../../../../utils/createdDate';
 import CardListSkeleton from '../Skeleton/CardListSkeleton';
@@ -147,7 +147,8 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
         ) : (
           <>
             <Link className={css.back} to='/list'>
-              ⏪ 뒤로가기
+              <img src={ARROW_BACK_ICON} alt='뒤로가기' />
+              뒤로가기
             </Link>
             <OutlinedButton
               size='large'

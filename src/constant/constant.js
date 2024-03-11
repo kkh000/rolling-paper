@@ -11,6 +11,7 @@ export const ARROW_DOWN_ICON = '/assets/arrow_down.svg';
 export const ARROW_LEFT_ICON = '/assets/arrow_left.svg';
 export const ARROW_RIGHT_ICON = '/assets/arrow_right.svg';
 export const ARROW_ROTATE_ICON = '/assets/rotate.svg';
+export const ARROW_BACK_ICON = '/assets/backForward-arrow.svg';
 
 export const EMOJI_ICON_PATH = '/assets/add-lg.svg';
 export const EMOJI_WHITE_ICON_PATH = '/assets/add-lg-white.svg';
