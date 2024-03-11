@@ -30,7 +30,7 @@ const Upload = ({ setUploadImageURL }) => {
         />
         이미지 추가하기
       </button>
-      {!isUploading && (
+      {isUploading && (
         <div className={css.loading}>
           <div className={css['lds-spinner']}>
             <div></div>
