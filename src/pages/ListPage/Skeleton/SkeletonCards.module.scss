@@ -6,7 +6,7 @@
   height: 16rem;
   display: flex;
   flex-direction: column;
-  background: $gray-200;
+  background: $gray-100;
   background-size: contain;
   @include rounded-2xl;
   padding: 1rem;
@@ -26,21 +26,21 @@
 .title {
   width: 10rem;
   height: 2rem;
-  background: $gray-300;
+  background: $gray-200;
   @include rounded-xl;
 }
 
 .profilesBox {
   width: 6rem;
   height: 2rem;
-  background: $gray-300;
+  background: $gray-200;
   @include rounded-xl;
 }
 
 .text {
   width: 8rem;
   height: 1.4rem;
-  background: $gray-300;
+  background: $gray-200;
   @include rounded-xl;
 }
 
@@ -60,7 +60,7 @@
 .emoji {
   width: 4rem;
   height: 2rem;
-  background: $gray-300;
+  background: $gray-200;
   @include rounded-xl;
 }
 
@@ -77,15 +77,15 @@
 
 @keyframes pulse {
   0% {
-    background-color: $gray-300;
+    background-color: $gray-200;
   }
 
   50% {
-    background-color: $gray-400;
+    background-color: $gray-300;
   }
 
   100% {
-    background-color: $gray-300;
+    background-color: $gray-200;
   }
 }
 

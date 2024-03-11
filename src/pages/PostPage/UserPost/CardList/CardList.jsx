@@ -8,6 +8,7 @@ import Modal from '../../../../components/Modal/Modal';
 import { BACKGROUND_COLOR_VALUE_LIST } from '../../../../constant/constant';
 import createAxiosInstance from '../../../../utils/axios';
 import { createdDate } from '../../../../utils/createdDate';
+import CardListSkeleton from '../Skeleton/CardListSkeleton';
 import Card from './Card';
 import css from './CardList.module.scss';
 
@@ -21,6 +22,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedMessageIdList, setSelectedMessageIdList] = useState([]);
   const { content, createdAt, font, profileImageURL, relationship, sender } = selectedMessageData;
   const pageSize = 8;
@@ -42,6 +44,8 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
       setHasNextPage(!!next);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -116,6 +120,8 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
     };
   }, [currentPage]);
 
+  if (isLoading) return <CardListSkeleton />;
+
   return (
     <div className={css.cardArea} style={backgroundStyle}>
       <div className={css.editButtonArea}>
@@ -127,7 +133,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
                 handleDeletePost(id);
               }}
             >
-              <span style={{ color: 'red' }}>페이지 삭제하기</span>
+              <span style={{ color: '#DC3A3A' }}>페이지 삭제하기</span>
             </OutlinedButton>
             <Button
               size={'s'}
