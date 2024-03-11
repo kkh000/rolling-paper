@@ -85,6 +85,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
       for (const id of selectedMessageIdList) {
         await deleteTargetMessage(id);
       }
+      setSelectedMessageIdList([]);
       setIsEditing(false);
     }
   };
@@ -104,7 +105,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
 
   useEffect(() => {
     if (isEditing) return;
-    fetchMessagesDataDebounced();
+    fetchMessagesData(messagesDataURL);
   }, [isEditing]);
 
   useEffect(() => {
