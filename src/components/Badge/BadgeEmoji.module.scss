@@ -14,6 +14,12 @@
   @include rounded-4xl;
   @include text-base;
   @include font-normal;
+
+  @include media(mobile) {
+    width: 3.4rem;
+    @include text-xs;
+    @include rounded-xl;
+  }
 }
 
 .badgeEmojiCard {
@@ -29,10 +35,4 @@
   @include rounded-4xl;
   @include text-base;
   @include font-normal;
-
-  @include media(mobile) {
-    width: 3.8rem;
-
-    @include text-xs;
-  }
 }
