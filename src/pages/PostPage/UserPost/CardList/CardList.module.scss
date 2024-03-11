@@ -1,0 +1,92 @@
+@import '../../../../styles/index';
+@import '../../../../styles/media';
+
+.cardArea {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  padding: 3rem 0;
+
+  .editButtonArea {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 75rem;
+    padding: 0 2rem;
+
+    .back {
+      @include text-xl;
+
+      display: flex;
+      align-items: center;
+      color: $white;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgb(0 0 0 / 50%);
+      background-color: $gray-400;
+      padding: 0 1rem;
+      @include rounded-2xl;
+
+      &:hover {
+        animation: move 2s infinite ease-in-out;
+      }
+
+      @keyframes move {
+        0% {
+        }
+
+        50% {
+          transform: rotate(180deg);
+          scale: 1.3;
+        }
+      }
+    }
+
+    @include media(tablet) {
+      width: 100%;
+      padding: 0 3rem;
+    }
+  }
+}
+
+.cardBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
+  width: 75rem;
+  padding: 1rem;
+
+  @include media(pc) {
+    gap: 1rem;
+    padding: 1rem 2rem 2rem;
+  }
+
+  @include media(tablet) {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    width: 100%;
+    padding: 1rem 3rem 3rem;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 17.5rem;
+  background: $white;
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+
+  @include rounded-2xl;
+  @include shadow;
+
+  &:hover {
+    box-shadow: 5px 5px 10px 5px rgb(0 0 0 / 20%);
+    transform: scale(0.95);
+  }
+}

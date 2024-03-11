@@ -1,0 +1,20 @@
+@import '../../../../styles/index';
+
+.layout {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.writingCount {
+  display: flex;
+  font-weight: 400;
+  text-align: left;
+
+  @include text-lg;
+}
+
+.count {
+  @include font-bold;
+}

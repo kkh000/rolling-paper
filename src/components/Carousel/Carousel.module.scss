@@ -1,0 +1,71 @@
+@import '../../styles/index';
+@import '../../styles/media';
+
+.layout {
+  position: relative;
+  width: 100%;
+}
+
+.carousel {
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.item {
+  flex: 0 0 calc(25% - 1rem);
+  margin-right: 1rem;
+}
+
+.leftButton {
+  left: -0.8rem;
+}
+
+.rightButton {
+  right: -0.2rem;
+}
+
+.leftButton,
+.rightButton {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background: none;
+  background-color: $white;
+  border: none;
+  border: 1px solid $gray-400;
+  border-radius: 50%;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: $gray-300;
+
+    img {
+      transform: scale(0.9);
+    }
+  }
+}
+
+@include media(tablet) {
+  .carousel {
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .leftButton,
+  .rightButton {
+    display: none;
+  }
+}

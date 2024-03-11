@@ -1,0 +1,67 @@
+@import '../../../../styles/index';
+@import '../../../../styles/media';
+
+.layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  padding: 6.7rem 0;
+  background: $gray-200;
+}
+
+.cardBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
+  width: 75rem;
+  padding: 1rem;
+
+  @include media(pc) {
+    gap: 1rem;
+    padding: 1rem 2rem 2rem;
+  }
+
+  @include media(tablet) {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    width: 100%;
+    padding: 1rem 3rem 3rem;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 17.5rem;
+  background: $white;
+
+  @include rounded-2xl;
+  @include shadow;
+}
+
+.plus {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: $gray-200;
+  border-radius: 50%;
+  animation: pulse 2s infinite ease-in-out;
+
+  @keyframes pulse {
+    0% {
+      background-color: $gray-200;
+    }
+
+    50% {
+      background-color: $gray-300;
+    }
+
+    100% {
+      background-color: $gray-200;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import '../../../../styles/index';
+@import '../../../../styles/media';
+
+.emojiArea {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-right: 1px;
+  border-left: 1px;
+}
+
+.emojiBadgeBox {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mainEmojiBadge {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.allEmojiBadge {
+  position: absolute;
+  top: 3.1rem;
+  z-index: 99;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-content: center;
+  width: 23rem;
+  padding: 1.5rem;
+  background-color: $white;
+  border: 1px solid $gray-200;
+
+  @include rounded-lg;
+
+  @include media(mobile) {
+    right: -8rem;
+  }
+}
+
+.arrowDown {
+  width: 0.8rem;
+}
+
+.addEmojiButton {
+  position: relative;
+}
+
+.emojiPicker {
+  position: absolute;
+  top: 115%;
+  right: 0;
+  z-index: 99;
+
+  @include media(mobile) {
+    right: -8rem;
+  }
+}
+
+@include media(mobile) {
+  .buttonText {
+    display: none;
+  }
+}

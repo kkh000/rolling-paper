@@ -1,0 +1,15 @@
+@mixin form-box {
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 20rem;
+  }
+
+  .title {
+    color: $gray-900;
+
+    @include text-2xl;
+    @include font-bold;
+  }
+}

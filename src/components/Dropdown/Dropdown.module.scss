@@ -1,0 +1,50 @@
+@import '../../styles/media';
+@import '../../styles/index';
+@import '../../styles//media';
+@import '../Input/Input.module';
+
+.layout {
+  position: relative;
+  width: 20rem;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  color: $gray-400;
+  text-align: left;
+}
+
+.optionsBox {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  background: $white;
+  border: 1px solid $gray-300;
+
+  @include rounded-lg;
+  @include shadow;
+}
+
+.option {
+  &:hover {
+    background: $gray-100;
+  }
+
+  padding: 0.8rem 1rem;
+}
+
+@include media(tablet) {
+  .tabletDropDown {
+    position: relative;
+  }
+}
+
+@include media(mobile) {
+  .tabletDropDown {
+    position: absolute;
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../../styles//media';
+@import '../../../styles/index';
+@import '../../../styles/media';
+@import './mixins';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 3.1rem;
+  width: 100%;
+  max-width: 45rem;
+  padding: 2.9rem 0 3.7rem;
+
+  @include media(mobile) {
+    min-width: 20rem;
+    padding: 3.125rem;
+  }
+
+  @include form-box;
+}

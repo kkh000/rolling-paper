@@ -1,0 +1,68 @@
+:root {
+  .quill {
+    min-width: 20rem;
+  }
+
+  .ql-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 3rem;
+    padding: 0.8rem 1rem;
+    background-color: #eee;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    @media screen and (width <= 767px) {
+      padding: 0.4rem 0.5rem;
+    }
+  }
+
+  .ql-container {
+    height: 15.6rem;
+    padding: 1rem;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+
+  .ql-size-huge {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+
+  .ql-size-large {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+  }
+
+  .ql-size-small {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+
+  .ql-align-center {
+    text-align: center;
+  }
+
+  .ql-align-right {
+    text-align: right;
+  }
+
+  .ql-align-left {
+    text-align: left;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+}
+
+@media (width <= 767px) {
+  .ql-formats {
+    margin-right: 0 !important;
+  }
+}

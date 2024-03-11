@@ -1,0 +1,43 @@
+@import '../../../../styles/index';
+
+.layout {
+  position: relative;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  text-align: left;
+  cursor: pointer;
+  background: $white;
+  border: 1px solid $gray-300;
+
+  @include rounded-sm;
+}
+
+.img {
+  width: 1.5rem;
+}
+
+.shareList {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  background: $white;
+  border: 1px solid $gray-300;
+
+  @include rounded-lg;
+  @include shadow;
+}
+
+.share {
+  &:hover {
+    background: $gray-100;
+  }
+
+  padding: 0.8rem 1rem;
+}

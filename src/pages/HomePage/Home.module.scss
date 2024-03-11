@@ -1,0 +1,122 @@
+@import '../../styles/index';
+
+%articleStyle {
+  @include rounded-2xl;
+
+  display: flex;
+  width: 100%;
+  max-width: 75rem;
+  padding: 3rem 5rem;
+  background: $surface;
+
+  @media (width <=1199px) {
+    flex-direction: column;
+    gap: 2.5rem;
+    min-width: 45rem;
+    padding: 2rem;
+  }
+
+  @media (width <=767px) {
+    min-width: 20rem;
+    padding: 1.5rem;
+  }
+}
+
+.homeArticleStyle {
+  @extend %articleStyle;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+  align-items: center;
+  padding: 0 1.5rem;
+  margin-top: 3rem;
+  background: $white;
+
+  @media (width <=1199px) {
+    margin-bottom: 6.9rem;
+  }
+
+  .homeArticle:nth-child(odd) {
+    @extend %articleStyle;
+
+    @media (width >=1200px) {
+      flex-direction: row;
+    }
+  }
+
+  .homeArticle:nth-child(even) {
+    @extend %articleStyle;
+
+    @media (width >=1200px) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .articleImage {
+    display: flex;
+    width: 45rem;
+
+    @media (width <=1199px) {
+      width: 100%;
+    }
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .pointNumber {
+      @include text-xs;
+      @include font-bold;
+
+      display: flex;
+      padding: 0.4rem 0.8rem;
+      font-style: normal;
+      color: $white;
+      background: $purple-600;
+      border-radius: 50px;
+    }
+
+    .title {
+      @include text-2xl;
+      @include font-bold;
+
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+      font-style: normal;
+      color: $gray-900;
+
+      @media (width <=767px) {
+        @include text-lg;
+      }
+    }
+
+    .description {
+      @include text-lg;
+      @include font-normal;
+
+      font-style: normal;
+      color: $gray-500;
+
+      @media (width <=767px) {
+        @include text-sm;
+      }
+    }
+  }
+
+  .listLinkButton {
+    position: fixed;
+    bottom: 2.5rem;
+    width: 17.5rem;
+    transform: translateX(-50%);
+
+    @media (width <=1199px) {
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+  }
+}

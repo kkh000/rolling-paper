@@ -1,0 +1,27 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.layout {
+  width: 16rem;
+  height: 3rem;
+
+  button {
+    @include text-base;
+    @include rounded-sm;
+
+    width: 50%;
+    height: 100%;
+    color: $gray-900;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+  }
+
+  .selected {
+    color: $purple-700;
+    background: $white;
+    border: 1px solid $purple-600;
+
+    @include font-bold;
+  }
+}

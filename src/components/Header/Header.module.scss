@@ -1,0 +1,24 @@
+@import '../../styles/index';
+@import '../../styles/media';
+
+.layout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid $gray-200;
+}
+
+.contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 75rem;
+  padding: 1.5rem;
+}
+
+@include media(mobile) {
+  .displayNone {
+    display: none;
+  }
+}

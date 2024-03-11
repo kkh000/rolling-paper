@@ -1,0 +1,42 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.rounded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  background: $gray-500;
+  border: none;
+  border-radius: 96px;
+
+  &:disabled {
+    background: $gray-300;
+    border: none;
+  }
+
+  &:hover {
+    background: $gray-600;
+  }
+
+  &:focus-visible {
+    background: $gray-700;
+  }
+
+  &:active {
+    background: $gray-700;
+  }
+}
+
+.plus {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

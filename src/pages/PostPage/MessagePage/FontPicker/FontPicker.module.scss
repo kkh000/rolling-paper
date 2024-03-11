@@ -1,0 +1,10 @@
+@import '../../../../styles//media';
+@import '../../../../styles/index';
+@import '../mixins';
+@include form-box;
+
+@include media(mobile) {
+  .box {
+    margin-bottom: 11.5rem;
+  }
+}

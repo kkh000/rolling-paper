@@ -1,0 +1,55 @@
+@import '../../styles/index';
+
+.profilesArea {
+  position: relative;
+
+  img {
+    position: absolute;
+
+    &:nth-child(1) {
+      left: 0;
+    }
+
+    &:nth-child(2) {
+      left: 25%;
+    }
+
+    &:nth-child(3) {
+      left: 50%;
+    }
+  }
+
+  display: flex;
+  align-items: center;
+  width: 5rem;
+  height: 3rem;
+}
+
+.writerCount {
+  position: absolute;
+  left: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.13rem;
+  text-align: left;
+  letter-spacing: 0;
+  background-color: $white;
+  border: 0.15rem solid $gray-200;
+
+  @include rounded-full;
+
+  &.small {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 1.1rem;
+  }
+
+  &.xSmall {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 1.1rem;
+  }
+}

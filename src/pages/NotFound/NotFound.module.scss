@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient($purple-100, $purple-300);
+}
+
+.logo {
+  width: 10.6rem;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  width: 28.3rem;
+  height: 28.3rem;
+  padding-top: 5rem;
+  margin: auto;
+}
+
+.errorArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-size: 6.6rem;
+  color: $error;
+}
+
+.notfound {
+  font-size: 3.4rem;
+  color: $purple-800;
+}
+
+.message {
+  font-size: 1.56rem;
+  color: $purple-900;
+}
+
+.people {
+  margin-top: 0.94rem;
+  font-size: 1rem;
+  color: $gray-600;
+}

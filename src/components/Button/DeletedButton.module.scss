@@ -1,0 +1,8 @@
+@import './OutlinedButton.module';
+
+.deleted {
+  padding: 0.4rem;
+
+  @extend %buttonStyle;
+  @include rounded-sm;
+}
