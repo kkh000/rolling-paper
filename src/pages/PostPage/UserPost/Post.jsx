@@ -4,6 +4,7 @@ import useFetchData from '../../../hooks/useFetchData';
 import Bar from './Bar/Bar';
 import CardList from './CardList/CardList';
 import css from './Post.module.scss';
+import BarSkeleton from './Skeleton/BarSkeleton';
 import CardListSkeleton from './Skeleton/CardListSkeleton';
 const Post = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const Post = () => {
   return (
     <div className={css.layout}>
       {isLoading ? (
-        <div>barLoding...</div>
+        <BarSkeleton />
       ) : (
         <Bar name={name} messages={recentMessages} messageCount={messageCount} />
       )}

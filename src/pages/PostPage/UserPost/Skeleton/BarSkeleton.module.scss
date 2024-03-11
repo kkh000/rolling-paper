@@ -1,0 +1,78 @@
+@import '../../../../styles/index';
+@import '../../../../styles/media';
+
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 75rem;
+  padding: 1.5rem;
+}
+
+.name {
+  background: $gray-300;
+  width: 8rem;
+  height: 2.4rem;
+  @include rounded-xl;
+}
+
+.contents {
+  display: flex;
+  gap: 3rem;
+}
+
+.emojiBox {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.emoji {
+  width: 4rem;
+  height: 2.4rem;
+  background: $gray-300;
+  @include rounded-3xl;
+}
+
+.share {
+  width: 3.4rem;
+  height: 2.4rem;
+  background: $gray-300;
+  @include rounded-lg;
+}
+
+.writing {
+  width: 5rem;
+  height: 2.4rem;
+  background: $gray-300;
+  @include rounded-lg;
+}
+
+@include media(mobile) {
+  .layout {
+    flex-direction: column;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: $gray-200;
+  }
+
+  50% {
+    background-color: $gray-300;
+  }
+
+  100% {
+    background-color: $gray-200;
+  }
+}
+
+.name,
+.emoji,
+.writing,
+.share {
+  animation: pulse 2s infinite ease-in-out;
+}
