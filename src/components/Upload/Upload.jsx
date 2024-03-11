@@ -16,9 +16,10 @@ const Upload = ({ setUploadImageURL }) => {
     setUploadImageURL(data);
     setIsUploading(false);
   };
+  console.log(isUploading);
 
   return (
-    <div>
+    <div className={css.layout}>
       <button type='button' className={css.uploadImageButton} onClick={handleUploadButtonClick}>
         <input
           type='file'
@@ -29,7 +30,25 @@ const Upload = ({ setUploadImageURL }) => {
         />
         이미지 추가하기
       </button>
-      {isUploading && <div>Uploading....</div>}
+      {isUploading && (
+        <div className={css.loading}>
+          <div className={css['lds-spinner']}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <p className={css.uploadingText}>uploading...</p>
+        </div>
+      )}
     </div>
   );
 };

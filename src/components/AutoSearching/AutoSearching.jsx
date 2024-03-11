@@ -21,7 +21,7 @@ const AutoSearching = ({ dataList = [] }) => {
 
   const handleClick = event => {
     event.preventDefault();
-    navigate('/search', { state: { data: filteredData } });
+    navigate('/search', { state: { data: filteredData, keyword: keyword } });
   };
 
   useEffect(() => {
