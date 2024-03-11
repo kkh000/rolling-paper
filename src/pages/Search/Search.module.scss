@@ -2,18 +2,24 @@
 @import '../../styles/media';
 
 .layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   margin-bottom: 3rem;
 }
 
 .title {
+  padding: 2rem;
+  margin-right: auto;
+
   @include text-3xl;
-  padding: 1rem;
 }
 
 .box {
   display: grid;
-  gap: 1rem;
   grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
 
 @include media(tablet) {

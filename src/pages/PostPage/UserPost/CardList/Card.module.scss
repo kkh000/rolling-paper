@@ -1,5 +1,6 @@
 @import '../../../../styles/variables';
 @import '../../../../styles/mixins';
+
 @font-face {
   font-family: '나눔손글씨 손편지체';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Handletter.woff')
@@ -45,8 +46,9 @@
 
 .name {
   width: 100%;
-  overflow-wrap: break-word;
   word-wrap: break-word;
+  overflow-wrap: break-word;
+
   @include font-bold;
 }
 
@@ -82,18 +84,16 @@
   overflow: hidden;
   color: $gray-600;
   word-wrap: break-word;
-  overflow: hidden;
 
   @include text-lg;
 }
 
 .textBox {
+  display: -webkit-box;
   width: 100%;
+  overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-word;
-  overflow: hidden;
-
-  display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }

@@ -10,9 +10,9 @@
   padding: 0.5rem 1rem;
   margin: 0.3rem;
   text-align: left;
+  cursor: pointer;
   background: $white;
   border: 1px solid $gray-300;
-  cursor: pointer;
 
   @include rounded-sm;
 }

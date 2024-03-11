@@ -28,7 +28,7 @@ const ProfileImagePicker = ({ onChange }) => {
                 key={imageUrl}
                 onClick={() => handleProfileClick(imageUrl)}
               >
-                <Profile size={'medium-small'} imgUrl={imageUrl} />
+                <Profile size={'mediumSmall'} imgUrl={imageUrl} />
               </button>
             ))}
           </div>

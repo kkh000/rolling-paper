@@ -13,6 +13,7 @@
 .name {
   text-align: left;
   white-space: nowrap;
+
   @include text-3xl;
 }
 
@@ -31,9 +32,9 @@
 
 .toastBox {
   position: fixed;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 1rem;
 }
 
 @include media(tablet) {
@@ -49,8 +50,8 @@
 
     &::after {
       position: absolute;
-      left: -2rem;
       bottom: 0;
+      left: -2rem;
       width: calc(100vw);
       content: '';
       border-bottom: 1px solid $gray-200;
@@ -59,7 +60,7 @@
 
   .layout {
     flex-direction: column;
-    align-items: start;
     gap: 1rem;
+    align-items: flex-start;
   }
 }

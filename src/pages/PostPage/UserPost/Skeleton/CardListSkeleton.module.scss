@@ -17,18 +17,18 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 2rem;
-  padding: 1rem;
   width: 75rem;
+  padding: 1rem;
 
   @include media(pc) {
-    padding: 1rem 2rem 2rem 2rem;
     gap: 1rem;
+    padding: 1rem 2rem 2rem;
   }
 
   @include media(tablet) {
-    width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    padding: 1rem 3rem 3rem 3rem;
+    width: 100%;
+    padding: 1rem 3rem 3rem;
   }
 }
 
@@ -45,8 +45,8 @@
 }
 
 .plus {
-  height: 3.5rem;
   width: 3.5rem;
+  height: 3.5rem;
   background: $gray-200;
   border-radius: 50%;
   animation: pulse 2s infinite ease-in-out;

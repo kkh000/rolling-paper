@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { uploadImage } from '../../utils/cloudinary';
 import Button from '../Button/Button';
-import css from './Upload.module.scss';
 
 const Upload = ({ setUploadImageURL }) => {
   const [isUploading, setIsUploading] = useState(false);
@@ -20,7 +19,7 @@ const Upload = ({ setUploadImageURL }) => {
 
   return (
     <div>
-      <Button type='button' className={css.uploadImageButton} onClick={handleUploadButtonClick}>
+      <Button type='button' onClick={handleUploadButtonClick}>
         <input
           type='file'
           accept='image/*'

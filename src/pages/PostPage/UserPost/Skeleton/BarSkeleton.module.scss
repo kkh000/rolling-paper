@@ -3,17 +3,18 @@
 
 .layout {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 75rem;
   padding: 1.5rem;
 }
 
 .name {
-  background: $gray-300;
   width: 8rem;
   height: 2.4rem;
+  background: $gray-300;
+
   @include rounded-xl;
 }
 
@@ -31,6 +32,7 @@
   width: 4rem;
   height: 2.4rem;
   background: $gray-300;
+
   @include rounded-3xl;
 }
 
@@ -38,6 +40,7 @@
   width: 3.4rem;
   height: 2.4rem;
   background: $gray-300;
+
   @include rounded-lg;
 }
 
@@ -45,6 +48,7 @@
   width: 5rem;
   height: 2.4rem;
   background: $gray-300;
+
   @include rounded-lg;
 }
 

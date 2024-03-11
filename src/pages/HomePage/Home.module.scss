@@ -1,6 +1,6 @@
 @import '../../styles/index';
 
-.homeArticleStyle {
+%articleStyle {
   @include rounded-2xl;
 
   display: flex;
@@ -9,17 +9,21 @@
   padding: 3rem 5rem;
   background: $surface;
 
-  @media (max-width: 1199px) {
+  @media (width <=1199px) {
     flex-direction: column;
     gap: 2.5rem;
     min-width: 45rem;
     padding: 2rem;
   }
 
-  @media (max-width: 767px) {
+  @media (width <=767px) {
     min-width: 20rem;
     padding: 1.5rem;
   }
+}
+
+.homeArticleStyle {
+  @extend %articleStyle;
 }
 
 .layout {
@@ -31,22 +35,22 @@
   margin-top: 3rem;
   background: $white;
 
-  @media (max-width: 1199px) {
+  @media (width <=1199px) {
     margin-bottom: 6.9rem;
   }
 
   .homeArticle:nth-child(odd) {
-    @extend .homeArticleStyle;
+    @extend %articleStyle;
 
-    @media (min-width: 1200px) {
+    @media (width >=1200px) {
       flex-direction: row;
     }
   }
 
   .homeArticle:nth-child(even) {
-    @extend .homeArticleStyle;
+    @extend %articleStyle;
 
-    @media (min-width: 1200px) {
+    @media (width >=1200px) {
       flex-direction: row-reverse;
     }
   }
@@ -55,7 +59,7 @@
     display: flex;
     width: 45rem;
 
-    @media (max-width: 1199px) {
+    @media (width <=1199px) {
       width: 100%;
     }
   }
@@ -86,7 +90,7 @@
       font-style: normal;
       color: $gray-900;
 
-      @media (max-width: 767px) {
+      @media (width <=767px) {
         @include text-lg;
       }
     }
@@ -98,7 +102,7 @@
       font-style: normal;
       color: $gray-500;
 
-      @media (max-width: 767px) {
+      @media (width <=767px) {
         @include text-sm;
       }
     }
@@ -110,7 +114,7 @@
     width: 17.5rem;
     transform: translateX(-50%);
 
-    @media (max-width: 1199px) {
+    @media (width <=1199px) {
       width: 100%;
       padding: 0 1.5rem;
     }

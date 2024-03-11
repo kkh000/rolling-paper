@@ -2,11 +2,11 @@
 
 .layout {
   position: relative;
-
   display: flex;
   width: 100%;
-  border: 2px solid $purple-500;
   padding: 0.6rem 1.5rem;
+  border: 2px solid $purple-500;
+
   @include rounded-xl;
 }
 
@@ -22,14 +22,15 @@
 }
 
 .itemBox {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  z-index: 1;
   width: 100%;
   overflow: hidden;
   background: $white;
-  position: absolute;
-  left: 0;
-  top: 4rem;
-  z-index: 1;
   border: 2px solid $purple-300;
+
   @include rounded-xl;
 }
 
