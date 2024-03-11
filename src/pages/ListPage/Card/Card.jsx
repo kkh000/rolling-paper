@@ -21,9 +21,10 @@ const Card = ({
     <Link to={`/post/${id}`} className={css.link}>
       <article
         className={cn(css.layout, css[baseColor], skeleton && css.loading)}
-        style={{ background: `${background}` }}
+        style={{ background: `${background}`, backgroundSize: 'cover'  }}
       >
         <div className={cn(css.contents, skeleton && css.invisible)}>
+
           <h2 className={css.titie}>To. {name}</h2>
           <div className={css.profilesArea}>
             <Profiles profileList={messages} size='xSmall' messageCount={messageCount} />

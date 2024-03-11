@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import _debounce from 'lodash/debounce';
+import Button from '../../../../components/Button/Button';
 import OutlinedButton from '../../../../components/Button/OutlinedButton';
 import RoundedPlusButton from '../../../../components/Button/RoundedPlusButton';
 import Modal from '../../../../components/Modal/Modal';
@@ -28,6 +29,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
   const backgroundStyle = {
     background: BACKGROUND_COLOR_VALUE_LIST[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
+    backgroundSize: 'cover',
   };
 
   const fetchMessagesData = async url => {
@@ -84,6 +86,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
       for (const id of selectedMessageIdList) {
         await deleteTargetMessage(id);
       }
+      setSelectedMessageIdList([]);
       setIsEditing(false);
     }
   };
@@ -103,7 +106,7 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
 
   useEffect(() => {
     if (isEditing) return;
-    fetchMessagesDataDebounced();
+    fetchMessagesData(messagesDataURL);
   }, [isEditing]);
 
   useEffect(() => {
@@ -121,29 +124,34 @@ const CardList = ({ backgroundColor, backgroundImageURL }) => {
             <OutlinedButton
               size='large'
               onClick={() => {
+                handleDeletePost(id);
+              }}
+            >
+              <span style={{ color: 'red' }}>페이지 삭제하기</span>
+            </OutlinedButton>
+            <Button
+              size={'s'}
+              onClick={() => {
                 handleSaveClick();
               }}
             >
               저장하기
-            </OutlinedButton>
+            </Button>
+          </>
+        ) : (
+          <>
+            <Link className={css.back} to='/list'>
+              ⏪ 뒤로가기
+            </Link>
             <OutlinedButton
               size='large'
               onClick={() => {
-                handleDeletePost(id);
+                setIsEditing(true);
               }}
             >
-              페이지 삭제하기
+              편집하기
             </OutlinedButton>
           </>
-        ) : (
-          <OutlinedButton
-            size='large'
-            onClick={() => {
-              setIsEditing(true);
-            }}
-          >
-            편집하기
-          </OutlinedButton>
         )}
       </div>
       <div className={css.cardBox}>
