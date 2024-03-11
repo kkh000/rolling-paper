@@ -38,7 +38,7 @@ const List = () => {
     <div className={css.layout}>
       <section className={css.box}>
         <div className={css.searchBox}>
-          <AutoSearching dataList={newResponse} />
+          <AutoSearching dataList={newRollingList} />
         </div>
         <article className={css.article}>
           <h2 className={css.title}>인기 롤링 페이퍼🔥</h2>

@@ -66,7 +66,10 @@ const AutoSearching = ({ dataList = [] }) => {
               id={data}
               onClick={handleSuggestionClick}
               dangerouslySetInnerHTML={{
-                __html: data.replace(new RegExp(`(${keyword})`, 'gi'), '<span>$1</span>'),
+                __html: data.replace(
+                  new RegExp(`(${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'),
+                  '<span>$1</span>',
+                ),
               }}
             />
           ))}
