@@ -61,7 +61,6 @@ export const SHARE_OPTION_LIST = [
   { name: '카카오톡', handler: shareKakao },
   { name: '링크', handler: copyToClipboard },
 ];
-export const WEB_URL = 'https://www.naver.com';
 
 export const PROFILE_IMAGE_URL_LIST = [
   'https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/sprint-proj-image/default_avatar.png',
