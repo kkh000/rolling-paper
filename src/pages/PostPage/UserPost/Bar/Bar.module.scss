@@ -47,11 +47,12 @@
   .name {
     position: relative;
     padding-bottom: 1rem;
+    padding-left: 1rem;
 
     &::after {
       position: absolute;
       bottom: 0;
-      left: -2rem;
+      left: -1rem;
       width: calc(100vw);
       content: '';
       border-bottom: 1px solid $gray-200;
