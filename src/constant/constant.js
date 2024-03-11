@@ -2,6 +2,7 @@ import { shareKakao } from '../utils/kakao';
 import { copyToClipboard } from '../utils/share';
 
 export const ROLLING_ICON = '/assets/rolling-icon.svg';
+export const SEARCH_NULL_IMAGE = '/assets/푸바오.jpeg';
 
 export const CHECK_ICON = '/assets/completed.svg';
 export const CLOSE_ICON = '/assets/close.svg';
