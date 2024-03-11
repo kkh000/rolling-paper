@@ -24,24 +24,6 @@
   }
 }
 
-.loading {
-  animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0% {
-    background-color: $gray-200;
-  }
-
-  50% {
-    background-color: $gray-300;
-  }
-
-  100% {
-    background-color: $gray-400;
-  }
-}
-
 .contents {
   display: flex;
   width: 100%;
@@ -103,7 +85,7 @@
 }
 
 @media (max-width: 767px) {
-  .cardArea {
+  .layout {
     width: 13rem;
     height: 14.5rem;
   }
