@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { uploadImage } from '../../utils/cloudinary';
-import Button from '../Button/Button';
+import css from './Upload.module.scss';
 
 const Upload = ({ setUploadImageURL }) => {
   const [isUploading, setIsUploading] = useState(false);
@@ -19,7 +19,7 @@ const Upload = ({ setUploadImageURL }) => {
 
   return (
     <div>
-      <Button type='button' onClick={handleUploadButtonClick}>
+      <button type='button' className={css.uploadImageButton} onClick={handleUploadButtonClick}>
         <input
           type='file'
           accept='image/*'
@@ -27,8 +27,8 @@ const Upload = ({ setUploadImageURL }) => {
           ref={fileInputRef}
           onChange={handleImageChange}
         />
-        나만의 이미지 추가하기
-      </Button>
+        이미지 추가하기
+      </button>
       {isUploading && <div>Uploading....</div>}
     </div>
   );
