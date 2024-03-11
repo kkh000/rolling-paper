@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import AutoSearching from '../../components/AutoSearching/AutoSearching';
 import { Link } from 'react-router-dom';
+import AutoSearching from '../../components/AutoSearching/AutoSearching';
 import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
 import { BACKGROUND_COLOR_VALUE_LIST } from '../../constant/constant';
@@ -46,27 +46,6 @@ const List = () => {
             {bestLoading
               ? skeletonCards(4)
               : bestRollingList.map(data => (
-                <Card
-                  key={data.id}
-                  id={data.id}
-                  name={data.name}
-                  messageCount={data.messageCount}
-                  messages={data.recentMessages}
-                  reactions={data.topReactions}
-                  backgroundImage={data.backgroundImageURL}
-                  backgroundColor={BACKGROUND_COLOR_VALUE_LIST[data.backgroundColor]}
-                />
-              ))}
-          </Carousel>
-        </article>
-        <article className={css.article}>
-          <h2 className={css.title}>최근에 만든 롤링 페이퍼 ⭐️</h2>
-          <Carousel>
-            {newLoading
-              ? skeletonCards(4)
-              : newRollingList
-                .slice(0, 10)
-                .map(data => (
                   <Card
                     key={data.id}
                     id={data.id}
@@ -78,6 +57,27 @@ const List = () => {
                     backgroundColor={BACKGROUND_COLOR_VALUE_LIST[data.backgroundColor]}
                   />
                 ))}
+          </Carousel>
+        </article>
+        <article className={css.article}>
+          <h2 className={css.title}>최근에 만든 롤링 페이퍼 ⭐️</h2>
+          <Carousel>
+            {newLoading
+              ? skeletonCards(4)
+              : newRollingList
+                  .slice(0, 10)
+                  .map(data => (
+                    <Card
+                      key={data.id}
+                      id={data.id}
+                      name={data.name}
+                      messageCount={data.messageCount}
+                      messages={data.recentMessages}
+                      reactions={data.topReactions}
+                      backgroundImage={data.backgroundImageURL}
+                      backgroundColor={BACKGROUND_COLOR_VALUE_LIST[data.backgroundColor]}
+                    />
+                  ))}
           </Carousel>
         </article>
         <div className={css.buttonBox}>
