@@ -27,14 +27,14 @@ const ProfileImagePicker = ({ onChange }) => {
 
   return (
     <section className={css.box}>
-      <h1 className={css.title}>프로필 이미지</h1>
+      <div className={css.addImage}>
+        <h1 className={css.title}>프로필 이미지</h1>
+        <Upload setUploadImageURL={handleUploadImage} />
+      </div>
       <div className={css.profileImage}>
         <Profile size='large' imgUrl={selectedImage} />
         <div className={css.profileBox}>
-          <div className={css.addImage}>
-            <h2 className={css.selectProfile}>프로필 이미지를 선택해주세요!</h2>
-            <Upload setUploadImageURL={handleUploadImage} />
-          </div>
+          <h2 className={css.selectProfile}>프로필 이미지를 선택해주세요!</h2>
           <div className={css.imageList}>
             {profileImages.map(imageUrl => (
               <button
